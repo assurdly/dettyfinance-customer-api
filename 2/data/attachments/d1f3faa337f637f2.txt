@@ -1,0 +1,24 @@
+{
+    "first_name": "Afolabi",
+    "last_name": "mattew",
+    "financials": {
+        "salary": "",
+        "currency": "USD",
+        "job_title": "software developer",
+        "risk_level": "mid",
+        "company": "Netflix"
+    },
+    "account": {
+        "bank_name": "Fidelity",
+        "account_name": "Afolabi Mattew",
+        "account_number": "1234567890"
+    },
+    "gender": "Male",
+    "address": "No. 52, Glasgow, ijebu ode",
+    "phone": "+1234556789",
+    "profile_picture": {
+        "id": "ef75a435-ae16-4d47-af37-aefa19eefba0",
+        "file_url": "https://res.cloudinary.com/dk701zyrg/image/upload/v1733373686/qsdzekvexlponolo8hzf.png"
+    },
+    "dob": "1991-10-15"
+}

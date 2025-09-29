@@ -17350,16 +17350,53 @@
 								},
 								{
 									"name": "Start cycle - Invalid group ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "855b4add-79ed-4095-8f97-af73cbd20ee9",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicates group not found\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Group not found\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "8858e64e-3254-4577-8e88-5f3e61cd91d7",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"FBI Money Saving For WITSEC\",\r\n    \"group_id\": \"d2895311-cba8-4f3e-ab9f-81e4b75a4010\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"25\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 200,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-05-14\"\r\n}",
+											"raw": "{\r\n    \"name\": \"FBI Money Saving For WITSEC\",\r\n    \"group_id\": \"d2895311-cba8-4f3e-ab9f-81e4b75a4013\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"25\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 200,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -17576,7 +17613,7 @@
 									]
 								},
 								{
-									"name": "Start cycle - Missing (start_date)",
+									"name": "Start cycle - No start date",
 									"id": "c5e77259-153e-4226-b105-1b90118305a2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

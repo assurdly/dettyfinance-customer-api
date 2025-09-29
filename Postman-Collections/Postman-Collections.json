@@ -21735,9 +21735,8 @@
 											],
 											"variable": [
 												{
-													"id": "1d7c2c18-6031-46b5-9f31-5f22a9d74b55",
 													"key": "cycle_id",
-													"value": "4baf55ac-c0b0-4b81-b2a2-527774f6c3b3"
+													"value": "{{cycle_id}}"
 												}
 											]
 										}

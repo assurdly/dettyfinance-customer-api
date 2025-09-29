@@ -1,0 +1,1 @@
+{"error":false,"message":"Fetched user dashboard successfully","data":{"groups":3,"last_group_created":{"id":"818558bf-d0b0-4ad4-ba45-819a6b528c7f","name":"The Group Backend-2"},"ongoing_cycles":0,"last_cycle_created":{"id":"aee0ad5e-6694-4aa5-9fcf-30a65e88f7e4","name":"Fbi Money West}}"},"total_amount_contributed":0,"last_contribution_from":null}}

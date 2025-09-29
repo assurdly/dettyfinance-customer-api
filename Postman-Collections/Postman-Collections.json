@@ -16826,7 +16826,7 @@
 							"name": "Start cycle",
 							"item": [
 								{
-									"name": "Start cycle - Success",
+									"name": "Start cycle - Max slot",
 									"event": [
 										{
 											"listen": "test",
@@ -17094,17 +17094,21 @@
 												"exec": [
 													"const jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Check tha response code is 201\",function () {\r",
-													"    pm.response.to.have.status(201);\r",
-													"})\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
 													"\r",
-													"pm.test(\"Check that the error field is false\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.false;\r",
-													"})\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
 													"\r",
-													"pm.test(\"Check that the message field exists'\", function () {\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
 													"    pm.expect(jsonData.message).to.exist;\r",
-													"})"
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate you are not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});"
 												],
 												"type": "text/javascript",
 												"packages": {},
@@ -17118,10 +17122,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
+											"type": "noauth"
 										},
 										"method": "POST",
 										"header": [],

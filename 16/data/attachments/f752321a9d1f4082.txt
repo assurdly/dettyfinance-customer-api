@@ -1,0 +1,1 @@
+{"error":true,"message":"Account already verified. Please login.","data":null}

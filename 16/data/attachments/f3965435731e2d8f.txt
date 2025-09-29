@@ -1,0 +1,1 @@
+{"error":true,"message":"password: password must contain at least one uppercase letter, one lowercase letter, one number and a symbol","data":null}

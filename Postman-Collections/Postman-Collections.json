@@ -23739,6 +23739,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{second_user_access_token}}"
+													}
+												},
 												"method": "GET",
 												"header": [],
 												"url": {
@@ -23753,9 +23759,8 @@
 													],
 													"variable": [
 														{
-															"id": "3c6eace4-bc11-43fc-9782-effeb5994252",
 															"key": "cycle_id",
-															"value": "4baf55ac-c0b0-4b81-b2a2-527774f6c3b3"
+															"value": "{{cycle_id}}"
 														}
 													]
 												}

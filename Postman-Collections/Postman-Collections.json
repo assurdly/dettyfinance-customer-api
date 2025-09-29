@@ -16826,7 +16826,7 @@
 							"name": "Start cycle",
 							"item": [
 								{
-									"name": "Start cycle - Max slot",
+									"name": "Start cycle - Success",
 									"event": [
 										{
 											"listen": "test",
@@ -19408,6 +19408,307 @@
 												{
 													"key": "Keep-Alive",
 													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Cycle created successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Start cycle - Max slot",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c6e4575e-c4e5-4e5c-923f-6a29d4cfb8d8",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 422\", function () {\r",
+													"    pm.response.to.have.status(422);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate max slot limit cannot exceed 350\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Max slot cannot exceed 350\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "d7e947f6-9bc3-4ccb-b4f8-839bf70b7a2c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"FBI Money {{$randomWord}}}}\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"30\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 50000,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{origin}}/cycles"
+									},
+									"response": [
+										{
+											"id": "529f7231-20d5-47cd-a092-8ba3fb87c1d7",
+											"name": "Start cycle - Weekly",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"name\": \"Money laundery cyle\",\r\n    \"group_id\": \"b5bd5d88-1e91-4807-a6de-1df2bae4dedf\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"weekly\",\r\n    \"contribution_start_day\": \"2\",\r\n    \"contribution_end_day\": \"7\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 200,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2024-12-14\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/cycles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*",
+													"uuid": "8f8ed83f-139e-4c3b-9dc5-fce0bcc993fb"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+													"uuid": "b098aacf-9ab1-4a83-9e07-4a6588ef1584"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin",
+													"uuid": "5b90fa0a-80b0-4552-a532-cc02135d8f38"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin",
+													"uuid": "473d575e-4f96-48e7-9aca-fb11e803703b"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1",
+													"uuid": "eb1dab7a-60fe-4bfb-bc49-0c70b84717eb"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer",
+													"uuid": "238aebe0-96f5-4fa0-a5da-51ac4aac1d7b"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains",
+													"uuid": "64b1aba7-2eac-4352-9fa5-856d1c2fd910"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff",
+													"uuid": "fbd46dcf-5807-4162-a7f2-19cb0a035a08"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off",
+													"uuid": "9342f003-066a-49ed-97a4-50f1d6b78f38"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen",
+													"uuid": "ce601519-1f18-4123-8c51-351eda693a5e"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN",
+													"uuid": "1decd3df-bfb9-4dbb-a91a-51d406acffcc"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none",
+													"uuid": "25f8d1d0-9529-4034-bca0-0b1f0892c886"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0",
+													"uuid": "4fd2edc3-9d90-4067-9959-2798e4565561"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8",
+													"uuid": "0ee33699-5b60-4a27-84cb-b7381888ef46"
+												},
+												{
+													"key": "Content-Length",
+													"value": "54",
+													"uuid": "419bce4d-cedb-4cc6-ab8f-e188435823b1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"36-l8zH6SGIg5/LmFRcyf3keH9GW0o\"",
+													"uuid": "7da4366c-0d0c-497e-b966-ab235cbf34a3"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:51:57 GMT",
+													"uuid": "6dab31cb-e828-4694-be75-308f044e69f1"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive",
+													"uuid": "d745e3f2-b37b-4dde-b944-a169cd6e7165"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5",
+													"uuid": "6dd0b243-663a-414a-ae4b-96eb912fa5d7"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Cycle created successfully\"\n}"
+										},
+										{
+											"id": "e2361678-a6fa-4171-9193-82922fbf520a",
+											"name": "Start cycle - Monthly",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"name\": \"FBI Money Saving For WITSEC\",\r\n    \"group_id\": \"b5bd5d88-1e91-4807-a6de-1df2bae4dedf\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"25\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 200,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2024-12-14\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/cycles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*",
+													"uuid": "3ee2754a-7f81-4444-9bd3-e3cb6517d114"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+													"uuid": "38627361-3ada-4021-a78a-2e05b73f8854"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin",
+													"uuid": "8dfc25b1-e0ed-46d4-a5bd-54f971041b37"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin",
+													"uuid": "66c7741e-2f95-4085-8cb6-8ae72450d692"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1",
+													"uuid": "7d60d461-8095-4ee1-a09d-3211742ee716"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer",
+													"uuid": "0271ba47-e443-445e-82ab-47ae0077e9a1"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains",
+													"uuid": "ada0a610-6069-4699-aac8-afee5db9d0c2"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff",
+													"uuid": "b954c57c-9dbb-44de-9318-d5e75b70bf24"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off",
+													"uuid": "b2c0c0a0-6267-41dc-8e11-d11b7bc1c530"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen",
+													"uuid": "b8a23398-108c-405c-922f-b700b6136191"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN",
+													"uuid": "0c8a7c12-66e7-4683-97c4-415d389a3841"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none",
+													"uuid": "f2677f9d-648b-4b66-9393-8faab35b8530"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0",
+													"uuid": "b82d9807-7641-4c40-a3f2-89c8461bcc8f"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8",
+													"uuid": "c6d0c151-a1be-4b2e-8dac-eef769457435"
+												},
+												{
+													"key": "Content-Length",
+													"value": "54",
+													"uuid": "f4a0337c-8901-47c5-9cf6-84e6218c58f6"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"36-l8zH6SGIg5/LmFRcyf3keH9GW0o\"",
+													"uuid": "7cca3582-68f3-4c90-852d-f18c2e9d539d"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:58:13 GMT",
+													"uuid": "573de02b-0319-4952-a531-146e076e208b"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive",
+													"uuid": "193e1fb5-8f6b-4b15-93b8-fd6217391208"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5",
+													"uuid": "5f0a1f53-a091-45cd-a9f7-b15d3e8cb4ee"
 												}
 											],
 											"cookie": [],

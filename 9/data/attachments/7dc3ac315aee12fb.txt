@@ -1,3 +1,0 @@
-{
-    "email": ["bisoye+6@assurdly.com", "ayomide+84@assurdly.com"]
-}

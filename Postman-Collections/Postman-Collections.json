@@ -23153,9 +23153,31 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
 												"method": "GET",
 												"header": [],
-												"url": "{{origin}}/cycles/{cycle_id}/slots"
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots"
+													],
+													"variable": [
+														{
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
 											},
 											"response": [
 												{
@@ -26863,6 +26885,14 @@
 		},
 		{
 			"key": "invite_id",
+			"value": ""
+		},
+		{
+			"key": "cycleId",
+			"value": ""
+		},
+		{
+			"key": "cycle_id",
 			"value": ""
 		}
 	]

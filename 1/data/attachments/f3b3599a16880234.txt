@@ -1,1 +1,0 @@
-{"error":false,"message":"Fetched recent activities successfully","data":[{"id":"818558bf-d0b0-4ad4-ba45-819a6b528c7f","name":"The Group Backend-2","cycles":[]},{"id":"83dc1d64-ca60-4277-a66a-b52942b0cf19","name":"The Group Backend-3","cycles":[]},{"id":"a33b4479-826c-44ae-86b1-d0e1c55c38c7","name":"Test Group again","cycles":[]}]}

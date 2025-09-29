@@ -1,0 +1,15 @@
+{
+    "payment_info": {
+        "bank_name": "Bank name",
+        "account_number": "1234567890",
+        "account_name": "Account name"
+    },
+    "slot_swap": true,
+    "slot_freeze": true,
+    "slot_advance": false,
+    "contribution_end_day": "",
+    "contribution_start_day": "",
+    "name": "",
+    "payday": "",
+    "monthly_reminder": true
+}

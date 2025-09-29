@@ -1,0 +1,4 @@
+{
+    "status": "accepted",
+    "invite_id": "8f1ae6e9-316c-45e7-b08d-2146881c964e"
+}

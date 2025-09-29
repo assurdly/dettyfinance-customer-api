@@ -1,0 +1,1 @@
+{"error":false,"message":"Fetched user dashboard successfully","data":{"groups":3,"last_group_created":{"id":"818558bf-d0b0-4ad4-ba45-819a6b528c7f","name":"The Group Backend-2"},"ongoing_cycles":0,"last_cycle_created":{"id":"13bd12bd-577e-417f-8ef5-79622d20edd7","name":"Fbi Money Berkshire}}"},"total_amount_contributed":0,"last_contribution_from":null}}

@@ -1,0 +1,1 @@
+{"error":false,"message":"Fetched user dashboard successfully","data":{"groups":3,"last_group_created":{"id":"818558bf-d0b0-4ad4-ba45-819a6b528c7f","name":"The Group Backend-2"},"ongoing_cycles":0,"last_cycle_created":{"id":"d0fa9836-7ee9-4b36-8b43-120eb774cc09","name":"Fbi Money Georgia}}"},"total_amount_contributed":0,"last_contribution_from":null}}

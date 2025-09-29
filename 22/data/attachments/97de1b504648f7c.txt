@@ -1,6 +1,0 @@
-{
-    "slot_amount_to_pay": 80000,
-    "slot_percentage": 100,
-    "slot_position": "SEPTEMBER",
-    "user_id": "a242ff4e-d4f4-4aa0-b6c3-43b225c4c70b"
-}

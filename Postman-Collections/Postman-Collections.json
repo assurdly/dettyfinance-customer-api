@@ -10097,7 +10097,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": [\"bisoye+6@assurdly.com\", \"ayomide+84@assurdly.com\"]\r\n}",
+											"raw": "{\r\n    \"email\": [\"ayomide+4@assurdly.com\"]\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"

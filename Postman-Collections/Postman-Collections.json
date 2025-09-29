@@ -1848,7 +1848,7 @@
 							"name": "Login",
 							"item": [
 								{
-									"name": "Login User - Success",
+									"name": "Login User - Success (Group Admin)",
 									"event": [
 										{
 											"listen": "test",
@@ -1889,10 +1889,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
+											"type": "noauth"
 										},
 										"method": "POST",
 										"header": [],
@@ -2217,7 +2214,7 @@
 									]
 								},
 								{
-									"name": "Login User - Success Copy",
+									"name": "Login User - Success (Other User 1)",
 									"event": [
 										{
 											"listen": "test",
@@ -2227,11 +2224,11 @@
 													"const jsonData = pm.response.json();\r",
 													"\r",
 													"pm.test(\"Set token as a collection variable\", function (){\r",
-													"    pm.collectionVariables.set(\"login_access_token\", jsonData.data.accessToken)\r",
+													"    pm.collectionVariables.set(\"second_user_access_token\", jsonData.data.accessToken)\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Set user_id as a collection variable\", function (){\r",
-													"    pm.collectionVariables.set(\"user_id\", jsonData.data.user.id)\r",
+													"    pm.collectionVariables.set(\"second_user_id\", jsonData.data.user.id)\r",
 													"});\r",
 													"pm.test(\"Verify status code is 200\", function () {\r",
 													"    pm.expect(pm.response.code).to.be.eql(200)\r",
@@ -2258,10 +2255,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
+											"type": "noauth"
 										},
 										"method": "POST",
 										"header": [],

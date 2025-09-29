@@ -20660,7 +20660,23 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"url": "{{origin}}/groups/{group_id}/cycles"
+										"url": {
+											"raw": "{{origin}}/groups/:group_id/cycles",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"groups",
+												":group_id",
+												"cycles"
+											],
+											"variable": [
+												{
+													"key": "group_id",
+													"value": ""
+												}
+											]
+										}
 									},
 									"response": [
 										{

@@ -17344,7 +17344,7 @@
 									]
 								},
 								{
-									"name": "Start cycle - Empty name field",
+									"name": "Start cycle -empty duration field",
 									"event": [
 										{
 											"listen": "test",
@@ -17365,8 +17365,8 @@
 													"    pm.expect(jsonData.message).to.exist;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Check that the message indicates name field cannot be empty\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"name: cannot be empty\");\r",
+													"pm.test(\"Check that the message indicates duration must be at least 2\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"duration: should be at least 2\");\r",
 													"});\r",
 													""
 												],
@@ -17391,7 +17391,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"30\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 100,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
+											"raw": "{\r\n    \"name\": \"falconannwnej\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"30\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 100,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"

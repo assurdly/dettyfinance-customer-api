@@ -21920,7 +21920,23 @@
 												}
 											}
 										},
-										"url": "{{origin}}/cycles/{cycle_id}/slots"
+										"url": {
+											"raw": "{{origin}}/cycles/:cycle_id/slots",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"cycles",
+												":cycle_id",
+												"slots"
+											],
+											"variable": [
+												{
+													"key": "cycle_id",
+													"value": ""
+												}
+											]
+										}
 									},
 									"response": [
 										{

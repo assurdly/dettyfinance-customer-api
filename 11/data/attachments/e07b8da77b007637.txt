@@ -1,5 +1,0 @@
-{
-    "slot_percentage": 50,
-    "slot_amount_to_pay": 5000,
-    "slot_position": "APRIL"
-}

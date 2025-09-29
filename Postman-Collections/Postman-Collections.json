@@ -22272,11 +22272,17 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{second_user_access_token}}"
+											}
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"slot_percentage\": 50,\r\n    \"slot_amount_to_pay\": 5000,\r\n    \"slot_position\": \"APRIL\"\r\n}",
+											"raw": "{\r\n    \"slot_percentage\":100,\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_position\": \"APRIL\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -22296,7 +22302,7 @@
 											"variable": [
 												{
 													"key": "cycle_id",
-													"value": ""
+													"value": "{{cycle_id}}"
 												}
 											]
 										}

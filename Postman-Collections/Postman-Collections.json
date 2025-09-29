@@ -24009,11 +24009,17 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"slot_amount_to_pay\": 80000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"SEPTEMBER\",\r\n    \"user_id\": \"a242ff4e-d4f4-4aa0-b6c3-43b225c4c70b\"\r\n}",
+													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"JULY\", //AUGUST \r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -24033,9 +24039,8 @@
 													],
 													"variable": [
 														{
-															"id": "40918002-a6c8-4ab1-baa8-374808746f03",
 															"key": "cycle_id",
-															"value": "5304f18d-c68a-4912-b9fb-38af5a673039"
+															"value": "{{cycle_id}}"
 														}
 													]
 												}
@@ -24158,11 +24163,17 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{second_user_access_token}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"from_slot_id\": \"fbbb7e4c-67dd-4e60-992d-2b3779761e38\",\r\n    \"to_slot_id\": \"b04b6b70-d556-4a3b-8ddc-b46ab73c3b1e\"\r\n}",
+													"raw": "{\r\n    \"from_slot_id\": \"6630375d-0dde-488b-ab5c-f7b0cf6f991a\",\r\n    \"to_slot_id\": \"6cadfb1d-e80a-450a-ab52-6ca28f1f6260\"\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -24182,9 +24193,8 @@
 													],
 													"variable": [
 														{
-															"id": "dc2c87c0-a874-4b71-97a8-650fb409500e",
 															"key": "cycle_id",
-															"value": ""
+															"value": "{{cycle_id}}"
 														}
 													]
 												}

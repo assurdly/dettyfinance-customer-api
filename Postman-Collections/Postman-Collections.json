@@ -26832,26 +26832,6 @@
 		{
 			"key": "invite_id",
 			"value": ""
-		},
-		{
-			"key": "wrong token",
-			"value": "",
-			"type": "default"
-		},
-		{
-			"key": "upload_id",
-			"value": "",
-			"type": "default"
-		},
-		{
-			"key": "profile_picture_id",
-			"value": "",
-			"type": "default"
-		},
-		{
-			"key": "invalid_id",
-			"value": "",
-			"type": "default"
 		}
 	]
 }

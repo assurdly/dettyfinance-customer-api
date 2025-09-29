@@ -17085,7 +17085,7 @@
 									]
 								},
 								{
-									"name": "Start cycle - Success Copy",
+									"name": "Start cycle - invalid end day",
 									"event": [
 										{
 											"listen": "test",
@@ -17353,17 +17353,21 @@
 												"exec": [
 													"const jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Check tha response code is 201\",function () {\r",
-													"    pm.response.to.have.status(201);\r",
-													"})\r",
+													"pm.test(\"Check that the response code is 422\", function () {\r",
+													"    pm.response.to.have.status(422);\r",
+													"});\r",
 													"\r",
-													"pm.test(\"Check that the error field is false\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.false;\r",
-													"})\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
 													"\r",
-													"pm.test(\"Check that the message field exists'\", function () {\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
 													"    pm.expect(jsonData.message).to.exist;\r",
-													"})"
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicates day must be at least 25, 26, 27, 28, 29, 30,31\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"contribution_start_day: contribution start day should be one of (25, 26, 27, 28, 29, 30, 31, last_day_of_the_month) for monthly contributions.\");\r",
+													"});"
 												],
 												"type": "text/javascript",
 												"packages": {},
@@ -17386,7 +17390,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"FBI Money {{$randomWord}}}}\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"30\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 100,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
+											"raw": "{\r\n    \"name\": \"FBI Money {{$randomWord}}}}\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"41\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 100,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"

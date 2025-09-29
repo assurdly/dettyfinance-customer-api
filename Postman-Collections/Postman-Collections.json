@@ -16464,6 +16464,32 @@
 							"item": [
 								{
 									"name": "Start cycle - Success",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c6e4575e-c4e5-4e5c-923f-6a29d4cfb8d8",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check tha response code is 201\",function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Check that the error field is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Check that the message field exists'\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "323bef61-2c0e-4965-a0ee-41f21cbe7aa7",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -16479,7 +16505,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"name\": \"FBI Money Saving For WITSEC\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"30\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 100,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
+											"raw": "{\r\n    \"name\": \"FBI Money {{$randomWord}}}}\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"30\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 100,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"

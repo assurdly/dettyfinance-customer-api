@@ -20433,11 +20433,47 @@
 							"item": [
 								{
 									"name": "Get my cycles - Success",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "580fd46b-89a5-4194-988c-9cadb8fdd7b9",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response should not contain error\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message should be correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.equal(\"Fetched user cycles successfully\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"set cycle id as a collection variable\", function (){\r",
+													"    pm.collectionVariables.set(\"cycle_id\", jsonData.data[1].id);\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "d3b137cc-bde9-44c5-a268-ab086bea5178",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/cycles"
@@ -22946,6 +22982,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -22961,14 +23003,12 @@
 											],
 											"variable": [
 												{
-													"id": "a4f39411-66f9-4a50-bfd9-7910cf703263",
 													"key": "cycle_id",
-													"value": "05125257-e9eb-4dd4-a1b6-c4349e81eeee"
+													"value": "69ec8aaf-8a0a-4e77-9fe1-7a80043d752a"
 												},
 												{
-													"id": "17c29fcb-400a-4cc2-9023-62b0bf2db29f",
 													"key": "member_id",
-													"value": "3bdeea2e-861d-41e3-bdc0-15197bf95eb9"
+													"value": "9943b810-a27c-4e9d-891a-82f4fcbf46c1"
 												}
 											]
 										}

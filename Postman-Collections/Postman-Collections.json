@@ -17086,11 +17086,48 @@
 								},
 								{
 									"name": "Start cycle - Unauthorized User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f60f6f55-39a1-404e-874c-fa8e74a2fbe2",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicates unauthorized access\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "f21b0b9d-2a8b-4276-b930-4c8fce5a8961",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{second_user_access_token}}}"
+											}
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -17312,7 +17349,7 @@
 									]
 								},
 								{
-									"name": "Start cycle - Invalid (bad group ID or cycle data)",
+									"name": "Start cycle - Invalid group ID",
 									"id": "8858e64e-3254-4577-8e88-5f3e61cd91d7",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

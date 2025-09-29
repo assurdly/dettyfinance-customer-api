@@ -17344,7 +17344,7 @@
 									]
 								},
 								{
-									"name": "Start cycle - Success Copy",
+									"name": "Start cycle - invalid start day",
 									"event": [
 										{
 											"listen": "test",

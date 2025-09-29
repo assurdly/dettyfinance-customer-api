@@ -23869,9 +23869,36 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
 												"method": "GET",
 												"header": [],
-												"url": "{{origin}}/cycles/{cycle_id}/position/{user_id}"
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/position/:user_id",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"position",
+														":user_id"
+													],
+													"variable": [
+														{
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														},
+														{
+															"key": "user_id",
+															"value": "{{second_user_id}}"
+														}
+													]
+												}
 											},
 											"response": [
 												{

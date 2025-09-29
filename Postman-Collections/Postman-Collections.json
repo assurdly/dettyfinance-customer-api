@@ -2217,6 +2217,375 @@
 									]
 								},
 								{
+									"name": "Login User - Success Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a2f278e6-2f96-4316-95af-ac67353b6e3c",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Set token as a collection variable\", function (){\r",
+													"    pm.collectionVariables.set(\"login_access_token\", jsonData.data.accessToken)\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Set user_id as a collection variable\", function (){\r",
+													"    pm.collectionVariables.set(\"user_id\", jsonData.data.user.id)\r",
+													"});\r",
+													"pm.test(\"Verify status code is 200\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.eql(200)\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Verify that token is returned in the response\", function () {\r",
+													"    pm.expect(jsonData.data.accessToken).to.exist.and.not.to.be.null\r",
+													"})\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "8a2d2945-66a8-4b8c-be56-97463b4bab7c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"bisoye+3@assurdly.com\",\r\n    \"password\": \"Test123@\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{origin}}/users/login"
+									},
+									"response": [
+										{
+											"id": "991023e1-452f-4380-8e0a-3ee8ba6d0ff3",
+											"name": "Wrong password",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"testing@last.com\",\r\n    \"password\": \"test234\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/users/login"
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "58"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3a-TjSp0X04j/ySRlGZi3RPp4JuPvI\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 17 Sep 2024 00:26:09 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Invalid credentials\",\n    \"data\": null\n}"
+										},
+										{
+											"id": "cba94784-f295-4abb-9413-24df9f142b6e",
+											"name": "Password not verified",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"eze.agidingbi@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/users/login"
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "63"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f-tQO1BoYVtc++UlQoXSCYxKFyyFE\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Oct 2024 10:36:28 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Please verify your email\",\n    \"data\": null\n}"
+										},
+										{
+											"id": "f5d2e496-0caf-4fd9-8c23-b0b08ca29e36",
+											"name": "Login User",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"email\": \"ojowilliamsdaniel@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/users/login"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "828"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"33c-sy4vbhDrUk1jKLViWgB5AjvUfrc\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 23 Nov 2024 10:37:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"User logged In successfully\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4YmFiOTk0ZS1iMDkxLTRmYzQtYmVjYy02MWFkNTJmZDIyNDQiLCJlbWFpbCI6Im9qb3dpbGxpYW1zZGFuaWVsQGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzMyMzU4MjMzLCJleHAiOjE3MzQxMDg1OTE3NDR9.KSEaGXbD1lscY3LH0M_5Mfx1IiMP5pX8phEva_iTIV8\",\n        \"user\": {\n            \"id\": \"8bab994e-b091-4fc4-becc-61ad52fd2244\",\n            \"created_at\": \"2024-09-30T16:49:57.511Z\",\n            \"updated_at\": \"2024-10-13T17:30:55.597Z\",\n            \"first_name\": \"Daniel\",\n            \"last_name\": \"Ojo-Williams\",\n            \"email\": \"ojowilliamsdaniel@gmail.com\",\n            \"gender\": null,\n            \"phone\": null,\n            \"address\": null,\n            \"image\": null,\n            \"referral_code\": \"ZZW4RRZFIG\",\n            \"email_verified\": true,\n            \"account\": {\n                \"bank_name\": \"\",\n                \"account_name\": \"\",\n                \"account_number\": \"\"\n            },\n            \"financials\": {\n                \"salary\": 0,\n                \"company\": \"\",\n                \"currency\": \"\",\n                \"job_title\": \"\",\n                \"risk_level\": \"\"\n            },\n            \"dob\": null\n        }\n    }\n}"
+										}
+									]
+								},
+								{
 									"name": "Login User - non existing email",
 									"event": [
 										{

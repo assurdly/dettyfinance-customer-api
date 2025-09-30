@@ -21098,7 +21098,37 @@
 									]
 								},
 								{
-									"name": "Delete cycle - Unauthorized",
+									"name": "Delete cycle - No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "926de2fc-b31e-479b-b18f-e838b1b6b664",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "64c4a965-4f7f-4810-a424-5d8cfa1d3063",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26989,9 +27019,9 @@
 													"    pm.expect(jsonData.message).to.exist;\r",
 													"});\r",
 													"\r",
-													"// ✅ Check message content mentions invalid token\r",
-													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"// ✅ Check message content mentions not authenticated\r",
+													"pm.test(\"Check that the message indicate not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
 													"});\r",
 													"\r",
 													"// ✅ Check that the data field exists and is null\r",
@@ -27012,10 +27042,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{user_id}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -27032,12 +27059,10 @@
 											],
 											"variable": [
 												{
-													"id": "cb72a929-0b27-473e-bcc3-9d8bf3ac3a89",
 													"key": "cycle_id",
 													"value": "05125257-e9eb-4dd4-a1b6-c4349e81eeee"
 												},
 												{
-													"id": "3f82aa83-0342-463a-9e1b-5c09fb3f8b49",
 													"key": "member_id",
 													"value": "3bdeea2e-861d-41e3-bdc0-15197bf95eb9"
 												}

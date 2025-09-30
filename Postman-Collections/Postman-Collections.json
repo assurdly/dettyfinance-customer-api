@@ -28864,7 +28864,7 @@
 											]
 										},
 										{
-											"name": "User Slot Position For a Cycle - success Copy",
+											"name": "User Slot Position For a Cycle - invalid cycle id",
 											"event": [
 												{
 													"listen": "test",

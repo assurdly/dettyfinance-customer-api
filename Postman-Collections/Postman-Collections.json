@@ -30719,9 +30719,8 @@
 													],
 													"variable": [
 														{
-															"id": "11a384d8-0122-4810-bdf6-a8034d927dd6",
 															"key": "cycle_id",
-															"value": "{{cycle_id}}"
+															"value": "{{invalid_cycle_id}}"
 														}
 													]
 												}
@@ -33931,6 +33930,11 @@
 		{
 			"key": "circle_id",
 			"value": ""
+		},
+		{
+			"key": "invalid_cycle_id",
+			"value": "",
+			"type": "default"
 		}
 	]
 }

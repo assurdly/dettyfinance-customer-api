@@ -20000,8 +20000,8 @@
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Check that the error field is true\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.true;\r",
+													"pm.test(\"Check that the error field is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Check that the message field exists\", function () {\r",
@@ -20146,12 +20146,45 @@
 									]
 								},
 								{
-									"name": "Get cycle settings - Unauthorized",
+									"name": "Get cycle settings - No Auth Token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "6612541c-3f6d-4534-bf5f-fe096821704a",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "6fa2ded2-c588-449e-a8e2-6c1dee95937b",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -20166,7 +20199,6 @@
 											],
 											"variable": [
 												{
-													"id": "98608680-7570-440b-a1fe-63b8cc4c1eb5",
 													"key": "cycle_id",
 													"value": "3add3131-8537-4e35-b9bf-aee00468ad34"
 												}
@@ -20270,7 +20302,7 @@
 									]
 								},
 								{
-									"name": "Get cycle settings - Invalid (bad cycle ID)",
+									"name": "Get cycle settings - Invalid token",
 									"id": "8bd3babe-f248-4c03-9dcc-0f1560e6b074",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

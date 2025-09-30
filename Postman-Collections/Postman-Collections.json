@@ -10398,6 +10398,33 @@
 								},
 								{
 									"name": "Invite Member – Unauthorized",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a37df8c2-c408-4109-af58-d48c19daffd9",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"pm.test(\"Error message is true\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"You are not authenticated. Please login ...\");\r",
+													"});\r",
+													"pm.test(\"Error is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    pm.expect(jsonData.data).to.eql(null);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "41f5be87-208b-4420-ab17-d1b3fdb86fbb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -24036,7 +24063,7 @@
 									]
 								},
 								{
-									"name": "Get cycle members - Unauthorized",
+									"name": "Get cycle members - No Auth",
 									"id": "ceb91bf3-0e1d-4242-b811-6d01e2f41bf6",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

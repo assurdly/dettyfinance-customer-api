@@ -29206,8 +29206,8 @@
 														"id": "52ab7682-e74d-45d8-b994-cde858a6702e",
 														"exec": [
 															"const jsonData = pm.response.json();\r",
-															"pm.test(\"Status code is 422\", function () {\r",
-															"    pm.expect(pm.response.code).to.be.oneOf([422]);\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Error flag is true\", function () {\r",
@@ -29215,9 +29215,9 @@
 															"    pm.expect(res.error).to.eql(true);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Message indicates invalid uuid\", function () {\r",
+															"pm.test(\"Message indicates You are not authenticated. Please login to continue\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.message).to.include(\"invalid uuid\");\r",
+															"    pm.expect(res.message).to.include(\"You are not authenticated. Please login to continue\");\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Data is null\", function () {\r",
@@ -29268,6 +29268,172 @@
 											"response": [
 												{
 													"id": "7c937f0f-88dd-4380-bfe2-82290c714d05",
+													"name": "User Slot Position For a Cycle",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{origin}}/cycles/f8c4559f-0ce6-4e0e-a441-70117bec0500/position/0ddd0116-4c87-406d-8c8c-55be3e95388d"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "170"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"aa-OUQmqU3SQ7ivOTiG8Q8RuOlvPzk\""
+														},
+														{
+															"key": "Date",
+															"value": "Sat, 10 May 2025 09:32:19 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Fetched user slot positions successfully\",\n    \"data\": [\n        {\n            \"id\": \"ac5447d6-5e3b-4c70-8dd7-8e8f6e371cf7\",\n            \"slot_percentage\": 100,\n            \"slot_position\": \"week 1\"\n        }\n    ]\n}"
+												}
+											]
+										},
+										{
+											"name": "User Slot Position For a Cycle - Invalid Token",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "52ab7682-e74d-45d8-b994-cde858a6702e",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is true\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(true);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message indicates You are not authenticated. Please login to continue\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "d06a11a9-b4c7-4aa6-a5f6-82b53c522b41",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/position/:user_id",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"position",
+														":user_id"
+													],
+													"variable": [
+														{
+															"id": "7212f4e0-0c85-4d27-9449-ed0dfa4061fa",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														},
+														{
+															"id": "af719dde-cc7f-40b2-9c87-cebf92fcf8f6",
+															"key": "user_id",
+															"value": "{{second_user_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "d7204971-3ad0-4d6c-bc8e-a5775856879b",
 													"name": "User Slot Position For a Cycle",
 													"originalRequest": {
 														"method": "GET",

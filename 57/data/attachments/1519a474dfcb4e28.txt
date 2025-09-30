@@ -1,1 +1,0 @@
-{"error":false,"message":"Fetched user dashboard successfully","data":{"groups":3,"last_group_created":{"id":"818558bf-d0b0-4ad4-ba45-819a6b528c7f","name":"The Group Backend-2"},"ongoing_cycles":68,"last_cycle_created":{"id":"e14bbce2-d72e-4b08-a79f-610954b21cd6","name":"Fbi Money Hawaii}}"},"total_amount_contributed":0,"last_contribution_from":null}}

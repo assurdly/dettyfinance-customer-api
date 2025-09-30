@@ -11494,7 +11494,22 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{origin}}/groups/:/groups/12345"
+										"url": {
+											"raw": "{{origin}}/groups/:group_id",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"groups",
+												":group_id"
+											],
+											"variable": [
+												{
+													"key": "group_id",
+													"value": "{{wrong_group_id}}"
+												}
+											]
+										}
 									},
 									"response": [
 										{
@@ -25706,7 +25721,7 @@
 									]
 								},
 								{
-									"name": "Join cycle - Invalid (invalid cycle ID or slot)",
+									"name": "Join cycle - Invalid token",
 									"id": "6402dd28-5570-4aa8-8ba2-a8f1fc35c85d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -30504,6 +30519,11 @@
 		},
 		{
 			"key": "wrong_token",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "wrong_group_id",
 			"value": "",
 			"type": "default"
 		}

@@ -10409,7 +10409,7 @@
 													"pm.test(\"Status code is 401\", function () {\r",
 													"    pm.response.to.have.status(401);\r",
 													"});\r",
-													"pm.test(\"Error message is true\", function () {\r",
+													"pm.test(\"Error message is correct\", function () {\r",
 													"    pm.expect(jsonData.message).to.eql(\"You are not authenticated. Please login ...\");\r",
 													"});\r",
 													"pm.test(\"Error is true\", function () {\r",
@@ -24064,11 +24064,54 @@
 								},
 								{
 									"name": "Get cycle members - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2395de49-af89-42b6-904b-9de564d51860",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions not authenticated\r",
+													"pm.test(\"Check that the message indicates not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "ceb91bf3-0e1d-4242-b811-6d01e2f41bf6",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -24083,7 +24126,6 @@
 											],
 											"variable": [
 												{
-													"id": "8c286ab5-edf9-4eb9-ba74-6f8615539664",
 													"key": "cycle_id",
 													"value": "87e15509-9bbb-4fa6-afe3-23b050263de8"
 												}

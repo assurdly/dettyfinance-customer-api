@@ -23396,14 +23396,77 @@
 								},
 								{
 									"name": "Cycles in a group - invalid group id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d60d7e2b-cd06-4259-bffc-fb7319939034",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions unauthorized\r",
+													"pm.test(\"Check that the message indicates cycles\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Fetched group cycles successfully\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "331fa012-7886-4ec8-ab90-1532ba5c909a",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
-										"url": "{{origin}}/groups/{group_id}/cycles"
+										"url": {
+											"raw": "{{origin}}/groups/:group_id/cycles",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"groups",
+												":group_id",
+												"cycles"
+											],
+											"variable": [
+												{
+													"key": "group_id",
+													"value": "bb26d31d-9d82-4f1d-9af1-ce78766c345f"
+												}
+											]
+										}
 									},
 									"response": [
 										{

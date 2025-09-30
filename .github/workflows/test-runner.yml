@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main
-  # schedule:
-  #   - cron: '0 19 * * 4' # Runs every Wednesday by 7pm
-  #   - cron: '0 19 * * 5' # Runs every Friday by 7pm
-  #   - cron: '0 19 * * 0' # Runs every Sunday by 7pm
+  schedule:
+     - cron: '0 18 * * 4' # Runs every Wednesday by 6pm
+     - cron: '0 18 * * 5' # Runs every Friday by 6pm
+     - cron: '0 16 * * 0' # Runs every Sunday by 4pm
 jobs:
   run_tests:
     runs-on: ubuntu-latest

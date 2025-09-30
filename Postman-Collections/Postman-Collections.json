@@ -11464,7 +11464,7 @@
 													"\r",
 													"pm.test(\"Check that the message field is correct\", function () {\r",
 													"    pm.expect(jsonData.message).to.exist;\r",
-													"    pm.expect(jsonData.message).to.equal(\"You are not authenticated. Please login to continue\"); \r",
+													"    pm.expect(jsonData.message).to.equal(\"group_id: group id should be a valid uuid\"); \r",
 													"})"
 												],
 												"type": "text/javascript",
@@ -25714,11 +25714,57 @@
 								},
 								{
 									"name": "Join cycle - Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a0046229-c3a8-40e7-b667-69bd31bba74e",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "6402dd28-5570-4aa8-8ba2-a8f1fc35c85d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -25838,7 +25884,7 @@
 									]
 								},
 								{
-									"name": "Join cycle - Missing (leave cycle ID/slot out of body)",
+									"name": "Join cycle - No auth",
 									"id": "802e3126-4345-4aa8-bf28-282dd4d8189f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

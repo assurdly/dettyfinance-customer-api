@@ -1,0 +1,1 @@
+{"error":false,"message":"Fetched user slot positions successfully","data":[{"id":"a2d6105b-7a30-4372-9b6e-1f77b16c0d77","slot_percentage":100,"slot_position":"JULY"}]}

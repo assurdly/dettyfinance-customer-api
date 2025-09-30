@@ -27373,7 +27373,7 @@
 									"name": "Fiiled Slots",
 									"item": [
 										{
-											"name": "Get all filled cycle slots",
+											"name": "Get all filled cycle slots - success",
 											"id": "df61768a-295a-499d-b0f3-b3b51b1e0ae5",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

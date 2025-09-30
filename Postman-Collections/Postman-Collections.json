@@ -29551,7 +29551,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"JULY\", //AUGUST \r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
+													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"SEPTEMBER\", //MAY\r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29580,6 +29580,155 @@
 											"response": [
 												{
 													"id": "04b50612-fb72-457a-90f5-739729eb57af",
+													"name": "Assign slot position",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"slot_percentage\": 50,\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_position\": 2,\r\n    \"user_id\": \"8d84095e-78ff-441b-a3f3-b38a69a7fd27\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": "{{origin}}/cycles/1a4751e1-6b37-4d2f-aeaf-0d204280eba6/slots/assign"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "53"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"35-d1ybj9S7/e9mgEnmJGdIc7cgrm4\""
+														},
+														{
+															"key": "Date",
+															"value": "Sat, 12 Oct 2024 12:09:17 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Joined cycle successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Assign Slot Positions - success Copy",
+											"id": "182feda2-5c74-4315-a27d-12c54184d410",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"SEPTEMBER\", //MAY\r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots/assign",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots",
+														"assign"
+													],
+													"variable": [
+														{
+															"id": "e8566412-19bb-4f67-a247-c9b0cdb692c4",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "05100c70-b23b-4b68-91f1-41d437d6be53",
 													"name": "Assign slot position",
 													"originalRequest": {
 														"method": "POST",

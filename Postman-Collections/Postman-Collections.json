@@ -30658,23 +30658,23 @@
 														"id": "e85dd39f-560d-47d5-bb49-4b30a88a7eef",
 														"exec": [
 															"const jsonData = pm.response.json();\r",
-															"\r",
-															"pm.test(\"Status code is 200\", function () {\r",
-															"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Response is JSON\", function () {\r",
-															"    pm.response.to.be.json;\r",
-															"});\r",
-															"\r",
-															"pm.test(\"Error flag is false\", function () {\r",
+															"pm.test(\"Error flag is true\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.error).to.eql(false);\r",
+															"    pm.expect(res.error).to.eql(true);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Message confirms slot swap\", function () {\r",
+															"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.message).to.eql(\"Slot swap requested\");\r",
+															"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
 															"});\r",
 															""
 														],
@@ -30692,7 +30692,7 @@
 												"auth": {
 													"type": "bearer",
 													"bearer": {
-														"token": "{{second_user_access_token}}"
+														"token": "{{wrong_token}}"
 													}
 												},
 												"method": "POST",
@@ -30719,7 +30719,6 @@
 													],
 													"variable": [
 														{
-															"id": "25d4e95d-06d9-4827-9acb-707263071436",
 															"key": "cycle_id",
 															"value": "{{cycle_id}}"
 														}

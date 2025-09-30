@@ -29535,7 +29535,7 @@
 									"name": "Assign Slot Position",
 									"item": [
 										{
-											"name": "Assign Slot Positions",
+											"name": "Assign Slot Positions - success",
 											"id": "e78f1e63-a526-4728-a3a6-60984e3de654",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

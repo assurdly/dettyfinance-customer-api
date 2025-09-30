@@ -27503,16 +27503,41 @@
 										},
 										{
 											"name": "Get all filled cycle slots - No Auth",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "2665e709-4261-4208-a14c-3a9a516e5ae9",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Check that the response code is correct\", function () {\r",
+															"    pm.response.to.have.status(401);\r",
+															"})\r",
+															"\r",
+															"pm.test(\"Check that the error field is true\", function () {\r",
+															"    pm.expect(jsonData.error).to.be.true;\r",
+															"})\r",
+															"\r",
+															"pm.test(\"Check that the message field is correct\", function () {\r",
+															"    pm.expect(jsonData.message).to.exist;\r",
+															"    pm.expect(jsonData.message).to.equal(\"You are not authenticated. Please login to continue\"); \r",
+															"})\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "63e22e00-e1be-4e44-b610-c797b4f0f0e2",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
 											"request": {
 												"auth": {
-													"type": "bearer",
-													"bearer": {
-														"token": "{{login_access_token}}"
-													}
+													"type": "noauth"
 												},
 												"method": "GET",
 												"header": [],
@@ -27528,7 +27553,6 @@
 													],
 													"variable": [
 														{
-															"id": "1fcf3690-ffca-4084-998e-a256e4c0c1c7",
 															"key": "cycle_id",
 															"value": "{{cycle_id}}"
 														}

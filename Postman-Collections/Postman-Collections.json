@@ -11951,6 +11951,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/validate-invite/{token}",

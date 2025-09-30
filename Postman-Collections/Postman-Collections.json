@@ -17085,6 +17085,265 @@
 									]
 								},
 								{
+									"name": "Start cycle - Invalid min slot",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c6e4575e-c4e5-4e5c-923f-6a29d4cfb8d8",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check tha response code is 201\",function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Check that the error field is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Check that the message field exists'\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "b7675283-a1e4-4c54-a0d5-ab5828779220",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"FBI Money {{$randomWord}}}}\",\r\n    \"group_id\": \"{{group_id}}\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"30\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 100,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2025-09-30\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{origin}}/cycles"
+									},
+									"response": [
+										{
+											"id": "ae76db52-9fca-4560-a238-ab23e1bc4213",
+											"name": "Start cycle - Weekly",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"name\": \"Money laundery cyle\",\r\n    \"group_id\": \"b5bd5d88-1e91-4807-a6de-1df2bae4dedf\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"weekly\",\r\n    \"contribution_start_day\": \"2\",\r\n    \"contribution_end_day\": \"7\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 200,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2024-12-14\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/cycles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "54"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"36-l8zH6SGIg5/LmFRcyf3keH9GW0o\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:51:57 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Cycle created successfully\"\n}"
+										},
+										{
+											"id": "e12a595b-1d9f-48db-b02f-f87129cd0520",
+											"name": "Start cycle - Monthly",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"name\": \"FBI Money Saving For WITSEC\",\r\n    \"group_id\": \"b5bd5d88-1e91-4807-a6de-1df2bae4dedf\",\r\n    \"duration\": \"10\",\r\n    \"frequency\": \"monthly\",\r\n    \"contribution_start_day\": \"25\",\r\n    \"contribution_end_day\": \"31\",\r\n    \"slot_amount\": 10000,\r\n    \"currency\": \"NGN\",\r\n    \"total_slots\": 10,\r\n    \"max_slot\": 200,\r\n    \"min_slot\": 25,\r\n    \"targeted_amount\": 10000000,\r\n    \"start_date\": \"2024-12-14\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/cycles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "54"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"36-l8zH6SGIg5/LmFRcyf3keH9GW0o\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:58:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Cycle created successfully\"\n}"
+										}
+									]
+								},
+								{
 									"name": "Start cycle - No auth token",
 									"event": [
 										{
@@ -29054,7 +29313,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b9aa5298-9fc7-478b-954f-a762adb5b019",
+				"id": "5420e8b6-6869-4fe9-91a6-13365b7e6155",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -29066,7 +29325,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "6a1b0810-2cd5-43cc-bdb5-8ed8a2059393",
+				"id": "ff6677c1-e308-4211-b45d-ee8561d0c9d7",
 				"type": "text/javascript",
 				"packages": {},
 				"requests": {},
@@ -29079,7 +29338,7 @@
 	"variable": [
 		{
 			"key": "login_access_token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYjI2ZDMxZC05ZDgyLTRmMWQtOWFmMS1jZTc4NzY2YzI1M2YiLCJlbWFpbCI6ImJpc295ZSszQGFzc3VyZGx5LmNvbSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzU5MTc5ODMxLCJleHAiOjE3NTkxOTc4MzF9.P_5-lW557kqzdW_txBMjm58siltY27uAqsbeorkpdLg"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYjI2ZDMxZC05ZDgyLTRmMWQtOWFmMS1jZTc4NzY2YzI1M2YiLCJlbWFpbCI6ImJpc295ZSszQGFzc3VyZGx5LmNvbSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNzU5MjE1ODUxLCJleHAiOjE3NTkyMzM4NTF9.IiaUvAFa1k20J1nPk1Xh6cmDgz9d1ZY8xe27dauWjWQ"
 		},
 		{
 			"key": "threeDigitNumber",

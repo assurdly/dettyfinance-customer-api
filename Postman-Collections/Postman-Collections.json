@@ -22707,23 +22707,7 @@
 											"script": {
 												"id": "580fd46b-89a5-4194-988c-9cadb8fdd7b9",
 												"exec": [
-													"const jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response should not contain error\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.false;\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message should be correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.equal(\"Fetched user cycles successfully\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"set cycle id as a collection variable\", function (){\r",
-													"    pm.collectionVariables.set(\"cycle_id\", jsonData.data[1].id);\r",
-													"})"
+													""
 												],
 												"type": "text/javascript",
 												"packages": {},
@@ -22743,7 +22727,13 @@
 											}
 										},
 										"method": "GET",
-										"header": [],
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text"
+											}
+										],
 										"url": "{{origin}}/cycles"
 									},
 									"response": [

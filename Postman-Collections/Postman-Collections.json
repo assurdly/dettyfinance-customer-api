@@ -21343,12 +21343,48 @@
 									]
 								},
 								{
-									"name": "Delete cycle - Invalid (wrong ID format or non-existent ID)",
+									"name": "Delete cycle - Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c73decd1-f2b5-403e-a5c2-92e375915503",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "be43f048-1581-4b6f-9812-6ace89bfae14",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "DELETE",
 										"header": [],
 										"url": "{{origin}}/cycles/{cycle_id}"
@@ -21993,12 +22029,48 @@
 									]
 								},
 								{
-									"name": "End Cycle - Invalid (bad ID)",
+									"name": "End Cycle - Invalid id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f04ac0e8-96a7-41d0-ac97-1a278385624b",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "58a62174-cc01-422a-8a7d-8540739f7f5c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "PATCH",
 										"header": [],
 										"url": "{{origin}}/cycles/{cycle_id}/end"

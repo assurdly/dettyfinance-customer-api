@@ -22443,7 +22443,37 @@
 									]
 								},
 								{
-									"name": "Update Cycle - Unauthorized",
+									"name": "Update Cycle - No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bd6fb920-7189-4c43-8d47-399223fd0d64",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "f4f01418-43d5-4202-8818-de7baa7e06cb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -22569,11 +22599,47 @@
 								},
 								{
 									"name": "Update Cycle - Invalid id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1e303092-0eb8-4ea3-a9ed-9fb021571e69",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "57e349e8-224b-46d1-8255-d59661abd9fb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {

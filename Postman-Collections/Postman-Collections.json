@@ -27374,6 +27374,39 @@
 									"item": [
 										{
 											"name": "Get all filled cycle slots - success",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "a3c71b39-baf7-4ce1-83af-c113439319b2",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Set circle id as a collection variable\", function () {\r",
+															" pm.collectionVariables.set(\"circle_id\", jsonData.data[0].id);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Check if the response status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Check if the response contains the correct error message\", function () {\r",
+															"    pm.expect(jsonData.message).to.exist;\r",
+															"\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Check if the response contains the correct response data\", function () {\r",
+															"    pm.expect(jsonData.data).to.exist;\r",
+															"})\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "df61768a-295a-499d-b0f3-b3b51b1e0ae5",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -27502,8 +27535,41 @@
 											]
 										},
 										{
-											"name": "Get all filled cycle slots - Invalid Token",
-											"id": "e8366865-1558-4fea-ab73-40a21280831e",
+											"name": "Get all filled cycle slots - success Copy",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "a3c71b39-baf7-4ce1-83af-c113439319b2",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Set circle id as a collection variable\", function () {\r",
+															" pm.collectionVariables.set(\"circle_id\", jsonData.data[0].id);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Check if the response status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Check if the response contains the correct error message\", function () {\r",
+															"    pm.expect(jsonData.message).to.exist;\r",
+															"\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Check if the response contains the correct response data\", function () {\r",
+															"    pm.expect(jsonData.data).to.exist;\r",
+															"})\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "d079adb6-efaf-4d4d-a899-3fc0d94799ce",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27528,7 +27594,163 @@
 													],
 													"variable": [
 														{
-															"id": "6e4c4618-3d8e-4a3b-9d6f-503eb608abcd",
+															"id": "7d7aec4d-a574-4d2a-ad18-a2d7b421ca26",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "49680ba2-eb3b-4510-85b8-b0e08441ed08",
+													"name": "All filled cycle slots",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{origin}}/cycles/1a4751e1-6b37-4d2f-aeaf-0d204280eba6/slots"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "423"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1a7-zFrcSDD9x0IbYmtthQIq8Upu0tY\""
+														},
+														{
+															"key": "Date",
+															"value": "Sat, 12 Oct 2024 10:31:49 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Fetched slot positions successfully\",\n    \"data\": [\n        {\n            \"user\": {\n                \"id\": \"3985bd41-d9ee-44ff-b6bc-bccca7dc8653\",\n                \"name\": \"Testing Last\"\n            },\n            \"slot_percentage\": 50,\n            \"slot_position\": 1\n        },\n        {\n            \"user\": {\n                \"id\": \"8d84095e-78ff-441b-a3f3-b38a69a7fd27\",\n                \"name\": \"Radio Machine\"\n            },\n            \"slot_percentage\": 50,\n            \"slot_position\": 1\n        },\n        {\n            \"user\": {\n                \"id\": \"8d84095e-78ff-441b-a3f3-b38a69a7fd27\",\n                \"name\": \"Radio Machine\"\n            },\n            \"slot_percentage\": 100,\n            \"slot_position\": 2\n        }\n    ]\n}"
+												}
+											]
+										},
+										{
+											"name": "Get all filled cycle slots - Invalid Token",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "dc47c1a3-625e-492f-9d90-ceefc2261db7",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Check that the response code is correct\", function () {\r",
+															"    pm.response.to.have.status(401);\r",
+															"})\r",
+															"\r",
+															"pm.test(\"Check that the error field is true\", function () {\r",
+															"    pm.expect(jsonData.error).to.be.true;\r",
+															"})\r",
+															"\r",
+															"pm.test(\"Check that the message field is correct\", function () {\r",
+															"    pm.expect(jsonData.message).to.exist;\r",
+															"    pm.expect(jsonData.message).to.equal(\"Invalid token. Please authenticate again or contact support\"); \r",
+															"})"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "e8366865-1558-4fea-ab73-40a21280831e",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{wrong_token}}"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots"
+													],
+													"variable": [
+														{
 															"key": "cycle_id",
 															"value": "{{cycle_id}}"
 														}
@@ -31464,6 +31686,10 @@
 			"key": "wrong_group_id",
 			"value": "",
 			"type": "default"
+		},
+		{
+			"key": "circle_id",
+			"value": ""
 		}
 	]
 }

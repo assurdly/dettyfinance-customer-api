@@ -24802,7 +24802,7 @@
 									]
 								},
 								{
-									"name": "Get cycle by ID - Unauthorized",
+									"name": "Get cycle by ID - Invalid cycle id",
 									"id": "318c94df-fd87-4773-b4c1-b8e4a6d7a7ed",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

@@ -11779,7 +11779,7 @@
 									]
 								},
 								{
-									"name": "Get Group by ID – Forbidden",
+									"name": "Get Group by ID- invalid token",
 									"event": [
 										{
 											"listen": "test",
@@ -25589,11 +25589,57 @@
 								},
 								{
 									"name": "Join cycle - invalid cycle id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "31dc7064-83cd-4b79-bf12-2a2506f16c71",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 4014, function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions group not found\r",
+													"pm.test(\"Check that the message indicate group not found\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Group not found\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "9c6f18f0-a584-4b73-a9f3-a2b1ff032567",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -25605,7 +25651,23 @@
 												}
 											}
 										},
-										"url": "{{origin}}/cycles/{cycle_id}/slots"
+										"url": {
+											"raw": "{{origin}}/cycles/:cycle_id/slots",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"cycles",
+												":cycle_id",
+												"slots"
+											],
+											"variable": [
+												{
+													"key": "cycle_id",
+													"value": "69ec8aaf-8a0a-4e77-9fe1-7a80043d752b"
+												}
+											]
+										}
 									},
 									"response": [
 										{

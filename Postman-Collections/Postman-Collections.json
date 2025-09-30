@@ -29716,7 +29716,7 @@
 											]
 										},
 										{
-											"name": "Assign Slot Positions - success Copy",
+											"name": "Assign Slot Positions - empty slot percentage",
 											"event": [
 												{
 													"listen": "test",

@@ -11788,26 +11788,17 @@
 												"exec": [
 													"const jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Set member Id as a collcetion variable\", function () {\r",
-													"    pm.collectionVariables.set(\"member_id\", jsonData.data.members[0].id);\r",
-													"})\r",
-													"\r",
 													"pm.test(\"Check that the response code is correct\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"    pm.response.to.have.status(401);\r",
 													"})\r",
 													"\r",
-													"pm.test(\"Check that the error field is false\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.false;\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
 													"})\r",
 													"\r",
 													"pm.test(\"Check that the message field is correct\", function () {\r",
 													"    pm.expect(jsonData.message).to.exist;\r",
-													"    pm.expect(jsonData.message).to.equal(\"Group fetched successfully\"); \r",
-													"})\r",
-													"\r",
-													"pm.test(\"Check that the response data is correct\", function () {\r",
-													"    pm.expect(jsonData.data).to.exist;\r",
-													"    pm.expect(jsonData.data.id).to.exist;\r",
+													"    pm.expect(jsonData.message).to.equal(\"Invalid token. Please authenticate again or contact support\"); \r",
 													"})"
 												],
 												"type": "text/javascript",
@@ -11824,7 +11815,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{login_access_token}}"
+												"token": "{{wrong_group_id}}"
 											}
 										},
 										"method": "GET",
@@ -11840,7 +11831,6 @@
 											],
 											"variable": [
 												{
-													"id": "8be66ba4-397e-4a4d-a25c-9b1036c94311",
 													"key": "group_id",
 													"value": "{{group_id}}"
 												}
@@ -25598,7 +25588,7 @@
 													"const jsonData = pm.response.json();\r",
 													"\r",
 													"// ✅ Check status code\r",
-													"pm.test(\"Check that the response code is 4014, function () {\r",
+													"pm.test(\"Check that the response code is 404\", function () {\r",
 													"    pm.response.to.have.status(404);\r",
 													"});\r",
 													"\r",
@@ -26400,7 +26390,7 @@
 									]
 								},
 								{
-									"name": "View cycle member - Unauthorized",
+									"name": "View cycle member - invalid member id",
 									"id": "bf1c8858-9b4e-477b-9f38-4bb29af4cfc0",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

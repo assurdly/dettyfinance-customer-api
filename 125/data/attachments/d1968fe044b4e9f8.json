@@ -1,0 +1,10 @@
+{
+    "Authorization": "Bearer {{wrong token}}",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "a7ad8021-3c7a-49c3-9c3b-913dacda473a",
+    "Host": "api.slotfinance.co",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}

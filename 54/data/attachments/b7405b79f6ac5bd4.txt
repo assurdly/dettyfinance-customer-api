@@ -1,0 +1,15 @@
+{
+    "name": "FBI Money heuristic}}",
+    "group_id": "818558bf-d0b0-4ad4-ba45-819a6b528c7f",
+    "duration": "10",
+    "frequency": "monthly",
+    "contribution_start_day": "41",
+    "contribution_end_day": "31",
+    "slot_amount": 10000,
+    "currency": "NGN",
+    "total_slots": 10,
+    "max_slot": 100,
+    "min_slot": 25,
+    "targeted_amount": 10000000,
+    "start_date": "2025-09-30"
+}

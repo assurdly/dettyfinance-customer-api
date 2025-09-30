@@ -30453,6 +30453,37 @@
 									"item": [
 										{
 											"name": "Slot Swap request - success",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "e85dd39f-560d-47d5-bb49-4b30a88a7eef",
+														"exec": [
+															"pm.test(\"Status code is 200 or 201\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message confirms slot swap\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.eql(\"Slot swap requested\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "3cf75a31-fd05-41fd-97a3-c42f623e3625",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

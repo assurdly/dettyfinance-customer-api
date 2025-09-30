@@ -29379,9 +29379,9 @@
 															"    pm.expect(res.error).to.eql(true);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Message indicates You are not authenticated. Please login to continue\", function () {\r",
+															"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+															"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Data is null\", function () {\r",
@@ -29402,7 +29402,10 @@
 											},
 											"request": {
 												"auth": {
-													"type": "noauth"
+													"type": "bearer",
+													"bearer": {
+														"token": "{{wrong_token}}"
+													}
 												},
 												"method": "GET",
 												"header": [],
@@ -29419,12 +29422,10 @@
 													],
 													"variable": [
 														{
-															"id": "7212f4e0-0c85-4d27-9449-ed0dfa4061fa",
 															"key": "cycle_id",
 															"value": "{{cycle_id}}"
 														},
 														{
-															"id": "af719dde-cc7f-40b2-9c87-cebf92fcf8f6",
 															"key": "user_id",
 															"value": "{{second_user_id}}"
 														}

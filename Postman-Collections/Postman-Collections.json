@@ -26391,11 +26391,57 @@
 								},
 								{
 									"name": "View cycle member - invalid member id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "cffc54b3-ecbb-4eb9-86dc-97b6dfddecd4",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is false\r",
+													"pm.test(\"Check that the error field is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions cycle member\r",
+													"pm.test(\"Check that the message fetched cycle member\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Fetched cycle member successfully\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is empty\r",
+													"pm.test(\"Check that the data field is empty\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.empty;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "bf1c8858-9b4e-477b-9f38-4bb29af4cfc0",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -26411,14 +26457,12 @@
 											],
 											"variable": [
 												{
-													"id": "a4f39411-66f9-4a50-bfd9-7910cf703263",
 													"key": "cycle_id",
 													"value": "05125257-e9eb-4dd4-a1b6-c4349e81eeee"
 												},
 												{
-													"id": "17c29fcb-400a-4cc2-9023-62b0bf2db29f",
 													"key": "member_id",
-													"value": "3bdeea2e-861d-41e3-bdc0-15197bf95eb9"
+													"value": "3bdeea2e-861d-41e3-bdc0-15197bf95eb4"
 												}
 											]
 										}

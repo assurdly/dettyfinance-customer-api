@@ -21922,12 +21922,45 @@
 									]
 								},
 								{
-									"name": "End Cycle - Unauthorized",
+									"name": "End Cycle - No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a1ab93c6-71be-492c-a9aa-8e02d6a9cc67",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "23760aeb-7dfb-45b3-8440-6eb659d2706b",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "PATCH",
 										"header": [],
 										"url": "{{origin}}/cycles/{cycle_id}/end"
@@ -22535,7 +22568,7 @@
 									]
 								},
 								{
-									"name": "Update Cycle - Invalid (wrong ID or invalid update params)",
+									"name": "Update Cycle - Invalid id",
 									"id": "57e349e8-224b-46d1-8255-d59661abd9fb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

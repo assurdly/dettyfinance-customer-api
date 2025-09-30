@@ -9934,7 +9934,7 @@
 									]
 								},
 								{
-									"name": "My Groups – No Auth",
+									"name": "My Groups - Invalid Token",
 									"event": [
 										{
 											"listen": "test",
@@ -9949,6 +9949,150 @@
 													"\r",
 													"pm.test(\"Check if the response status code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check if the response contains the correct error message\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check if the response contains the correct response data\", function () {\r",
+													"    pm.expect(jsonData.data).to.exist;\r",
+													"})"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "6a42cd25-5b80-46d7-a4a8-219fb112ce96",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/groups"
+									},
+									"response": [
+										{
+											"id": "3dc6c9c6-5109-43a8-b1b3-8c2891235751",
+											"name": "My Groups",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/groups"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "467"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1d3-c6+v9tcClghOkkvmoJOJ0Ae/oLU\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 12 Apr 2025 06:43:59 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched groups successfully\",\n    \"data\": [\n        {\n            \"id\": \"113c7aec-2bf3-4f40-b6cb-3c7b7777c785\",\n            \"name\": \"The Exalted\",\n            \"status\": \"in-progress\",\n            \"role\": \"admin\",\n            \"description\": \"A group for the adnrews graduate student school\",\n            \"members\": [\n                {\n                    \"id\": \"8e187907-a45d-4670-a584-12c023c2a511\",\n                    \"name\": \"K Baba\",\n                    \"profile_picture\": {},\n                    \"email\": \"baba.k@gmail.com\"\n                }\n            ],\n            \"member_count\": 1,\n            \"created_by\": {\n                \"id\": \"8e187907-a45d-4670-a584-12c023c2a511\",\n                \"name\": \"K Baba\",\n                \"profile_picture\": {}\n            }\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "My Groups – No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ae899c42-2e95-419f-8823-5f45fbd95b69",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Set group id as a collection variable\", function () {\r",
+													" pm.collectionVariables.set(\"group_id\", jsonData.data[0].id);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check if the response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Check if the response contains the correct error message\", function () {\r",
@@ -23502,11 +23646,44 @@
 								},
 								{
 									"name": "Cycles in a group - No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1ad7426f-8dca-474f-83f0-836b6f0f9e3a",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "380348a5-48d1-40c9-8a2f-83b05ad60d56",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/groups/{group_id}/cycles"

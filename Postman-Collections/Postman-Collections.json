@@ -28018,6 +28018,66 @@
 									"item": [
 										{
 											"name": "My Slot Position For a Cycle - success",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "d969a297-f2fd-4f4b-b45d-be3c31655918",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message confirms fetch success\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"Fetched user slot positions successfully\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is an array\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.an(\"array\");\r",
+															"    pm.expect(res.data.length).to.be.above(0);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Each slot has required fields\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    res.data.forEach(slot => {\r",
+															"        pm.expect(slot).to.have.property(\"id\");\r",
+															"        pm.expect(slot).to.have.property(\"slot_percentage\");\r",
+															"        pm.expect(slot).to.have.property(\"slot_position\");\r",
+															"    });\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Slot percentage values are valid\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    res.data.forEach(slot => {\r",
+															"        pm.expect(slot.slot_percentage).to.be.a(\"number\");\r",
+															"        pm.expect(slot.slot_percentage).to.be.within(0, 100);\r",
+															"    });\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Slot positions contain expected months\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    let months = res.data.map(slot => slot.slot_position);\r",
+															"    pm.expect(months).to.include.members([\"APRIL\", \"MAY\", \"JULY\"]);\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "c5b471aa-d4b4-465f-b55b-023301df6f08",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

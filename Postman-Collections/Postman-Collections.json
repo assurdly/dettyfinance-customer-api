@@ -9934,7 +9934,7 @@
 									]
 								},
 								{
-									"name": "My Groups – Unauthorized",
+									"name": "My Groups – No Auth",
 									"event": [
 										{
 											"listen": "test",
@@ -23358,12 +23358,48 @@
 									]
 								},
 								{
-									"name": "Cycles in a group - Invalid (bad group ID)",
+									"name": "Cycles in a group - Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "da095770-7bf9-4192-8f30-1627ba506355",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "ab972189-d0f8-4205-9e46-280ac97aa7cd",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/groups/{group_id}/cycles"
@@ -23465,7 +23501,7 @@
 									]
 								},
 								{
-									"name": "Cycles in a group - Forbidden (user not part of group tries to fetch cycles)",
+									"name": "Cycles in a group - No auth",
 									"id": "380348a5-48d1-40c9-8a2f-83b05ad60d56",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

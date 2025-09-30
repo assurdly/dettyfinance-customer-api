@@ -11945,7 +11945,7 @@
 							"name": "Validate invite token",
 							"item": [
 								{
-									"name": "Validate invite token",
+									"name": "Validate invite token - success",
 									"id": "84633154-9a9b-4803-9dea-44de15bc2274",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

@@ -10743,6 +10743,33 @@
 								},
 								{
 									"name": "Invite member - Missing Email",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bc8c274e-b0e8-40f5-b075-115465b1ff5a",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 422\", function () {\r",
+													"    pm.response.to.have.status(422);\r",
+													"});\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"email: required\");\r",
+													"});\r",
+													"pm.test(\"Error is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    pm.expect(jsonData.data).to.eql(null);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "0abd1a26-fc4b-4f04-ad5b-c92d0fd8e502",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -10889,7 +10916,7 @@
 									]
 								},
 								{
-									"name": "Invite Member – Forbidden",
+									"name": "Invite Member – invalid token",
 									"id": "03e3ad1f-fbfb-4dcc-8375-32c7e73f45db",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -25015,11 +25042,54 @@
 								},
 								{
 									"name": "Get cycle by ID - Invalid (wrong ID format or non-existent cycle)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4f1a97d1-b430-48c4-97d1-a16c6c78e350",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions fetched cycle\r",
+													"pm.test(\"Check that the message indicate not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "c38fc579-6a15-4731-aa40-5779d38a95a2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -25033,7 +25103,6 @@
 											],
 											"variable": [
 												{
-													"id": "1d7c2c18-6031-46b5-9f31-5f22a9d74b55",
 													"key": "cycle_id",
 													"value": "4baf55ac-c0b0-4b81-b2a2-527774f6c3b3"
 												}

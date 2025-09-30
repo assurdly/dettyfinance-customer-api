@@ -22700,7 +22700,150 @@
 									]
 								},
 								{
-									"name": "Get my cycles - Unauthorized",
+									"name": "Get my cycles - Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "580fd46b-89a5-4194-988c-9cadb8fdd7b9",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "9c4ee1f3-fb4c-43e9-abae-d24566aec983",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/cycles"
+									},
+									"response": [
+										{
+											"id": "a2f2ae87-5f00-4ff3-9904-86a3e815dbf4",
+											"name": "Get my cycles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/cycles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1019"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3fb-F2xB0xf2MnBY/9vaJ2y0t2LYISE\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 02 Dec 2024 22:09:55 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Fetched user cycles successfully\",\n    \"data\": [\n        {\n            \"id\": \"03ce08c1-54c2-4f0a-936f-7dbfabb2ab03\",\n            \"name\": \"Cycle 1\",\n            \"created_at\": \"2024-11-14T11:51:35.736Z\",\n            \"updated_at\": \"2024-11-23T19:56:30.582Z\",\n            \"duration\": \"10\",\n            \"status\": \"Ended\",\n            \"slot_amount\": 10000,\n            \"start_date\": \"2024-11-13T23:00:00.000Z\",\n            \"currency\": \"NGN\",\n            \"frequency\": \"monthly\",\n            \"total_contribution\": 0,\n            \"targeted_amount\": 10000000,\n            \"created_by\": {\n                \"id\": \"8bab994e-b091-4fc4-becc-61ad52fd2244\",\n                \"name\": \"Daniel Ojo-Williams\"\n            },\n            \"role\": \"admin\",\n            \"contributors\": 2,\n            \"percentage_completion\": 7\n        },\n        {\n            \"id\": \"1b47f662-98f2-48fd-95a7-1e4e3fb02ce5\",\n            \"name\": \"Calendar cycle\",\n            \"created_at\": \"2024-11-22T06:21:50.378Z\",\n            \"updated_at\": \"2024-11-22T06:21:50.378Z\",\n            \"duration\": \"3\",\n            \"status\": \"Ongoing\",\n            \"slot_amount\": 10000,\n            \"start_date\": \"2024-11-29T23:00:00.000Z\",\n            \"currency\": \"NGN\",\n            \"frequency\": \"monthly\",\n            \"total_contribution\": 0,\n            \"targeted_amount\": 10000000,\n            \"created_by\": {\n                \"id\": \"8bab994e-b091-4fc4-becc-61ad52fd2244\",\n                \"name\": \"Daniel Ojo-Williams\"\n            },\n            \"role\": \"admin\",\n            \"contributors\": 0,\n            \"percentage_completion\": 4\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get my cycles - No Auth",
 									"id": "b809d6e3-0566-4505-a2a5-6d26e504e66b",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

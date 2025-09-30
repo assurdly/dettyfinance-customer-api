@@ -26770,12 +26770,58 @@
 									]
 								},
 								{
-									"name": "View cycle member - Success Copy 3",
+									"name": "View cycle member - Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4f7e945e-03f9-4f3e-8ffd-233f146077af",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "72833a07-e3bc-4fa8-8ab1-dc73eff7b377",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -26791,12 +26837,10 @@
 											],
 											"variable": [
 												{
-													"id": "a4f39411-66f9-4a50-bfd9-7910cf703263",
 													"key": "cycle_id",
 													"value": "05125257-e9eb-4dd4-a1b6-c4349e81eeee"
 												},
 												{
-													"id": "17c29fcb-400a-4cc2-9023-62b0bf2db29f",
 													"key": "member_id",
 													"value": "3bdeea2e-861d-41e3-bdc0-15197bf95eb9"
 												}
@@ -26806,6 +26850,203 @@
 									"response": [
 										{
 											"id": "bacad9ee-5915-43c5-bd50-5a75e89775b8",
+											"name": "View cycle member",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/members/:member_id",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"members",
+														":member_id"
+													],
+													"variable": [
+														{
+															"key": "cycle_id",
+															"value": "05125257-e9eb-4dd4-a1b6-c4349e81eeee"
+														},
+														{
+															"key": "member_id",
+															"value": "3bdeea2e-861d-41e3-bdc0-15197bf95eb9"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "Text",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "2596"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"a24-QXIUn6WfFMVtU0bm6bB9tkmlqxI\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 16 Aug 2025 04:46:04 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Fetched cycle member successfully\",\n    \"data\": [\n        {\n            \"id\": \"3bdeea2e-861d-41e3-bdc0-15197bf95eb9\",\n            \"name\": \"James Bond\",\n            \"email\": \"alajo@gmail.com\",\n            \"amount_paid\": \"306087\",\n            \"slot_amount\": 612174,\n            \"date_joined\": \"13 May, 2025\",\n            \"account_details\": {\n                \"bank_name\": \"FCMB\",\n                \"account_name\": \"Mubarak Oguntunde\",\n                \"account_number\": \"01122334455\"\n            },\n            \"contributions\": [\n                {\n                    \"id\": \"b93ccf86-530a-400f-b408-4289675117e8\",\n                    \"amount\": 102029,\n                    \"status\": \"confirmed\",\n                    \"upload\": {\n                        \"id\": \"427008d4-d36c-48a3-8e28-1fd3b953da62\",\n                        \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1748608164/zkld5oetukw8cbwehowj.png\"\n                    },\n                    \"currency\": \"ARS\",\n                    \"signatory\": {\n                        \"id\": \"3bdeea2e-861d-41e3-bdc0-15197bf95eb9\",\n                        \"name\": \"Bond James\"\n                    },\n                    \"created_at\": \"30 May, 2025\",\n                    \"updated_at\": \"13 June, 2025\",\n                    \"slot_position\": {\n                        \"id\": \"7e9a5832-f60a-4942-aadd-462627f69e16\",\n                        \"position\": \"week 3\"\n                    }\n                },\n                {\n                    \"id\": \"3bbac7ef-2d83-41b7-9d1f-fb58dae5c646\",\n                    \"amount\": 102029,\n                    \"status\": \"rejected\",\n                    \"upload\": {\n                        \"id\": \"939b2929-a09c-4092-a29a-5a8c344d835d\",\n                        \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1748585773/u8zfjhyyqzfw0ivhmdha.png\"\n                    },\n                    \"currency\": \"ARS\",\n                    \"signatory\": {\n                        \"id\": \"3bdeea2e-861d-41e3-bdc0-15197bf95eb9\",\n                        \"name\": \"Bond James\"\n                    },\n                    \"created_at\": \"30 May, 2025\",\n                    \"updated_at\": \"30 May, 2025\",\n                    \"slot_position\": {\n                        \"id\": \"7e9a5832-f60a-4942-aadd-462627f69e16\",\n                        \"position\": \"week 3\"\n                    }\n                },\n                {\n                    \"id\": \"5d725d2c-a09a-4dac-b4d1-3faa851749f5\",\n                    \"amount\": 102029,\n                    \"status\": \"confirmed\",\n                    \"upload\": {\n                        \"id\": \"9bb5fdac-ff95-4efc-86f2-e3faa0000156\",\n                        \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1747514775/susuwyy3ycofteum6qqe.jpg\"\n                    },\n                    \"currency\": \"ARS\",\n                    \"signatory\": {\n                        \"id\": \"3bdeea2e-861d-41e3-bdc0-15197bf95eb9\",\n                        \"name\": \"Bond James\"\n                    },\n                    \"created_at\": \"17 May, 2025\",\n                    \"updated_at\": \"29 May, 2025\",\n                    \"slot_position\": {\n                        \"id\": \"7e9a5832-f60a-4942-aadd-462627f69e16\",\n                        \"position\": \"week 3\"\n                    }\n                },\n                {\n                    \"id\": \"fadf0bf3-6bc7-4751-906f-7f2b01602710\",\n                    \"amount\": 102029,\n                    \"status\": \"confirmed\",\n                    \"upload\": {\n                        \"id\": \"9fe90c4b-fdd2-45ea-9824-e8cf19911734\",\n                        \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1748615964/qclhk6d1rwv5g2kdsep2.jpg\"\n                    },\n                    \"currency\": \"ARS\",\n                    \"signatory\": {\n                        \"id\": \"3bdeea2e-861d-41e3-bdc0-15197bf95eb9\",\n                        \"name\": \"Bond James\"\n                    },\n                    \"created_at\": \"30 May, 2025\",\n                    \"updated_at\": \"05 June, 2025\",\n                    \"slot_position\": {\n                        \"id\": \"7e9a5832-f60a-4942-aadd-462627f69e16\",\n                        \"position\": \"week 3\"\n                    }\n                }\n            ],\n            \"slots\": [\n                {\n                    \"id\": \"002fa814-c9b9-43a8-b9da-df9ebfbfe751\",\n                    \"slot_amount\": 102029,\n                    \"slot_position\": \"week 10\",\n                    \"slot_percentage\": 100\n                },\n                {\n                    \"id\": \"7e9a5832-f60a-4942-aadd-462627f69e16\",\n                    \"slot_amount\": 102029,\n                    \"slot_position\": \"week 3\",\n                    \"slot_percentage\": 100\n                },\n                {\n                    \"id\": \"7edb1e51-dd62-498e-8688-ea502421f103\",\n                    \"slot_amount\": 102029,\n                    \"slot_position\": \"week 1\",\n                    \"slot_percentage\": 100\n                }\n            ]\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "View cycle member - no auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4f7e945e-03f9-4f3e-8ffd-233f146077af",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "d22cb686-cf78-4b39-bab8-957183ef5add",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{origin}}/cycles/:cycle_id/members/:member_id",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"cycles",
+												":cycle_id",
+												"members",
+												":member_id"
+											],
+											"variable": [
+												{
+													"id": "cb72a929-0b27-473e-bcc3-9d8bf3ac3a89",
+													"key": "cycle_id",
+													"value": "05125257-e9eb-4dd4-a1b6-c4349e81eeee"
+												},
+												{
+													"id": "3f82aa83-0342-463a-9e1b-5c09fb3f8b49",
+													"key": "member_id",
+													"value": "3bdeea2e-861d-41e3-bdc0-15197bf95eb9"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a3225186-2272-4550-a4f8-41e4eb76ce46",
 											"name": "View cycle member",
 											"originalRequest": {
 												"method": "GET",

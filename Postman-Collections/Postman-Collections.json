@@ -28198,6 +28198,43 @@
 										},
 										{
 											"name": "My Slot Position For a Cycle - invalid id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "89b841f1-5d8f-4876-9422-b6144949d308",
+														"exec": [
+															"\r",
+															"pm.test(\"Status code is 422\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf(422);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is true\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(true);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message indicates invalid uuid\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"invalid uuid\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "683f8363-6234-4b67-a970-5d82b26d4745",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28223,9 +28260,8 @@
 													],
 													"variable": [
 														{
-															"id": "361beb31-21f0-42d1-aac7-b235e690cf0f",
 															"key": "cycle_id",
-															"value": "{{cycle_id}}"
+															"value": "69ec8aaf-8a0a-4e77-9fe1-7a8004dfghjkkkjhg"
 														}
 													]
 												}

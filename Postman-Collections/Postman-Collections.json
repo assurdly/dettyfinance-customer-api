@@ -30459,8 +30459,10 @@
 													"script": {
 														"id": "e85dd39f-560d-47d5-bb49-4b30a88a7eef",
 														"exec": [
-															"pm.test(\"Status code is 200 or 201\", function () {\r",
-															"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Response is JSON\", function () {\r",
@@ -30528,6 +30530,205 @@
 											"response": [
 												{
 													"id": "6c1790ea-4486-4dc5-a6df-7954f7f46d45",
+													"name": "Slot Swap Request",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"from_slot_id\": \"fbbb7e4c-67dd-4e60-992d-2b3779761e38\", \r\n    \"to_slot_id\": \"b04b6b70-d556-4a3b-8ddc-b46ab73c3b1e\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{origin}}/cycles/:cycle_id/slots/swap",
+															"host": [
+																"{{origin}}"
+															],
+															"path": [
+																"cycles",
+																":cycle_id",
+																"slots",
+																"swap"
+															],
+															"variable": [
+																{
+																	"key": "cycle_id",
+																	"value": ""
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "49"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"31-XVyJt7eIAyPkHwbVvZyprUbPTjY\""
+														},
+														{
+															"key": "Date",
+															"value": "Tue, 15 Oct 2024 19:13:45 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Slot switch requested\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Slot Swap request - invalid id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "e85dd39f-560d-47d5-bb49-4b30a88a7eef",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message confirms slot swap\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.eql(\"Slot swap requested\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "8df5a24a-4803-46c2-bc36-d00392228094",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{second_user_access_token}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"from_slot_id\": \"6630375d-0dde-488b-ab5c-f7b0cf6f991a\",\r\n    \"to_slot_id\": \"6cadfb1d-e80a-450a-ab52-6ca28f1f6260\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots/swap",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots",
+														"swap"
+													],
+													"variable": [
+														{
+															"id": "11a384d8-0122-4810-bdf6-a8034d927dd6",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "590b505b-2423-4979-86e2-cec6697cf66e",
 													"name": "Slot Swap Request",
 													"originalRequest": {
 														"method": "POST",

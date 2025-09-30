@@ -24257,7 +24257,7 @@
 									]
 								},
 								{
-									"name": "Get cycle members - Invalid (bad cycle ID)",
+									"name": "Get cycle members - Invalid token",
 									"event": [
 										{
 											"listen": "test",

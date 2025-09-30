@@ -1,1 +1,0 @@
-{"error":false,"message":"Fetched user dashboard successfully","data":{"groups":3,"last_group_created":{"id":"818558bf-d0b0-4ad4-ba45-819a6b528c7f","name":"The Group Backend-2"},"ongoing_cycles":68,"last_cycle_created":{"id":"00774744-d060-4348-9d0c-242b197dbc7d","name":"Fbi Money Microchip}}"},"total_amount_contributed":0,"last_contribution_from":null}}

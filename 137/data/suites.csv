@@ -1,0 +1,293 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","165","View Group Members – Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:16 UTC 2025","passed","Tue Sep 30 22:22:16 UTC 2025","Groups > View group members","User","",""
+"","158","Delete notification","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:34 UTC 2025","passed","Tue Sep 30 22:22:34 UTC 2025","Notifications > Delete notification","User","",""
+"","166","View cycle member - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:27 UTC 2025","passed","Tue Sep 30 22:22:27 UTC 2025","Cycles > View Cycle Member","User","",""
+"","165","View cycle member - Invalid group id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:27 UTC 2025","passed","Tue Sep 30 22:22:27 UTC 2025","Cycles > View Cycle Member","User","",""
+"","161","Get Slot Position Contributions","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:33 UTC 2025","passed","Tue Sep 30 22:22:33 UTC 2025","Contributions > Get Slot Position Contributions","User","",""
+"","165","Start cycle - invalid start day","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:19 UTC 2025","passed","Tue Sep 30 22:22:19 UTC 2025","Cycles > Start cycle","User","",""
+"","165","All Group Invites – Invalid Group ID","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:15 UTC 2025","failed","Tue Sep 30 22:22:15 UTC 2025","Groups > All group invites","User","",""
+"","163","Get cycle members - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:24 UTC 2025","passed","Tue Sep 30 22:22:24 UTC 2025","Cycles > Get Cycle Members","User","",""
+"","163","Assign Slot Positions - invalid id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:29 UTC 2025","passed","Tue Sep 30 22:22:30 UTC 2025","Cycles > Slots Management > Assign Slot Position","User","",""
+"","165","Start cycle - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:18 UTC 2025","passed","Tue Sep 30 22:22:18 UTC 2025","Cycles > Start cycle","User","",""
+"","160","All Group Members – Invalid Group ID","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:16 UTC 2025","passed","Tue Sep 30 22:22:16 UTC 2025","Groups > All group members","User","",""
+"","168","Delete Upload-invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:10 UTC 2025","passed","Tue Sep 30 22:22:10 UTC 2025","Uploads > Delete upload","User","",""
+"","165","Get all filled cycle slots - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:27 UTC 2025","failed","Tue Sep 30 22:22:27 UTC 2025","Cycles > Slots Management > Fiiled Slots","User","",""
+"","160","Update Cycle - Forbidden (non-admin tries to edit)","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:22 UTC 2025","passed","Tue Sep 30 22:22:23 UTC 2025","Cycles > Edit Cycle","User","",""
+"","189","Register User - Weak Password","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:04 UTC 2025","failed","Tue Sep 30 22:22:04 UTC 2025","Onboarding > Register User","User","",""
+"","165","Dashboard No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:08 UTC 2025","passed","Tue Sep 30 22:22:08 UTC 2025","Dashboard > Dashboard","User","",""
+"","165","Get cycle members - invalid admin id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:25 UTC 2025","passed","Tue Sep 30 22:22:25 UTC 2025","Cycles > Get Cycle Members","User","",""
+"","162","Assign Slot Positions - No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:30 UTC 2025","passed","Tue Sep 30 22:22:30 UTC 2025","Cycles > Slots Management > Assign Slot Position","User","",""
+"","163","Get cycle by ID -invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:25 UTC 2025","passed","Tue Sep 30 22:22:25 UTC 2025","Cycles > Get Cycle by ID","User","",""
+"","163","Get cycle members - No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:24 UTC 2025","passed","Tue Sep 30 22:22:24 UTC 2025","Cycles > Get Cycle Members","User","",""
+"","163","User Slot Position For a Cycle - invalid user id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:29 UTC 2025","passed","Tue Sep 30 22:22:29 UTC 2025","Cycles > Slots Management > User Slot Position","User","",""
+"","162","Get cycle settings - No Auth Token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:20 UTC 2025","passed","Tue Sep 30 22:22:20 UTC 2025","Cycles > Get Cycle Settings","User","",""
+"","165","Forgot Password - invalid email input","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:06 UTC 2025","passed","Tue Sep 30 22:22:06 UTC 2025","Onboarding > Forgot Password > Forgot Password","User","",""
+"","161","Reset Password","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:07 UTC 2025","passed","Tue Sep 30 22:22:07 UTC 2025","Onboarding > Forgot Password > Reset Password*","User","",""
+"","174","Register User - Empty requirement field","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:04 UTC 2025","failed","Tue Sep 30 22:22:05 UTC 2025","Onboarding > Register User","User","",""
+"","159","Reassign slot","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:31 UTC 2025","passed","Tue Sep 30 22:22:31 UTC 2025","Cycles > Slots Management > Reassign Slot","User","",""
+"","163","Get User-No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:11 UTC 2025","passed","Tue Sep 30 22:22:12 UTC 2025","Profile > Get user profile","User","",""
+"","170","Login User - non existing email","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:05 UTC 2025","failed","Tue Sep 30 22:22:06 UTC 2025","Onboarding > Login","User","",""
+"","163","Get Group by ID- invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:14 UTC 2025","failed","Tue Sep 30 22:22:14 UTC 2025","Groups > Get Group by Id","User","",""
+"","163","Dashboard- invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:08 UTC 2025","passed","Tue Sep 30 22:22:08 UTC 2025","Dashboard > Dashboard","User","",""
+"","193","Slot Swap request - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:30 UTC 2025","passed","Tue Sep 30 22:22:30 UTC 2025","Cycles > Slots Management > Slot Swap Request","User","",""
+"","175","All Group Invites – Forbidden","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:15 UTC 2025","passed","Tue Sep 30 22:22:15 UTC 2025","Groups > All group invites","User","",""
+"","195","Invite member - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:12 UTC 2025","passed","Tue Sep 30 22:22:12 UTC 2025","Groups > Invite member","User","",""
+"","159","Start cycle - Forbidden (non-admin user tries to start)","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:19 UTC 2025","passed","Tue Sep 30 22:22:20 UTC 2025","Cycles > Start cycle","User","",""
+"","161","Get my cycles - No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:23 UTC 2025","passed","Tue Sep 30 22:22:23 UTC 2025","Cycles > Get My Cycles","User","",""
+"","163","Update Cycle - No auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:22 UTC 2025","passed","Tue Sep 30 22:22:22 UTC 2025","Cycles > Edit Cycle","User","",""
+"","171","Login User - invalid email","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:06 UTC 2025","failed","Tue Sep 30 22:22:06 UTC 2025","Onboarding > Login","User","",""
+"","162","Get cycle by ID - No auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:25 UTC 2025","passed","Tue Sep 30 22:22:25 UTC 2025","Cycles > Get Cycle by ID","User","",""
+"","232","Login User - Success (Group Admin)","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:05 UTC 2025","passed","Tue Sep 30 22:22:05 UTC 2025","Onboarding > Login","User","",""
+"","160","Change Password","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:07 UTC 2025","passed","Tue Sep 30 22:22:07 UTC 2025","Onboarding > Change Password","User","",""
+"Fields that can be updated include:  
+- first_name: string  
+- last_name: string  
+- gender: string  
+- phone: string  
+- address: string  
+- image: string  
+- account: { bank_name: string; account_name: 
+  string; account_number: string; }","164","Update user profile-invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:11 UTC 2025","passed","Tue Sep 30 22:22:11 UTC 2025","Profile > Update user profile","User","",""
+"","162","Verify Email*","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:05 UTC 2025","passed","Tue Sep 30 22:22:05 UTC 2025","Onboarding > Verify Email*","User","",""
+"","168","Upload a file-invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:09 UTC 2025","passed","Tue Sep 30 22:22:09 UTC 2025","Uploads > Upload a file","User","",""
+"","161","Delete cycle - No auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:21 UTC 2025","passed","Tue Sep 30 22:22:21 UTC 2025","Cycles > Delete Cycle","User","",""
+"","258","Register User - invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:04 UTC 2025","passed","Tue Sep 30 22:22:04 UTC 2025","Onboarding > Register User","User","",""
+"","167","Get Group by ID – Invalid Group ID","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:13 UTC 2025","failed","Tue Sep 30 22:22:14 UTC 2025","Groups > Get Group by Id","User","",""
+"","162","Get all filled cycle slots - No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:28 UTC 2025","passed","Tue Sep 30 22:22:28 UTC 2025","Cycles > Slots Management > Fiiled Slots","User","",""
+"","163","Start cycle - invalid end day","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:18 UTC 2025","passed","Tue Sep 30 22:22:19 UTC 2025","Cycles > Start cycle","User","",""
+"","164","My Slot Position For a Cycle - No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:28 UTC 2025","passed","Tue Sep 30 22:22:28 UTC 2025","Cycles > Slots Management > My Slot Position","User","",""
+"","167","Recent activities","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:08 UTC 2025","passed","Tue Sep 30 22:22:08 UTC 2025","Dashboard > Recent activities","User","",""
+"","158","Update Cycle - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:22 UTC 2025","passed","Tue Sep 30 22:22:22 UTC 2025","Cycles > Edit Cycle","User","",""
+"","158","Delete all user notifications","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:34 UTC 2025","passed","Tue Sep 30 22:22:34 UTC 2025","Notifications > Delete all user notifications","User","",""
+"","162","All Group Members – Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:15 UTC 2025","passed","Tue Sep 30 22:22:16 UTC 2025","Groups > All group members","User","",""
+"Fields that can be updated include:  
+- first_name: string  
+- last_name: string  
+- gender: string  
+- phone: string  
+- address: string  
+- image: string  
+- account: { bank_name: string; account_name: 
+  string; account_number: string; }","164","Update user profile -empty first name field","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:10 UTC 2025","failed","Tue Sep 30 22:22:11 UTC 2025","Profile > Update user profile","User","",""
+"","163","Assign Slot Positions - Invalid Token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:30 UTC 2025","failed","Tue Sep 30 22:22:30 UTC 2025","Cycles > Slots Management > Assign Slot Position","User","",""
+"","331","Get my cycles - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:23 UTC 2025","passed","Tue Sep 30 22:22:23 UTC 2025","Cycles > Get My Cycles","User","",""
+"","165","My Slot Position For a Cycle - Invalid Token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:28 UTC 2025","failed","Tue Sep 30 22:22:28 UTC 2025","Cycles > Slots Management > My Slot Position","User","",""
+"","163","Confirm Contribution","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:32 UTC 2025","passed","Tue Sep 30 22:22:32 UTC 2025","Contributions > Confirm Contribution","User","",""
+"","176","Assign Slot Positions - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:29 UTC 2025","passed","Tue Sep 30 22:22:29 UTC 2025","Cycles > Slots Management > Assign Slot Position","User","",""
+"Fields that can be updated include:  
+- first_name: string  
+- last_name: string  
+- gender: string  
+- phone: string  
+- address: string  
+- image: string  
+- account: { bank_name: string; account_name: 
+  string; account_number: string; }","165","Update user profile -empty last name field","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:11 UTC 2025","failed","Tue Sep 30 22:22:11 UTC 2025","Profile > Update user profile","User","",""
+"","165","Cycles in a group - invalid group id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:24 UTC 2025","failed","Tue Sep 30 22:22:24 UTC 2025","Cycles > Get Cycles in Group","User","",""
+"","199","Forgot Password - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:06 UTC 2025","failed","Tue Sep 30 22:22:06 UTC 2025","Onboarding > Forgot Password > Forgot Password","User","",""
+"If user_exists is false, the user must create an account before they can accept or reject an invite.  
+
+If user_exists is true, the user has to be logged in to accept or reject an invite.","159","Validate invite token - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:14 UTC 2025","passed","Tue Sep 30 22:22:14 UTC 2025","Groups > Validate invite token","User","",""
+"","159","User notifications","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:33 UTC 2025","passed","Tue Sep 30 22:22:33 UTC 2025","Notifications > User notifications","User","",""
+"","164","Start cycle - No auth token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:18 UTC 2025","passed","Tue Sep 30 22:22:18 UTC 2025","Cycles > Start cycle","User","",""
+"","164","Get User-invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:12 UTC 2025","passed","Tue Sep 30 22:22:12 UTC 2025","Profile > Get user profile","User","",""
+"","164","Start cycle - Unauthorized User","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:19 UTC 2025","passed","Tue Sep 30 22:22:19 UTC 2025","Cycles > Start cycle","User","",""
+"","175","Get my cycles - Invalid group id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:23 UTC 2025","passed","Tue Sep 30 22:22:23 UTC 2025","Cycles > Get My Cycles","User","",""
+"","166","Create Group – Unauthorized","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:17 UTC 2025","passed","Tue Sep 30 22:22:17 UTC 2025","Groups > Create group","User","",""
+"","163","Get all filled cycle slots - Invalid Token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:27 UTC 2025","failed","Tue Sep 30 22:22:28 UTC 2025","Cycles > Slots Management > Fiiled Slots","User","",""
+"","179","Get cycle by ID - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:25 UTC 2025","passed","Tue Sep 30 22:22:25 UTC 2025","Cycles > Get Cycle by ID","User","",""
+"","160","Update Cycle - Missing","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:22 UTC 2025","passed","Tue Sep 30 22:22:22 UTC 2025","Cycles > Edit Cycle","User","",""
+"","168","Get upload- No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:09 UTC 2025","failed","Tue Sep 30 22:22:10 UTC 2025","Uploads > Get Upload","User","",""
+"","164","Start cycle - Invalid group ID","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:19 UTC 2025","passed","Tue Sep 30 22:22:19 UTC 2025","Cycles > Start cycle","User","",""
+"","164","Invite Member – Unauthorized","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:12 UTC 2025","failed","Tue Sep 30 22:22:13 UTC 2025","Groups > Invite member","User","",""
+"","161","Cycles in a group - Successs","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:23 UTC 2025","passed","Tue Sep 30 22:22:24 UTC 2025","Cycles > Get Cycles in Group","User","",""
+"","166","Invite Member – invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:13 UTC 2025","failed","Tue Sep 30 22:22:13 UTC 2025","Groups > Invite member","User","",""
+"","174","Join cycle - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:25 UTC 2025","passed","Tue Sep 30 22:22:26 UTC 2025","Cycles > Join Cycle","User","",""
+"","160","View Group Members – Unauthorized","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:16 UTC 2025","passed","Tue Sep 30 22:22:17 UTC 2025","Groups > View group members","User","",""
+"","159","Get available slots","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:32 UTC 2025","passed","Tue Sep 30 22:22:32 UTC 2025","Cycles > Slots Management > Available Slots","User","",""
+"","166","Delete Upload-success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:10 UTC 2025","passed","Tue Sep 30 22:22:10 UTC 2025","Uploads > Delete upload","User","",""
+"","162","Join cycle - No auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:26 UTC 2025","passed","Tue Sep 30 22:22:26 UTC 2025","Cycles > Join Cycle","User","",""
+"","159","All Group Members – Unauthorized","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:16 UTC 2025","passed","Tue Sep 30 22:22:16 UTC 2025","Groups > All group members","User","",""
+"","165","Start cycle - Invalid min slot","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:18 UTC 2025","passed","Tue Sep 30 22:22:18 UTC 2025","Cycles > Start cycle","User","",""
+"","163","User Slot Position For a Cycle - No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:29 UTC 2025","passed","Tue Sep 30 22:22:29 UTC 2025","Cycles > Slots Management > User Slot Position","User","",""
+"","167","Login User - empty requirement field","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:06 UTC 2025","failed","Tue Sep 30 22:22:06 UTC 2025","Onboarding > Login","User","",""
+"","160","Delete cycle - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:20 UTC 2025","passed","Tue Sep 30 22:22:21 UTC 2025","Cycles > Delete Cycle","User","",""
+"","163","Add Contribution","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:32 UTC 2025","passed","Tue Sep 30 22:22:32 UTC 2025","Contributions > Add Contribution","User","",""
+"","470","All Group Invites – Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:14 UTC 2025","passed","Tue Sep 30 22:22:15 UTC 2025","Groups > All group invites","User","",""
+"","238","Login User - Success (Other User 1)","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:05 UTC 2025","passed","Tue Sep 30 22:22:05 UTC 2025","Onboarding > Login","User","",""
+"","163","My Groups - Invalid Token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:12 UTC 2025","failed","Tue Sep 30 22:22:12 UTC 2025","Groups > My Groups","User","",""
+"","205","Start cycle - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:18 UTC 2025","passed","Tue Sep 30 22:22:18 UTC 2025","Cycles > Start cycle","User","",""
+"","158","Read notification","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:33 UTC 2025","passed","Tue Sep 30 22:22:34 UTC 2025","Notifications > Read notification","User","",""
+"","165","Invite Member – Invalid Email","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:13 UTC 2025","passed","Tue Sep 30 22:22:13 UTC 2025","Groups > Invite member","User","",""
+"","168","Get upload-invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:10 UTC 2025","failed","Tue Sep 30 22:22:10 UTC 2025","Uploads > Get Upload","User","",""
+"","169","Upload a file-No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:09 UTC 2025","passed","Tue Sep 30 22:22:09 UTC 2025","Uploads > Upload a file","User","",""
+"","163","Get cycle settings - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:20 UTC 2025","passed","Tue Sep 30 22:22:20 UTC 2025","Cycles > Get Cycle Settings","User","",""
+"","164","Confirm Token*","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:05 UTC 2025","passed","Tue Sep 30 22:22:05 UTC 2025","Onboarding > Confrm Token*","User","",""
+"","184","Start cycle - Max slot","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:20 UTC 2025","failed","Tue Sep 30 22:22:20 UTC 2025","Cycles > Start cycle","User","",""
+"","172","Dashboard","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:08 UTC 2025","passed","Tue Sep 30 22:22:08 UTC 2025","Dashboard > Dashboard","User","",""
+"","183","Get Group by ID – Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:13 UTC 2025","passed","Tue Sep 30 22:22:13 UTC 2025","Groups > Get Group by Id","User","",""
+"","161","Get Cycle Contributions","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:32 UTC 2025","passed","Tue Sep 30 22:22:33 UTC 2025","Contributions > Get Cycle Contributions","User","",""
+"","1002","Register User - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:03 UTC 2025","passed","Tue Sep 30 22:22:04 UTC 2025","Onboarding > Register User","User","",""
+"","159","Slot swap by group admin","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:31 UTC 2025","passed","Tue Sep 30 22:22:31 UTC 2025","Cycles > Slots Management > Slot Swap by Group Admin","User","",""
+"","162","Get My Cycle Contributions","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:33 UTC 2025","passed","Tue Sep 30 22:22:33 UTC 2025","Contributions > Get My Cycle Contributions","User","",""
+"","162","Cycles in a group - No auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:24 UTC 2025","passed","Tue Sep 30 22:22:24 UTC 2025","Cycles > Get Cycles in Group","User","",""
+"","161","All Group Members – Forbidden","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:16 UTC 2025","passed","Tue Sep 30 22:22:16 UTC 2025","Groups > All group members","User","",""
+"","177","Upload a file-no file uploaded","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:09 UTC 2025","passed","Tue Sep 30 22:22:09 UTC 2025","Uploads > Upload a file","User","",""
+"","159","Join cycle Copy - Forbidden","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:26 UTC 2025","passed","Tue Sep 30 22:22:26 UTC 2025","Cycles > Join Cycle","User","",""
+"","159","End Cycle - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:21 UTC 2025","passed","Tue Sep 30 22:22:21 UTC 2025","Cycles > End Cycle","User","",""
+"","162","Update Cycle - Invalid id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:22 UTC 2025","passed","Tue Sep 30 22:22:22 UTC 2025","Cycles > Edit Cycle","User","",""
+"Fields that can be updated include:  
+- first_name: string  
+- last_name: string  
+- gender: string  
+- phone: string  
+- address: string  
+- image: string  
+- account: { bank_name: string; account_name: 
+  string; account_number: string; }","165","Update user profile -empty salary field","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:11 UTC 2025","failed","Tue Sep 30 22:22:11 UTC 2025","Profile > Update user profile","User","",""
+"","167","My Slot Position For a Cycle - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:28 UTC 2025","failed","Tue Sep 30 22:22:28 UTC 2025","Cycles > Slots Management > My Slot Position","User","",""
+"","170","Get cycle settings - Invalid Cycle Id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:20 UTC 2025","passed","Tue Sep 30 22:22:20 UTC 2025","Cycles > Get Cycle Settings","User","",""
+"","189","Slot Swap request - No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:30 UTC 2025","passed","Tue Sep 30 22:22:31 UTC 2025","Cycles > Slots Management > Slot Swap Request","User","",""
+"","163","My Slot Position For a Cycle - invalid id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:28 UTC 2025","passed","Tue Sep 30 22:22:28 UTC 2025","Cycles > Slots Management > My Slot Position","User","",""
+"","162","View Group Members – Missing Params","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:17 UTC 2025","passed","Tue Sep 30 22:22:17 UTC 2025","Groups > View group members","User","",""
+"Fields that can be updated include:  
+- first_name: string  
+- last_name: string  
+- gender: string  
+- phone: string  
+- address: string  
+- image: string  
+- account: { bank_name: string; account_name: 
+  string; account_number: string; }","164","Update user profile-No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:11 UTC 2025","passed","Tue Sep 30 22:22:11 UTC 2025","Profile > Update user profile","User","",""
+"","162","View exchange request","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:31 UTC 2025","passed","Tue Sep 30 22:22:32 UTC 2025","Cycles > Slots Management > View Exchange Request","User","",""
+"status can be accepted or rejected","159","Accept or Reject Invite","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:14 UTC 2025","passed","Tue Sep 30 22:22:14 UTC 2025","Groups > Accept or reject invite","User","",""
+"","162","User Slot Position For a Cycle - Invalid Token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:29 UTC 2025","failed","Tue Sep 30 22:22:29 UTC 2025","Cycles > Slots Management > User Slot Position","User","",""
+"","164","All Group Invites – Unauthorized","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:15 UTC 2025","failed","Tue Sep 30 22:22:15 UTC 2025","Groups > All group invites","User","",""
+"","167","Forgot Password - non existing email","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:06 UTC 2025","failed","Tue Sep 30 22:22:07 UTC 2025","Onboarding > Forgot Password > Forgot Password","User","",""
+"","163","Slot Swap request - invalid id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:31 UTC 2025","failed","Tue Sep 30 22:22:31 UTC 2025","Cycles > Slots Management > Slot Swap Request","User","",""
+"#### Notification Structure
+
+- For recipient on the platform but not on the group:
+    
+
+``` json
+{
+  ""title"": ""SLOT Exchange Request"",
+  ""message"": ""You have reecieved a slot exchange request from slot_user_name (slot position - slot_position)"",
+  ""meta"": {
+     ""exchange_id"": ""exchange_id"",
+     ""slot"": {
+          ""position"": ""slot_position"",
+          ""percentage"": ""slot_percentage"",
+          ""id"": ""slot_id""
+          },
+      ""group"": {
+           ""name"": ""group.name"",
+           ""id"": ""group.id""
+         }
+      },
+  ""section"": ""slot_exchange_request"",
+  ""user_id"": ""id"",
+ }
+
+ ```
+
+- For recipient on the group:
+    
+
+``` json
+{
+  ""title"": ""SLOT Exchange Request"",
+  ""message"": ""You have reecieved a slot exchange request from {{last_name}} {{first_name}} (slot position - {{slot_position}})"",
+  ""meta"": {
+    ""exchange_id"": ""{{exchange_id}}"",
+    ""slot"": {
+      ""position"": ""{{slot_position}}"",
+      ""percentage"": ""{{slot_percentage}}"",
+      ""id"": ""{{slot_id}}""
+    }
+  },
+  ""section"": ""slot_exchange_request"",
+  ""user_id"": ""{{recipient_user_id}}""
+}
+
+ ```","159","Slot exchange","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:31 UTC 2025","passed","Tue Sep 30 22:22:31 UTC 2025","Cycles > Slots Management > Slot Exchange","User","",""
+"### Overview.
+
+Duration can be one of month/months/week/weeks.  
+If the cycle the slot belongs to has a monthly frequency, then the durations should be in `week|weeks`, i.e.
+
+``` json
+{
+ ""duration"": ""4 weeks""
+ }
+
+ ```
+
+if the cycle frequency is monthly, then the duration should be in `month|months` i.e.
+
+``` json
+{
+ ""duration"": ""4 months""
+ }
+
+ ```
+
+> NOTE: Ensure the duration of slot freeze is not greater than duration of the cycle, i.e. a cycle with duration of 6 months, would not allow a slot freeze with duration of 7 months.","160","Slot freeze","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:31 UTC 2025","passed","Tue Sep 30 22:22:31 UTC 2025","Cycles > Slots Management > Slot Freeze","User","",""
+"","161","End Cycle - Invalid id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:21 UTC 2025","passed","Tue Sep 30 22:22:22 UTC 2025","Cycles > End Cycle","User","",""
+"","162","Get my cycles - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:23 UTC 2025","passed","Tue Sep 30 22:22:23 UTC 2025","Cycles > Get My Cycles","User","",""
+"","165","Recent activities- invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:08 UTC 2025","passed","Tue Sep 30 22:22:08 UTC 2025","Dashboard > Recent activities","User","",""
+"","167","Get User Profile","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:11 UTC 2025","passed","Tue Sep 30 22:22:11 UTC 2025","Profile > Get user profile","User","",""
+"","159","View Group Members – Invalid Group ID","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:17 UTC 2025","passed","Tue Sep 30 22:22:17 UTC 2025","Groups > View group members","User","",""
+"","167","Create Group – Invalid Params (invalid email format in members)","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:18 UTC 2025","passed","Tue Sep 30 22:22:18 UTC 2025","Groups > Create group","User","",""
+"","225","Login User - invalid password","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:06 UTC 2025","passed","Tue Sep 30 22:22:06 UTC 2025","Onboarding > Login","User","",""
+"","165","Delete Upload-No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:10 UTC 2025","passed","Tue Sep 30 22:22:10 UTC 2025","Uploads > Delete upload","User","",""
+"","166","Forgot Password - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:07 UTC 2025","failed","Tue Sep 30 22:22:07 UTC 2025","Onboarding > Forgot Password > Forgot Password","User","",""
+"","190","Forgot Password - no authentication","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:07 UTC 2025","failed","Tue Sep 30 22:22:07 UTC 2025","Onboarding > Forgot Password > Forgot Password","User","",""
+"","165","Get cycle settings - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:20 UTC 2025","passed","Tue Sep 30 22:22:20 UTC 2025","Cycles > Get Cycle Settings","User","",""
+"","166","Get cycle by ID - Invalid cycle id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:25 UTC 2025","passed","Tue Sep 30 22:22:25 UTC 2025","Cycles > Get Cycle by ID","User","",""
+"","163","Get all filled cycle slots - invalid id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:27 UTC 2025","passed","Tue Sep 30 22:22:27 UTC 2025","Cycles > Slots Management > Fiiled Slots","User","",""
+"","165","View Group Members – Forbidden","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:17 UTC 2025","passed","Tue Sep 30 22:22:17 UTC 2025","Groups > View group members","User","",""
+"","160","Create Group – Missing Params (no name)","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:17 UTC 2025","passed","Tue Sep 30 22:22:18 UTC 2025","Groups > Create group","User","",""
+"","164","Assign Slot Positions - user id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:30 UTC 2025","passed","Tue Sep 30 22:22:30 UTC 2025","Cycles > Slots Management > Assign Slot Position","User","",""
+"","164","Resend verification email - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:07 UTC 2025","failed","Tue Sep 30 22:22:07 UTC 2025","Onboarding > Resend verification email","User","",""
+"","166","Post Create Group – Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:17 UTC 2025","passed","Tue Sep 30 22:22:17 UTC 2025","Groups > Create group","User","",""
+"","163","Start cycle -empty duration field","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:19 UTC 2025","passed","Tue Sep 30 22:22:19 UTC 2025","Cycles > Start cycle","User","",""
+"","163","Get cycle members - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:24 UTC 2025","passed","Tue Sep 30 22:22:25 UTC 2025","Cycles > Get Cycle Members","User","",""
+"","176","Register User - invalid email","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:04 UTC 2025","failed","Tue Sep 30 22:22:04 UTC 2025","Onboarding > Register User","User","",""
+"","158","Delete cycle - Forbidden","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:21 UTC 2025","passed","Tue Sep 30 22:22:21 UTC 2025","Cycles > Delete Cycle","User","",""
+"","163","View cycle member - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:26 UTC 2025","passed","Tue Sep 30 22:22:26 UTC 2025","Cycles > View Cycle Member","User","",""
+"","176","All Group Invites – Missing Params","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:15 UTC 2025","passed","Tue Sep 30 22:22:15 UTC 2025","Groups > All group invites","User","",""
+"","163","My Groups – No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:12 UTC 2025","failed","Tue Sep 30 22:22:12 UTC 2025","Groups > My Groups","User","",""
+"","162","Cycles in a group - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:24 UTC 2025","passed","Tue Sep 30 22:22:24 UTC 2025","Cycles > Get Cycles in Group","User","",""
+"","165","Invite member - Missing Email","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:13 UTC 2025","passed","Tue Sep 30 22:22:13 UTC 2025","Groups > Invite member","User","",""
+"","166","Join cycle - invalid cycle id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:26 UTC 2025","passed","Tue Sep 30 22:22:26 UTC 2025","Cycles > Join Cycle","User","",""
+"","160","All Group Members – Missing Params","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:16 UTC 2025","passed","Tue Sep 30 22:22:16 UTC 2025","Groups > All group members","User","",""
+"","165","My Groups - Success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:12 UTC 2025","passed","Tue Sep 30 22:22:12 UTC 2025","Groups > My Groups","User","",""
+"","163","Delete cycle - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:21 UTC 2025","passed","Tue Sep 30 22:22:21 UTC 2025","Cycles > Delete Cycle","User","",""
+"","171","Get upload","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:09 UTC 2025","failed","Tue Sep 30 22:22:09 UTC 2025","Uploads > Get Upload","User","",""
+"","161","Get Group by ID – No Auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:13 UTC 2025","passed","Tue Sep 30 22:22:13 UTC 2025","Groups > Get Group by Id","User","",""
+"","163","User Slot Position For a Cycle - invalid cycle id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:29 UTC 2025","passed","Tue Sep 30 22:22:29 UTC 2025","Cycles > Slots Management > User Slot Position","User","",""
+"","164","View cycle member - invalid member id","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:26 UTC 2025","passed","Tue Sep 30 22:22:27 UTC 2025","Cycles > View Cycle Member","User","",""
+"","164","Start cycle - No start date","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:19 UTC 2025","passed","Tue Sep 30 22:22:19 UTC 2025","Cycles > Start cycle","User","",""
+"","164","Get Contribution","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:32 UTC 2025","passed","Tue Sep 30 22:22:32 UTC 2025","Contributions > Get Contribution","User","",""
+"Fields that can be updated include:  
+- first_name: string  
+- last_name: string  
+- gender: string  
+- phone: string  
+- address: string  
+- image: string  
+- account: { bank_name: string; account_name: 
+  string; account_number: string; }","172","Update user profile - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:10 UTC 2025","passed","Tue Sep 30 22:22:10 UTC 2025","Profile > Update user profile","User","",""
+"","162","View cycle member - no auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:27 UTC 2025","passed","Tue Sep 30 22:22:27 UTC 2025","Cycles > View Cycle Member","User","",""
+"","158","Fulfil slot exchage request","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:32 UTC 2025","passed","Tue Sep 30 22:22:32 UTC 2025","Cycles > Slots Management > Fulfill Exchange Request","User","",""
+"","165","Join cycle - Invalid token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:26 UTC 2025","passed","Tue Sep 30 22:22:26 UTC 2025","Cycles > Join Cycle","User","",""
+"","163","Recent activities- no Auth token","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:08 UTC 2025","passed","Tue Sep 30 22:22:09 UTC 2025","Dashboard > Recent activities","User","",""
+"","173","Upload a file-sucess","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:09 UTC 2025","failed","Tue Sep 30 22:22:09 UTC 2025","Uploads > Upload a file","User","",""
+"","210","Add event to calendar","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:33 UTC 2025","passed","Tue Sep 30 22:22:33 UTC 2025","Calendar > Add event to calender","User","",""
+"","163","End Cycle - No auth","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:21 UTC 2025","passed","Tue Sep 30 22:22:21 UTC 2025","Cycles > End Cycle","User","",""
+"","161","End Cycle - Forbidden","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:22 UTC 2025","passed","Tue Sep 30 22:22:22 UTC 2025","Cycles > End Cycle","User","",""
+"","159","Slot swap decision","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:31 UTC 2025","passed","Tue Sep 30 22:22:31 UTC 2025","Cycles > Slots Management > Slot Swap Decision","User","",""
+"","167","Get Group by ID – Missing Params","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:14 UTC 2025","failed","Tue Sep 30 22:22:14 UTC 2025","Groups > Get Group by Id","User","",""
+"","164","User Slot Position For a Cycle - success","SLOT FINANCE - Users - QA","Tue Sep 30 22:22:28 UTC 2025","passed","Tue Sep 30 22:22:29 UTC 2025","Cycles > Slots Management > User Slot Position","User","",""

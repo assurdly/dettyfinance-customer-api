@@ -30095,12 +30095,8 @@
 														"exec": [
 															"const jsonData = pm.response.json();\r",
 															"\r",
-															"pm.test(\"Status code is 422\", function () {\r",
-															"    pm.expect(pm.response.code).to.be.oneOf([422]);\r",
-															"});\r",
-															"\r",
-															"pm.test(\"Response is JSON\", function () {\r",
-															"    pm.response.to.be.json;\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Error flag is true\", function () {\r",
@@ -30108,9 +30104,10 @@
 															"    pm.expect(res.error).to.eql(true);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Message indicates invalid uuid\", function () {\r",
+															"pm.test(\"Message indicates authentication required\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.message).to.include(\"invalid uuid\");\r",
+															"    pm.expect(res.message).to.include(\"not authenticated\");\r",
+															"    pm.expect(res.message).to.include(\"login\");\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Data is null\", function () {\r",
@@ -30130,10 +30127,7 @@
 											},
 											"request": {
 												"auth": {
-													"type": "bearer",
-													"bearer": {
-														"token": "{{login_access_token}}"
-													}
+													"type": "noauth"
 												},
 												"method": "POST",
 												"header": [],
@@ -30168,6 +30162,186 @@
 											"response": [
 												{
 													"id": "8dc6e526-0134-4034-83fa-426441b49f1b",
+													"name": "Assign slot position",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\r\n    \"slot_percentage\": 50,\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_position\": 2,\r\n    \"user_id\": \"8d84095e-78ff-441b-a3f3-b38a69a7fd27\"\r\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": "{{origin}}/cycles/1a4751e1-6b37-4d2f-aeaf-0d204280eba6/slots/assign"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "53"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"35-d1ybj9S7/e9mgEnmJGdIc7cgrm4\""
+														},
+														{
+															"key": "Date",
+															"value": "Sat, 12 Oct 2024 12:09:17 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Joined cycle successfully\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Assign Slot Positions - No Auth Copy",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "89f83d71-b1a7-4716-9f3d-fc66de4a947c",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is true\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(true);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message indicates authentication required\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"not authenticated\");\r",
+															"    pm.expect(res.message).to.include(\"login\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "ff443d40-4f5f-4537-a1df-043830bf5867",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"SEPTEMBER\", //MAY\r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots/assign",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots",
+														"assign"
+													],
+													"variable": [
+														{
+															"id": "9c4ec946-cf41-47b2-8cc9-5898f99d562d",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "420a4b6f-c601-4bc7-b32d-f78a04276371",
 													"name": "Assign slot position",
 													"originalRequest": {
 														"method": "POST",

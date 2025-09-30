@@ -1,0 +1,1 @@
+{"error":true,"message":"contribution_end_day: contribution end day should be one of (25, 26, 27, 28, 29, 30, 31, last_day_of_the_month) for monthly contributions.","data":null}

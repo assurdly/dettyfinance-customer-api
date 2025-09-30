@@ -11275,7 +11275,7 @@
 									]
 								},
 								{
-									"name": "Get Group by ID – Unauthorized",
+									"name": "Get Group by ID – No Auth",
 									"event": [
 										{
 											"listen": "test",

@@ -30265,7 +30265,7 @@
 											]
 										},
 										{
-											"name": "Assign Slot Positions - No Auth Copy",
+											"name": "Assign Slot Positions - Invalid Token",
 											"event": [
 												{
 													"listen": "test",
@@ -30283,9 +30283,9 @@
 															"    pm.expect(res.error).to.eql(true);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Message indicates authentication required\", function () {\r",
+															"pm.test(\"Message indicates Invalid token. Please authenticate again or contact support\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.message).to.include(\"not authenticated\");\r",
+															"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
 															"    pm.expect(res.message).to.include(\"login\");\r",
 															"});\r",
 															"\r",
@@ -30306,7 +30306,10 @@
 											},
 											"request": {
 												"auth": {
-													"type": "noauth"
+													"type": "bearer",
+													"bearer": {
+														"token": "{{wrong_token}}"
+													}
 												},
 												"method": "POST",
 												"header": [],
@@ -30332,7 +30335,6 @@
 													],
 													"variable": [
 														{
-															"id": "9c4ec946-cf41-47b2-8cc9-5898f99d562d",
 															"key": "cycle_id",
 															"value": "{{cycle_id}}"
 														}

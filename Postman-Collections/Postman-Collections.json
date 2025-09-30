@@ -30086,7 +30086,7 @@
 											]
 										},
 										{
-											"name": "Assign Slot Positions -",
+											"name": "Assign Slot Positions - No Auth",
 											"event": [
 												{
 													"listen": "test",
@@ -30139,7 +30139,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"SEPTEMBER\", //MAY\r\n    \"user_id\": \"9943b810-a27c-4e9d-891a-82f4fcbcvbnm\"\r\n}",
+													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"SEPTEMBER\", //MAY\r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -30159,9 +30159,8 @@
 													],
 													"variable": [
 														{
-															"id": "75fdc7db-867c-4fd0-bb16-f959705b3f2b",
 															"key": "cycle_id",
-															"value": "69ec8aaf-8a0a-4e77-9fe1-7a800SDFGH"
+															"value": "{{cycle_id}}"
 														}
 													]
 												}

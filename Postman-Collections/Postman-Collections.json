@@ -29716,7 +29716,7 @@
 											]
 										},
 										{
-											"name": "Assign Slot Positions -",
+											"name": "Assign Slot Positions - empty slot amount",
 											"event": [
 												{
 													"listen": "test",
@@ -29765,7 +29765,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n    \"slot_amount_to_pay\": 10000,\r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"OCTOBER\", //MAY\r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
+													"raw": "{\r\n    \"slot_amount_to_pay\": \r\n    \"slot_percentage\": 100,\r\n    \"slot_position\": \"OCTOBER\", //MAY\r\n    \"user_id\": \"{{second_user_id}}\"\r\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29785,7 +29785,6 @@
 													],
 													"variable": [
 														{
-															"id": "75a3af29-967d-45c7-8c21-8a155f29acda",
 															"key": "cycle_id",
 															"value": "{{cycle_id}}"
 														}

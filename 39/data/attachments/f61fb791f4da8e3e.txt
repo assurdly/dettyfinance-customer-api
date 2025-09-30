@@ -1,1 +1,0 @@
-{"error":false,"message":"Fetched user dashboard successfully","data":{"groups":3,"last_group_created":{"id":"818558bf-d0b0-4ad4-ba45-819a6b528c7f","name":"The Group Backend-2"},"ongoing_cycles":0,"last_cycle_created":{"id":"f6ff753c-35ea-457a-96a9-84748f42e882","name":"Fbi Money Optical}}"},"total_amount_contributed":0,"last_contribution_from":null}}

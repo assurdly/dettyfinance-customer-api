@@ -27542,26 +27542,7 @@
 													"script": {
 														"id": "a3c71b39-baf7-4ce1-83af-c113439319b2",
 														"exec": [
-															"const jsonData = pm.response.json();\r",
-															"\r",
-															"pm.test(\"Set circle id as a collection variable\", function () {\r",
-															" pm.collectionVariables.set(\"circle_id\", jsonData.data[0].id);\r",
-															"});\r",
-															"\r",
-															"pm.test(\"Check if the response status code is 200\", function () {\r",
-															"    pm.response.to.have.status(200);\r",
-															"});\r",
-															"\r",
-															"pm.test(\"Check if the response contains the correct error message\", function () {\r",
-															"    pm.expect(jsonData.message).to.exist;\r",
-															"\r",
-															"});\r",
-															"\r",
-															"pm.test(\"Check if the response contains the correct response data\", function () {\r",
-															"    pm.expect(jsonData.data).to.exist;\r",
-															"})\r",
-															"\r",
-															""
+															"const jsonData = pm.response.json();"
 														],
 														"type": "text/javascript",
 														"packages": {},
@@ -27594,9 +27575,8 @@
 													],
 													"variable": [
 														{
-															"id": "7d7aec4d-a574-4d2a-ad18-a2d7b421ca26",
 															"key": "cycle_id",
-															"value": "{{cycle_id}}"
+															"value": "6630375d-0dde-488b-ab5c-dfghjklkjhgvfc"
 														}
 													]
 												}

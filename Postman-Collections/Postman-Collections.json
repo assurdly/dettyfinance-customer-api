@@ -27502,6 +27502,136 @@
 											]
 										},
 										{
+											"name": "Get all filled cycle slots - Invalid Token",
+											"id": "e8366865-1558-4fea-ab73-40a21280831e",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots"
+													],
+													"variable": [
+														{
+															"id": "6e4c4618-3d8e-4a3b-9d6f-503eb608abcd",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "3593f15e-0e05-4797-acce-3b3e5d91a125",
+													"name": "All filled cycle slots",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{origin}}/cycles/1a4751e1-6b37-4d2f-aeaf-0d204280eba6/slots"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "423"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1a7-zFrcSDD9x0IbYmtthQIq8Upu0tY\""
+														},
+														{
+															"key": "Date",
+															"value": "Sat, 12 Oct 2024 10:31:49 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Fetched slot positions successfully\",\n    \"data\": [\n        {\n            \"user\": {\n                \"id\": \"3985bd41-d9ee-44ff-b6bc-bccca7dc8653\",\n                \"name\": \"Testing Last\"\n            },\n            \"slot_percentage\": 50,\n            \"slot_position\": 1\n        },\n        {\n            \"user\": {\n                \"id\": \"8d84095e-78ff-441b-a3f3-b38a69a7fd27\",\n                \"name\": \"Radio Machine\"\n            },\n            \"slot_percentage\": 50,\n            \"slot_position\": 1\n        },\n        {\n            \"user\": {\n                \"id\": \"8d84095e-78ff-441b-a3f3-b38a69a7fd27\",\n                \"name\": \"Radio Machine\"\n            },\n            \"slot_percentage\": 100,\n            \"slot_position\": 2\n        }\n    ]\n}"
+												}
+											]
+										},
+										{
 											"name": "Get all filled cycle slots - No Auth",
 											"event": [
 												{

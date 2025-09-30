@@ -20462,11 +20462,47 @@
 								},
 								{
 									"name": "Get cycle settings - Invalid Cycle Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "937ff99c-9da5-4b71-9faf-e5011f21776e",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Check that the response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the error field is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Check that the message indicate that the cycle settings were fetched successfully\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Fetched cycle settings successfully\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "5f09a62f-d7d8-44f1-9d78-33b75bb2e1e2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -20481,9 +20517,8 @@
 											],
 											"variable": [
 												{
-													"id": "98608680-7570-440b-a1fe-63b8cc4c1eb5",
 													"key": "cycle_id",
-													"value": "3add3131-8537-4e35-b9bf-aee00468ad34"
+													"value": "3add3131-8537-4e35-b9bf-aee00468ad38"
 												}
 											]
 										}

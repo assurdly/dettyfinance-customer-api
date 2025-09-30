@@ -1,0 +1,13 @@
+{
+    "first_name": "Ayomide",
+    "last_name": "  Liasu",
+    "email": "Fay@yopmail.com",
+    "password": "Test123@",
+    "financials": {
+        "salary": "100000  500000",
+        "currency": "USD",
+        "job_title": "software developer",
+        "risk_level": "mid",
+        "company": "Netflix"
+    }
+}

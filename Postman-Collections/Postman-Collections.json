@@ -24258,11 +24258,57 @@
 								},
 								{
 									"name": "Get cycle members - Invalid (bad cycle ID)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "dacf8e31-76fa-4274-aaf2-98d8c7f2ef82",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid location\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "29db4eed-fd92-4814-a38c-4ae10bed065c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -24277,7 +24323,6 @@
 											],
 											"variable": [
 												{
-													"id": "8c286ab5-edf9-4eb9-ba74-6f8615539664",
 													"key": "cycle_id",
 													"value": "87e15509-9bbb-4fa6-afe3-23b050263de8"
 												}

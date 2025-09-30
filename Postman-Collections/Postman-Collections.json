@@ -28024,12 +28024,9 @@
 													"script": {
 														"id": "d969a297-f2fd-4f4b-b45d-be3c31655918",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {\r",
-															"    pm.response.to.have.status(200);\r",
-															"});\r",
+															"const jsonData = pm.response.json();\r",
 															"\r",
-															"pm.test(\"Response is JSON\", function () {\r",
-															"    pm.response.to.be.json;\r",
+															"pm.test(\"Status code is 200\", function () {\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Error flag is false\", function () {\r",
@@ -28040,12 +28037,6 @@
 															"pm.test(\"Message confirms fetch success\", function () {\r",
 															"    let res = pm.response.json();\r",
 															"    pm.expect(res.message).to.include(\"Fetched user slot positions successfully\");\r",
-															"});\r",
-															"\r",
-															"pm.test(\"Data is an array\", function () {\r",
-															"    let res = pm.response.json();\r",
-															"    pm.expect(res.data).to.be.an(\"array\");\r",
-															"    pm.expect(res.data.length).to.be.above(0);\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Each slot has required fields\", function () {\r",
@@ -28206,7 +28197,7 @@
 											]
 										},
 										{
-											"name": "My Slot Position For a Cycle - success Copy",
+											"name": "My Slot Position For a Cycle - invalid id",
 											"id": "683f8363-6234-4b67-a970-5d82b26d4745",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

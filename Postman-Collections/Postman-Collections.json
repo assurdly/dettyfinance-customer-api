@@ -24454,12 +24454,58 @@
 									]
 								},
 								{
-									"name": "Get cycle members - Forbidden (user not in cycle tries to fetch members)",
+									"name": "Get cycle members - invalid admin id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "92e2aed7-3f81-47a2-8373-e1558cf2fc25",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid location\r",
+													"pm.test(\"Check that the message indicate invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is empty\r",
+													"pm.test(\"Check that the data field is empty\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.empty;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "d2b604b1-ba47-4d8f-b44f-02d1cbfbef8c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -24474,7 +24520,6 @@
 											],
 											"variable": [
 												{
-													"id": "8c286ab5-edf9-4eb9-ba74-6f8615539664",
 													"key": "cycle_id",
 													"value": "87e15509-9bbb-4fa6-afe3-23b050263de8"
 												}

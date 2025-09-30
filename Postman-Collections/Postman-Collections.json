@@ -23128,6 +23128,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -23143,7 +23149,7 @@
 											"variable": [
 												{
 													"key": "group_id",
-													"value": ""
+													"value": "ef75a435-ae16-4d47-af37-aefa19eefba0"
 												}
 											]
 										}

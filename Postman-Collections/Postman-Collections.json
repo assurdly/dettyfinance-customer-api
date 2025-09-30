@@ -29901,7 +29901,7 @@
 											]
 										},
 										{
-											"name": "Assign Slot Positions - invalid id Copy",
+											"name": "Assign Slot Positions - user id",
 											"event": [
 												{
 													"listen": "test",

@@ -31639,7 +31639,7 @@
 															"const jsonData = pm.response.json();\r",
 															"\r",
 															"pm.test(\"Status code is 200\", function () {\r",
-															"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+															"    pm.expect(pm.response.code).to.be([401]);\r",
 															"});\r",
 															"\r",
 															"pm.test(\"Response is JSON\", function () {\r",
@@ -31653,7 +31653,7 @@
 															"\r",
 															"pm.test(\"Message confirms slot swap\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.message).to.eql(\"Slot swap done\");\r",
+															"    pm.expect(res.message).to.eql(\"invalid uuid\");\r",
 															"});\r",
 															""
 														],
@@ -31699,9 +31699,8 @@
 													],
 													"variable": [
 														{
-															"id": "dde03e4a-c937-420f-87c5-a441e3f3d041",
 															"key": "cycle_id",
-															"value": "{{cycle_id}}"
+															"value": "{{invalid_cycle_id}}"
 														}
 													]
 												}

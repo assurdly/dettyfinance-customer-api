@@ -33189,7 +33189,7 @@
 									"name": "Slot Exchange",
 									"item": [
 										{
-											"name": "Slot exchange",
+											"name": "Slot exchange - success",
 											"id": "96a740cd-92be-4561-928d-15fe87598fce",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -35408,7 +35408,7 @@
 									]
 								},
 								{
-									"name": "Confirm Contribution - success Copy",
+									"name": "Confirm Contribution - No auth",
 									"event": [
 										{
 											"listen": "test",
@@ -35433,8 +35433,8 @@
 													"});\r",
 													"\r",
 													"// ✅ Check message content mentions invalid token\r",
-													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"pm.test(\"Check that the message indicates not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
 													"});\r",
 													"\r",
 													"// ✅ Check that the data field exists and is null\r",
@@ -35476,7 +35476,6 @@
 											],
 											"variable": [
 												{
-													"id": "707dcd48-d7c9-4c5f-84d5-101fa7c0ae2d",
 													"key": "contribution_id",
 													"value": "18616134-9370-4a98-858e-4bda337db18a"
 												}
@@ -36518,11 +36517,54 @@
 								},
 								{
 									"name": "Get Cycle Contributions - No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "195b8720-4ac6-436a-8b4e-68070c130f55",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions not authenticated\r",
+													"pm.test(\"Check that the message indicates not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "531b4d99-58ad-4c55-a6a2-01c30aef91c8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/{cycle_id}/contributions"

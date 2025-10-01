@@ -33984,7 +33984,7 @@
 									]
 								},
 								{
-									"name": "Add Contribution Invalid slot position",
+									"name": "Add Contribution - Invalid slot position",
 									"event": [
 										{
 											"listen": "test",
@@ -34165,8 +34165,8 @@
 													"const jsonData = pm.response.json();\r",
 													"\r",
 													"// ✅ Check status code\r",
-													"pm.test(\"Check that the response code is 404\", function () {\r",
-													"    pm.response.to.have.status(404);\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
 													"// ✅ Check error field is true\r",
@@ -34179,9 +34179,9 @@
 													"    pm.expect(jsonData.message).to.exist;\r",
 													"});\r",
 													"\r",
-													"// ✅ Check message content mentions slot position not found\r",
-													"pm.test(\"Check that the message indicates slot position not found\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Slot position not found, or you are not the owner of this slot position\");\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
 													"});\r",
 													"\r",
 													"// ✅ Check that the data field exists and is null\r",
@@ -34204,7 +34204,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{login_access_token}}"
+												"token": "{{user_id}}"
 											}
 										},
 										"method": "POST",
@@ -34326,7 +34326,7 @@
 									]
 								},
 								{
-									"name": "Add Contribution Copy 3",
+									"name": "Add Contribution - no auth",
 									"event": [
 										{
 											"listen": "test",
@@ -34373,10 +34373,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
+											"type": "noauth"
 										},
 										"method": "POST",
 										"header": [],

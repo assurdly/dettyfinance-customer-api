@@ -38053,7 +38053,47 @@
 									]
 								},
 								{
-									"name": "Add event to calendar Copy",
+									"name": "Add event to calendar - No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "01c5ff8d-5c9c-4955-b918-7ce9f692c8b9",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions You are not authenticated\r",
+													"pm.test(\"Check that the message indicates You are not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "e293e5c2-a031-4ce1-8c89-9109a5b7d6f9",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -38220,7 +38260,7 @@
 							"name": "User notifications",
 							"item": [
 								{
-									"name": "User notifications",
+									"name": "User notifications - success",
 									"id": "b3633a7f-0a93-4936-9616-c457bd964bbe",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

@@ -12915,6 +12915,986 @@
 									]
 								},
 								{
+									"name": "All Group Invites – Success Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f1509508-941a-49f1-92e8-54aa905b121b",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Set invite id as a collection variable\", function () {\r",
+													" pm.collectionVariables.set(\"invite_id\", jsonData.data[0].id);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message returns correctly\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"}); \r",
+													"\r",
+													"pm.test(\"Data is an array\", function () {\r",
+													"    pm.expect(jsonData.data).to.be.an('array');\r",
+													"}); "
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "01b61d14-227f-4655-9cf8-c365206a85c0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{origin}}/groups/:group_id/invite",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"groups",
+												":group_id",
+												"invite"
+											],
+											"variable": [
+												{
+													"id": "d1efeacd-b87e-405a-bcaa-219c37b6c904",
+													"key": "group_id",
+													"value": "{{group_id}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "9e6b286a-289b-4cd1-853e-b574e42232c5",
+											"name": "All Invites",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "238"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"ee-pfb2sO0odzONy77n9H1wmVFJx1A\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:53:40 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": [\n        {\n            \"id\": \"e810b759-caea-4d6b-b92e-22c30e64989d\",\n            \"email\": \"radio@machine.com\",\n            \"status\": \"accepted\",\n            \"created_at\": \"2024-09-27T03:59:36.471Z\",\n            \"expires_at\": \"2024-10-04T04:59:29.585Z\"\n        }\n    ]\n}"
+										},
+										{
+											"id": "3e9aa923-e1f3-42da-bf25-07aaaa252f59",
+											"name": "Filter by status accepted",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite?status=accepted",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"groups",
+														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
+														"invite"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "accepted"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "238"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"ee-pfb2sO0odzONy77n9H1wmVFJx1A\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:54:16 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": [\n        {\n            \"id\": \"e810b759-caea-4d6b-b92e-22c30e64989d\",\n            \"email\": \"radio@machine.com\",\n            \"status\": \"accepted\",\n            \"created_at\": \"2024-09-27T03:59:36.471Z\",\n            \"expires_at\": \"2024-10-04T04:59:29.585Z\"\n        }\n    ]\n}"
+										},
+										{
+											"id": "923e06be-55bc-431a-8edb-0a25799108c9",
+											"name": "Filter by status rejected",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite?status=rejected",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"groups",
+														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
+														"invite"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "rejected"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "65"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"41-XaF3xkQ+UUNzUasGGJKCQe2VCOo\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:55:33 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": []\n}"
+										},
+										{
+											"id": "995ea05f-08df-4b78-84f9-7a85c9aa8de0",
+											"name": "Filter by status pending",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite?status=pending",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"groups",
+														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
+														"invite"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "pending"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "65"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"41-XaF3xkQ+UUNzUasGGJKCQe2VCOo\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:58:10 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": []\n}"
+										}
+									]
+								},
+								{
+									"name": "All Group Invites - invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f1509508-941a-49f1-92e8-54aa905b121b",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "8aef8094-da8f-46d5-a74f-4e8e27526134",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{wrong_token}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{origin}}/groups/:group_id/invite",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"groups",
+												":group_id",
+												"invite"
+											],
+											"variable": [
+												{
+													"key": "group_id",
+													"value": "{{group_id}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b9ae633d-f5f4-4bf1-ab5c-a41cb7c3021c",
+											"name": "All Invites",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "238"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"ee-pfb2sO0odzONy77n9H1wmVFJx1A\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:53:40 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": [\n        {\n            \"id\": \"e810b759-caea-4d6b-b92e-22c30e64989d\",\n            \"email\": \"radio@machine.com\",\n            \"status\": \"accepted\",\n            \"created_at\": \"2024-09-27T03:59:36.471Z\",\n            \"expires_at\": \"2024-10-04T04:59:29.585Z\"\n        }\n    ]\n}"
+										},
+										{
+											"id": "5b62bdfb-fe4b-479b-bfce-947cb64d03a6",
+											"name": "Filter by status accepted",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite?status=accepted",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"groups",
+														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
+														"invite"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "accepted"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "238"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"ee-pfb2sO0odzONy77n9H1wmVFJx1A\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:54:16 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": [\n        {\n            \"id\": \"e810b759-caea-4d6b-b92e-22c30e64989d\",\n            \"email\": \"radio@machine.com\",\n            \"status\": \"accepted\",\n            \"created_at\": \"2024-09-27T03:59:36.471Z\",\n            \"expires_at\": \"2024-10-04T04:59:29.585Z\"\n        }\n    ]\n}"
+										},
+										{
+											"id": "b91cc127-1b22-43ca-b034-644cc9072e22",
+											"name": "Filter by status rejected",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite?status=rejected",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"groups",
+														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
+														"invite"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "rejected"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "65"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"41-XaF3xkQ+UUNzUasGGJKCQe2VCOo\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:55:33 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": []\n}"
+										},
+										{
+											"id": "3e259883-4096-40c5-92ee-ccd8538a7545",
+											"name": "Filter by status pending",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/invite?status=pending",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"groups",
+														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
+														"invite"
+													],
+													"query": [
+														{
+															"key": "status",
+															"value": "pending"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "65"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"41-XaF3xkQ+UUNzUasGGJKCQe2VCOo\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 09:58:10 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Fetched invites successfully\",\n    \"data\": []\n}"
+										}
+									]
+								},
+								{
 									"name": "All Group Invites – Unauthorized",
 									"event": [
 										{

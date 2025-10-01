@@ -35584,15 +35584,6 @@
 			"key": "wrong_group_id",
 			"value": "",
 			"type": "default"
-		},
-		{
-			"key": "circle_id",
-			"value": ""
-		},
-		{
-			"key": "invalid_cycle_id",
-			"value": "",
-			"type": "default"
 		}
 	]
 }

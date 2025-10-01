@@ -33023,11 +33023,17 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"new_user_id\": \"558e221d-359c-4f5d-bcb2-11b3ae7ecc43\"\n}",
+													"raw": "{\n    \"new_user_id\": \"bb26d31d-9d82-4f1d-9af1-ce78766c253f\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33046,9 +33052,8 @@
 													],
 													"variable": [
 														{
-															"id": "a1677f3e-62fd-4b15-88b3-e9aa58c2d874",
 															"key": "slot_id",
-															"value": "e5dbe1ce-1ede-470e-9817-a45d28a3dc09"
+															"value": "6630375d-0dde-488b-ab5c-f7b0cf6f991a"
 														}
 													]
 												}

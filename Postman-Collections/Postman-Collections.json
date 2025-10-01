@@ -31254,6 +31254,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
 												"method": "PATCH",
 												"header": [],
 												"body": {
@@ -31279,12 +31285,10 @@
 													],
 													"variable": [
 														{
-															"id": "38781424-d67c-4624-bc35-91bb0ee672a5",
 															"key": "cycle_id",
-															"value": ""
+															"value": "{{cycle_id}}"
 														},
 														{
-															"id": "a1e8a84e-f941-4169-b5fc-8b52f52860de",
 															"key": "swap_id",
 															"value": ""
 														}
@@ -32633,6 +32637,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
 												"method": "GET",
 												"header": [],
 												"url": {
@@ -32653,9 +32663,8 @@
 													],
 													"variable": [
 														{
-															"id": "ca8aedc0-e0b4-4deb-8a25-6abd2874ff6b",
 															"key": "cycle_id",
-															"value": "5304f18d-c68a-4912-b9fb-38af5a673039"
+															"value": " 5304f18d-c68a-4912-b9fb-38af5a673039"
 														}
 													]
 												}

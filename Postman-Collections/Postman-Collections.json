@@ -33310,7 +33310,7 @@
 													"variable": [
 														{
 															"key": "slot_id",
-															"value": "6630375d-0dde-488b-ab5c-f7b0cf6f991a"
+															"value": "1d6b31a3-8b4c-4151-8db3-72b53a2326eb"
 														}
 													]
 												}
@@ -33318,6 +33318,207 @@
 											"response": [
 												{
 													"id": "872a5bc7-67b4-4050-a424-7bffc17dade8",
+													"name": "Reassign slot",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"new_user_id\": \"558e221d-359c-4f5d-bcb2-11b3ae7ecc43\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{origin}}/cycle-slots/:slot_id/reassign",
+															"host": [
+																"{{origin}}"
+															],
+															"path": [
+																"cycle-slots",
+																":slot_id",
+																"reassign"
+															],
+															"variable": [
+																{
+																	"key": "slot_id",
+																	"value": "e5dbe1ce-1ede-470e-9817-a45d28a3dc09"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json",
+															"description": "",
+															"type": "text"
+														},
+														{
+															"key": "Content-Length",
+															"value": "66"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"42-qkurzZF8FFncfJOGcCDAQkrQ5H4\""
+														},
+														{
+															"key": "Date",
+															"value": "Wed, 03 Sep 2025 07:57:52 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [
+														{
+															"expires": "Invalid Date",
+															"domain": "",
+															"path": ""
+														}
+													],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Slot reassigned successfully.\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Reassign slot - success Copy",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "fa43b0d9-c808-406d-a233-97e3a718fca6",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message confirms slot reassign success\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"Slot reassigned successfully.\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "2f17c89f-2516-4526-a992-9e59f6131fca",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"new_user_id\": \"bb26d31d-9d82-4f1d-9af1-ce78766c253f\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/cycle-slots/:slot_id/reassign",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycle-slots",
+														":slot_id",
+														"reassign"
+													],
+													"variable": [
+														{
+															"id": "6fddfd2d-4045-432e-af63-a01f1c334ba3",
+															"key": "slot_id",
+															"value": "1d6b31a3-8b4c-4151-8db3-72b53a2326eb"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "224b7471-eeff-4c9e-9328-0440f83f659d",
 													"name": "Reassign slot",
 													"originalRequest": {
 														"method": "POST",

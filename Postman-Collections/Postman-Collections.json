@@ -34740,6 +34740,34 @@
 									"item": [
 										{
 											"name": "Get available slots",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "dc84e0c1-2fcc-42d2-b358-e9fe6ebb601e",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Fetched slot positions\", function () {\r",
+															"    pm.expect(pm.response.text()).to.include(\"Fetched slot positions successfully\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "afb05b66-4565-4193-ba9f-6abea3c8a30a",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -34772,7 +34800,7 @@
 													"variable": [
 														{
 															"key": "cycle_id",
-															"value": " 5304f18d-c68a-4912-b9fb-38af5a673039"
+															"value": "{{cycle_id}}"
 														}
 													]
 												}
@@ -34780,6 +34808,186 @@
 											"response": [
 												{
 													"id": "501aac70-3cfd-4b57-9508-fb47e10edc4e",
+													"name": "Get available slots",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{origin}}/cycles/1ee9eff0-8d23-4a70-be17-a8baca013d29/slots?available=true",
+															"host": [
+																"{{origin}}"
+															],
+															"path": [
+																"cycles",
+																"1ee9eff0-8d23-4a70-be17-a8baca013d29",
+																"slots"
+															],
+															"query": [
+																{
+																	"key": "available",
+																	"value": "true"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "653"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"28d-sQlO/I0XUk9Bb691BHRGt8c4tkQ\""
+														},
+														{
+															"key": "Date",
+															"value": "Fri, 08 Nov 2024 07:23:52 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Fetched slot positions successfully\",\n    \"data\": [\n        {\n            \"slot_position\": 1,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 2,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 3,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 4,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 5,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 6,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 7,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 8,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 9,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        },\n        {\n            \"slot_position\": 10,\n            \"available_slot_percentages\": [\n                100,\n                50\n            ]\n        }\n    ]\n}"
+												}
+											]
+										},
+										{
+											"name": "Get available slots - No Auth",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "dc84e0c1-2fcc-42d2-b358-e9fe6ebb601e",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Fetched slot positions\", function () {\r",
+															"    pm.expect(pm.response.text()).to.include(\"Fetched slot positions successfully\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "f1ea827f-32d9-47b8-862c-1a1a29aa3e69",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots?available=true",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots"
+													],
+													"query": [
+														{
+															"key": "available",
+															"value": "true"
+														}
+													],
+													"variable": [
+														{
+															"id": "a3df42e5-8f99-47c9-9006-be62ebcd87bb",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "19c0a19d-d5a7-4685-9d4f-b3f604abc936",
 													"name": "Get available slots",
 													"originalRequest": {
 														"method": "GET",

@@ -14386,6 +14386,33 @@
 							"item": [
 								{
 									"name": "All Group Members – Success",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "233a30e8-bc5b-4128-b928-e08ce5d3a7e8",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message returns correctly\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"}); \r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "a7cb9957-298e-4956-a77f-d6e22f69150e",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -14531,6 +14558,39 @@
 								},
 								{
 									"name": "All Group Members – Unauthorized",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "10c6d7ec-585f-4840-a341-cc6cd39ad1ad",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message indicates You are not authenticated. Please login to continue\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "8c535e55-dba8-4538-9109-a3864aa2b365",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

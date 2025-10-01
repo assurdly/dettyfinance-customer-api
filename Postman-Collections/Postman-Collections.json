@@ -33896,7 +33896,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{login_access_token}}"
+												"token": "{{second_user_access_token}}"
 											}
 										},
 										"method": "POST",

@@ -34926,18 +34926,23 @@
 														"id": "dc84e0c1-2fcc-42d2-b358-e9fe6ebb601e",
 														"exec": [
 															"const jsonData = pm.response.json();\r",
-															"\r",
-															"pm.test(\"Status code is 200\", function () {\r",
-															"    pm.response.to.have.status(200);\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Error flag is false\", function () {\r",
+															"pm.test(\"Error flag is true\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.error).to.eql(false);\r",
+															"    pm.expect(res.error).to.eql(true);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Fetched slot positions\", function () {\r",
-															"    pm.expect(pm.response.text()).to.include(\"Fetched slot positions successfully\");\r",
+															"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
 															"});\r",
 															""
 														],
@@ -34955,7 +34960,7 @@
 												"auth": {
 													"type": "bearer",
 													"bearer": {
-														"token": "{{login_access_token}}"
+														"token": "{{wrong_token}}"
 													}
 												},
 												"method": "GET",
@@ -34978,7 +34983,6 @@
 													],
 													"variable": [
 														{
-															"id": "ed1e5d0b-f5e0-4bd2-bdc5-33c165e92380",
 															"key": "cycle_id",
 															"value": "{{cycle_id}}"
 														}

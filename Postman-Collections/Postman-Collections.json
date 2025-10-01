@@ -32239,6 +32239,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{second_user_access_token}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
@@ -32262,9 +32268,8 @@
 													],
 													"variable": [
 														{
-															"id": "25a67a6e-7a8f-4c9b-b298-0d834edc49cf",
 															"key": "slot_id",
-															"value": "e5dbe1ce-1ede-470e-9817-a45d28a3dc09"
+															"value": "455b00bc-a623-4d1f-ac68-cc1aef32384b"
 														}
 													]
 												},

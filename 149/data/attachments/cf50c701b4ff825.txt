@@ -1,1 +1,0 @@
-{"error":true,"message":"Invalid endpoint or method used, please check and try again"}

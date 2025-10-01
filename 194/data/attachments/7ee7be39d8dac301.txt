@@ -1,0 +1,1 @@
+{"error":true,"message":"Only owner the slot can make a slot swap request","data":null}

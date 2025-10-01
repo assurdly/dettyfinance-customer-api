@@ -31425,7 +31425,7 @@
 									"name": "Slot Swap by Group Admin",
 									"item": [
 										{
-											"name": "Slot swap by group admin",
+											"name": "Slot swap by group admin - success",
 											"id": "88be2854-bff6-446c-b039-44dca7f2216f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

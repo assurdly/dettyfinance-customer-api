@@ -14557,6 +14557,179 @@
 									]
 								},
 								{
+									"name": "All Group Members – invalid id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "233a30e8-bc5b-4128-b928-e08ce5d3a7e8",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message returns correctly\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"}); \r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "34b9c691-6235-42e8-a8fc-c492c0e5df0c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{second_user_access_token}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{origin}}/groups/:group_id/members",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"groups",
+												":group_id",
+												"members"
+											],
+											"variable": [
+												{
+													"id": "4019fe63-6206-4cf7-87d5-1135c46e8473",
+													"key": "group_id",
+													"value": "818558bf-d0b0-4ad4-ba45-819a6b528c7f"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "62ec7626-d91a-40f7-9443-2c70a880a37b",
+											"name": "All members",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/members?take=1",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"groups",
+														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
+														"members"
+													],
+													"query": [
+														{
+															"key": "take",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "268"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"10c-DDAA49LJfzzUKE4yQqJTxJMDlIM\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 14:04:51 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Invite sent successfully\",\n    \"data\": {\n        \"members\": [\n            {\n                \"role\": \"admin\",\n                \"joined_at\": \"2024-09-26\",\n                \"status\": \"active\",\n                \"id\": \"3985bd41-d9ee-44ff-b6bc-bccca7dc8653\",\n                \"first_name\": \"Testing\",\n                \"last_name\": \"last\",\n                \"email\": \"testing@last.com\",\n                \"image\": null\n            }\n        ],\n        \"total\": 2\n    }\n}"
+										}
+									]
+								},
+								{
 									"name": "All Group Members – Unauthorized",
 									"event": [
 										{
@@ -14800,291 +14973,6 @@
 									"response": [
 										{
 											"id": "142687c9-e140-4c13-8606-8adec0e757e1",
-											"name": "All members",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/members?take=1",
-													"host": [
-														"{{origin}}"
-													],
-													"path": [
-														"groups",
-														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
-														"members"
-													],
-													"query": [
-														{
-															"key": "take",
-															"value": "1"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "Content-Security-Policy",
-													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-												},
-												{
-													"key": "Cross-Origin-Opener-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Cross-Origin-Resource-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Origin-Agent-Cluster",
-													"value": "?1"
-												},
-												{
-													"key": "Referrer-Policy",
-													"value": "no-referrer"
-												},
-												{
-													"key": "Strict-Transport-Security",
-													"value": "max-age=15552000; includeSubDomains"
-												},
-												{
-													"key": "X-Content-Type-Options",
-													"value": "nosniff"
-												},
-												{
-													"key": "X-DNS-Prefetch-Control",
-													"value": "off"
-												},
-												{
-													"key": "X-Download-Options",
-													"value": "noopen"
-												},
-												{
-													"key": "X-Frame-Options",
-													"value": "SAMEORIGIN"
-												},
-												{
-													"key": "X-Permitted-Cross-Domain-Policies",
-													"value": "none"
-												},
-												{
-													"key": "X-XSS-Protection",
-													"value": "0"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "268"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"10c-DDAA49LJfzzUKE4yQqJTxJMDlIM\""
-												},
-												{
-													"key": "Date",
-													"value": "Fri, 27 Sep 2024 14:04:51 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"error\": true,\n    \"message\": \"Invite sent successfully\",\n    \"data\": {\n        \"members\": [\n            {\n                \"role\": \"admin\",\n                \"joined_at\": \"2024-09-26\",\n                \"status\": \"active\",\n                \"id\": \"3985bd41-d9ee-44ff-b6bc-bccca7dc8653\",\n                \"first_name\": \"Testing\",\n                \"last_name\": \"last\",\n                \"email\": \"testing@last.com\",\n                \"image\": null\n            }\n        ],\n        \"total\": 2\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "All Group Members – Missing Params",
-									"id": "ae7b2cf2-8020-4925-9a3c-69c952712041",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{origin}}/groups/:group_id/members",
-											"host": [
-												"{{origin}}"
-											],
-											"path": [
-												"groups",
-												":group_id",
-												"members"
-											],
-											"variable": [
-												{
-													"id": "2eba86ad-f02c-445b-9b84-a36982ea230f",
-													"key": "group_id",
-													"value": "f4eae489-8d60-47c5-8614-3739ae89df71"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "17e3c245-d2c9-48dd-ae12-3ec089bd89db",
-											"name": "All members",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{origin}}/groups/351bd098-70c0-4cec-8c1e-bb67e9a7a4d9/members?take=1",
-													"host": [
-														"{{origin}}"
-													],
-													"path": [
-														"groups",
-														"351bd098-70c0-4cec-8c1e-bb67e9a7a4d9",
-														"members"
-													],
-													"query": [
-														{
-															"key": "take",
-															"value": "1"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "Content-Security-Policy",
-													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-												},
-												{
-													"key": "Cross-Origin-Opener-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Cross-Origin-Resource-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Origin-Agent-Cluster",
-													"value": "?1"
-												},
-												{
-													"key": "Referrer-Policy",
-													"value": "no-referrer"
-												},
-												{
-													"key": "Strict-Transport-Security",
-													"value": "max-age=15552000; includeSubDomains"
-												},
-												{
-													"key": "X-Content-Type-Options",
-													"value": "nosniff"
-												},
-												{
-													"key": "X-DNS-Prefetch-Control",
-													"value": "off"
-												},
-												{
-													"key": "X-Download-Options",
-													"value": "noopen"
-												},
-												{
-													"key": "X-Frame-Options",
-													"value": "SAMEORIGIN"
-												},
-												{
-													"key": "X-Permitted-Cross-Domain-Policies",
-													"value": "none"
-												},
-												{
-													"key": "X-XSS-Protection",
-													"value": "0"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "268"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"10c-DDAA49LJfzzUKE4yQqJTxJMDlIM\""
-												},
-												{
-													"key": "Date",
-													"value": "Fri, 27 Sep 2024 14:04:51 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"error\": true,\n    \"message\": \"Invite sent successfully\",\n    \"data\": {\n        \"members\": [\n            {\n                \"role\": \"admin\",\n                \"joined_at\": \"2024-09-26\",\n                \"status\": \"active\",\n                \"id\": \"3985bd41-d9ee-44ff-b6bc-bccca7dc8653\",\n                \"first_name\": \"Testing\",\n                \"last_name\": \"last\",\n                \"email\": \"testing@last.com\",\n                \"image\": null\n            }\n        ],\n        \"total\": 2\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "All Group Members – Forbidden",
-									"id": "80c51d46-03fe-480b-bbfa-4a002ae1d0c7",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{origin}}/groups/:group_id/members",
-											"host": [
-												"{{origin}}"
-											],
-											"path": [
-												"groups",
-												":group_id",
-												"members"
-											],
-											"variable": [
-												{
-													"key": "group_id",
-													"value": "f4eae489-8d60-47c5-8614-3739ae89df71"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "5d53f9ff-7a0a-4acd-ae41-f06060624873",
 											"name": "All members",
 											"originalRequest": {
 												"method": "GET",

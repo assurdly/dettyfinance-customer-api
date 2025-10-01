@@ -1,0 +1,1 @@
+{"error":true,"message":"slot_id: invalid uuid","data":null}

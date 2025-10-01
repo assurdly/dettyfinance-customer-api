@@ -12057,6 +12057,234 @@
 											"body": "{\n    \"error\": true,\n    \"message\": \"Token validated successfully\",\n    \"data\": {\n        \"user_exists\": true,\n        \"group_name\": \"Key Lockers\",\n        \"user_email\": \"radio@machine.com\",\n        \"invite_id\": \"e810b759-caea-4d6b-b92e-22c30e64989d\"\n    }\n}"
 										}
 									]
+								},
+								{
+									"name": "Validate invite token - Invalid token",
+									"id": "cc374588-5a27-47b7-97e9-e8d367ceaa4a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/validate-invite/{token}",
+										"description": "If user_exists is false, the user must create an account before they can accept or reject an invite.  \n\nIf user_exists is true, the user has to be logged in to accept or reject an invite."
+									},
+									"response": [
+										{
+											"id": "0ca1b7eb-b508-46d5-a409-1b10e2c6d055",
+											"name": "Validate invite token",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/validate-invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnZpdGVfaWQiOiJlODEwYjc1OS1jYWVhLTRkNmItYjkyZS0yMmMzMGU2NDk4OWQiLCJncm91cF9pZCI6IjM1MWJkMDk4LTcwYzAtNGNlYy04YzFlLWJiNjdlOWE3YTRkOSIsImVtYWlsIjoicmFkaW9AbWFjaGluZS5jb20iLCJpYXQiOjE3Mjc0MTMxNzAsImV4cCI6MTcyOTc0NTM4Mjc1NX0.583YFJPK26sz3pibsGqVNpUiHYlupWtrTcyUQ8PZk6Q"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "194"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"c2-hgxM/TfST+pocW4VioMN2ZU2nVs\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 05:03:35 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Token validated successfully\",\n    \"data\": {\n        \"user_exists\": true,\n        \"group_name\": \"Key Lockers\",\n        \"user_email\": \"radio@machine.com\",\n        \"invite_id\": \"e810b759-caea-4d6b-b92e-22c30e64989d\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Validate invite token - No Auth",
+									"id": "24b19d39-e824-467e-a0a5-93dd1107d386",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{login_access_token}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/validate-invite/{token}",
+										"description": "If user_exists is false, the user must create an account before they can accept or reject an invite.  \n\nIf user_exists is true, the user has to be logged in to accept or reject an invite."
+									},
+									"response": [
+										{
+											"id": "1fbf92eb-f586-4c5a-a733-1f1eeb7e5638",
+											"name": "Validate invite token",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/validate-invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnZpdGVfaWQiOiJlODEwYjc1OS1jYWVhLTRkNmItYjkyZS0yMmMzMGU2NDk4OWQiLCJncm91cF9pZCI6IjM1MWJkMDk4LTcwYzAtNGNlYy04YzFlLWJiNjdlOWE3YTRkOSIsImVtYWlsIjoicmFkaW9AbWFjaGluZS5jb20iLCJpYXQiOjE3Mjc0MTMxNzAsImV4cCI6MTcyOTc0NTM4Mjc1NX0.583YFJPK26sz3pibsGqVNpUiHYlupWtrTcyUQ8PZk6Q"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "194"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"c2-hgxM/TfST+pocW4VioMN2ZU2nVs\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 05:03:35 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Token validated successfully\",\n    \"data\": {\n        \"user_exists\": true,\n        \"group_name\": \"Key Lockers\",\n        \"user_email\": \"radio@machine.com\",\n        \"invite_id\": \"e810b759-caea-4d6b-b92e-22c30e64989d\"\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "0a5e300c-4829-4e94-a985-a2576b837c11"

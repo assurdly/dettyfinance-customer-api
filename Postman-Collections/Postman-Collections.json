@@ -14732,12 +14732,51 @@
 									]
 								},
 								{
-									"name": "All Group Members – Invalid Group ID",
+									"name": "All Group Members – Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d0583eea-eed5-4a49-ae68-fedd5b4bb676",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "a3421201-eb56-4606-9ef0-5b90345b6ce1",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{wrong_token}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -14752,7 +14791,6 @@
 											],
 											"variable": [
 												{
-													"id": "2eba86ad-f02c-445b-9b84-a36982ea230f",
 													"key": "group_id",
 													"value": "f4eae489-8d60-47c5-8614-3739ae89df71"
 												}

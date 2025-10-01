@@ -15095,6 +15095,33 @@
 							"item": [
 								{
 									"name": "View Group Members – Success",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "9b66722e-9bf9-4886-a790-7286350fdd42",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error is false\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.false;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message returns correctly\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"}); \r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "4716f7dc-8e38-4ee7-aae8-1277e717acc2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

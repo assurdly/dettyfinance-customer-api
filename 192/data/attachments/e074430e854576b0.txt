@@ -1,1 +1,0 @@
-{"error":true,"message":"This user is already the owner of this slot.","data":null}

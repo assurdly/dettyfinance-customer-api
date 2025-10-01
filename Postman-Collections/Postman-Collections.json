@@ -39741,7 +39741,47 @@
 							"name": "Delete all user notifications",
 							"item": [
 								{
-									"name": "Delete all user notifications",
+									"name": "Delete all user notifications - Success",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a01d7d23-3731-4416-951b-def766d46218",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions not authenticated\r",
+													"pm.test(\"Check that the message you are not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "899bfadd-babe-4244-9101-391a54c02d63",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -39888,9 +39928,9 @@
 													"    pm.expect(jsonData.message).to.exist;\r",
 													"});\r",
 													"\r",
-													"// ✅ Check message content mentions invalid token\r",
-													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"// ✅ Check message content mentions not authenticated\r",
+													"pm.test(\"Check that the message you are not authenticated\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
 													"});\r",
 													"\r",
 													"// ✅ Check that the data field exists and is null\r",

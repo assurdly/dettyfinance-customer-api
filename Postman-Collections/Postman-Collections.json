@@ -32233,7 +32233,7 @@
 									"name": "Slot Freeze",
 									"item": [
 										{
-											"name": "Slot freeze",
+											"name": "Slot freeze - success",
 											"id": "8104d67b-878b-424e-8f7b-45174e26d5cb",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

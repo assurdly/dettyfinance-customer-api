@@ -36718,6 +36718,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/{cycle_id}/contributions/user"
@@ -36972,7 +36978,7 @@
 									]
 								},
 								{
-									"name": "Get My Cycle - success Copy",
+									"name": "Get My Cycle - No auth",
 									"event": [
 										{
 											"listen": "test",
@@ -37018,6 +37024,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/{cycle_id}/contributions/user"
@@ -37125,12 +37134,58 @@
 							"name": "Get Slot Position Contributions",
 							"item": [
 								{
-									"name": "Get Slot Position Contributions",
+									"name": "Get Slot Position Contributions - success",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c229b6be-616e-48ef-ad71-66baffc832d4",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "aeb64de3-20a4-487a-9a30-d9fc8bbe64e4",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{origin}}/contributions/slot-position/{slot_position_id}"
@@ -37138,6 +37193,309 @@
 									"response": [
 										{
 											"id": "de6cb257-20bc-44b7-9ef7-aab1926da41c",
+											"name": "Get Slot Position Contributions",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/contributions/slot-position/fbbb7e4c-67dd-4e60-992d-2b3779761e38"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "672"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2a0-i1zcHfPkReWFuVqOwEW4YKI1cm4\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 25 Oct 2024 21:39:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Fetched history successfully\",\n    \"data\": {\n        \"id\": \"4d3e6a34-6d66-4764-a9c7-c3898dc7cfdb\",\n        \"created_at\": \"2024-10-25T21:01:10.072Z\",\n        \"updated_at\": \"2024-10-25T21:17:57.211Z\",\n        \"upload\": {\n            \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n            \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n        },\n        \"status\": \"Confirmed\",\n        \"slot_position\": {\n            \"id\": \"fbbb7e4c-67dd-4e60-992d-2b3779761e38\",\n            \"created_at\": \"2024-10-12T12:09:17.341Z\",\n            \"updated_at\": \"2024-10-15T19:36:40.318Z\",\n            \"user_id\": \"3985bd41-d9ee-44ff-b6bc-bccca7dc8653\",\n            \"cycle_id\": \"1a4751e1-6b37-4d2f-aeaf-0d204280eba6\",\n            \"slot_percentage\": 50,\n            \"slot_amount_to_pay\": 10000,\n            \"slot_position\": 2\n        }\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Slot Position Contributions - invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c229b6be-616e-48ef-ad71-66baffc832d4",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "a1480103-b88c-4914-9dc3-b1ff4f1fc6d0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/contributions/slot-position/{slot_position_id}"
+									},
+									"response": [
+										{
+											"id": "795ef058-80a3-4085-b541-a8ee126999a8",
+											"name": "Get Slot Position Contributions",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/contributions/slot-position/fbbb7e4c-67dd-4e60-992d-2b3779761e38"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "672"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2a0-i1zcHfPkReWFuVqOwEW4YKI1cm4\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 25 Oct 2024 21:39:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Fetched history successfully\",\n    \"data\": {\n        \"id\": \"4d3e6a34-6d66-4764-a9c7-c3898dc7cfdb\",\n        \"created_at\": \"2024-10-25T21:01:10.072Z\",\n        \"updated_at\": \"2024-10-25T21:17:57.211Z\",\n        \"upload\": {\n            \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n            \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n        },\n        \"status\": \"Confirmed\",\n        \"slot_position\": {\n            \"id\": \"fbbb7e4c-67dd-4e60-992d-2b3779761e38\",\n            \"created_at\": \"2024-10-12T12:09:17.341Z\",\n            \"updated_at\": \"2024-10-15T19:36:40.318Z\",\n            \"user_id\": \"3985bd41-d9ee-44ff-b6bc-bccca7dc8653\",\n            \"cycle_id\": \"1a4751e1-6b37-4d2f-aeaf-0d204280eba6\",\n            \"slot_percentage\": 50,\n            \"slot_amount_to_pay\": 10000,\n            \"slot_position\": 2\n        }\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Slot Position Contributions - No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c229b6be-616e-48ef-ad71-66baffc832d4",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "3fdfc4b2-3a08-4a88-8cd6-e7130826fde3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/contributions/slot-position/{slot_position_id}"
+									},
+									"response": [
+										{
+											"id": "5501c843-5cfa-42d2-94d7-6065a9a5a7ac",
 											"name": "Get Slot Position Contributions",
 											"originalRequest": {
 												"method": "GET",

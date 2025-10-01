@@ -15277,6 +15277,39 @@
 								},
 								{
 									"name": "View Group Members – Unauthorized",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "00b56fb3-1c1d-48a7-a2e6-278556510016",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message indicates You are not authenticated. Please login to continue\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "39af3033-7c1d-4983-abb8-ad2b201ce004",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -15428,7 +15461,7 @@
 									]
 								},
 								{
-									"name": "View Group Members – Invalid Group ID",
+									"name": "View Group Members – Invalid token",
 									"id": "53bcb6ba-eacf-4113-b0bf-2bcbfd58cd8f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

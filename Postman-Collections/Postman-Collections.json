@@ -16152,6 +16152,39 @@
 								},
 								{
 									"name": "Create Group – Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "324b23e5-99e2-4f17-a561-f0e85c854945",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "cc7e7bc0-00ac-47c2-83fc-842e359387c3",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -16160,7 +16193,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{login_access_token}}"
+												"token": "{{wrong_token}}"
 											}
 										},
 										"method": "POST",

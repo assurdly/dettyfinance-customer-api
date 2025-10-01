@@ -33229,11 +33229,17 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{second_user_access_token}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"recipient\": \"hippo@matt.com\"\n}",
+													"raw": "{\n    \"recipient\": \"ayomide+4@assurdly.com\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33252,9 +33258,8 @@
 													],
 													"variable": [
 														{
-															"id": "43816822-adfd-4aae-b93a-78b4f6d05c12",
 															"key": "slot_position_id",
-															"value": "e235a1a7-fe17-40e1-85d1-34a40bca5f76"
+															"value": "455b00bc-a623-4d1f-ac68-cc1aef32384b"
 														}
 													]
 												},

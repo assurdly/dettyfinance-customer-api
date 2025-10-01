@@ -15889,16 +15889,46 @@
 								},
 								{
 									"name": "Create Group – Unauthorized",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ddf8c55e-adf9-4c6b-8d78-4d1c51493633",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message indicates You are not authenticated. Please login to continue\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "35d0f1ab-012b-4a92-912b-ed2d1f371840",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
+											"type": "noauth"
 										},
 										"method": "POST",
 										"header": [],
@@ -16121,240 +16151,7 @@
 									]
 								},
 								{
-									"name": "Create Group – Missing Params (no name)",
-									"id": "17fc6ce8-602e-47ec-b19e-7c11a0424fd0",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n\r\n    \"description\": \"Test session with the team\",\r\n    \"friends\": [  \"bisoye+5@assurdly.com\",\r\n  \"denilson+7@assurdly.com\",\"ayomide+9@assurdly.com\"]\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{origin}}/groups"
-									},
-									"response": [
-										{
-											"id": "e53c7c08-a267-4d74-bb5c-24cf5a82e06d",
-											"name": "Create Group",
-											"originalRequest": {
-												"method": "POST",
-												"header": [],
-												"body": {
-													"mode": "raw",
-													"raw": "{\r\n    \"name\": \"Pototmatoes\",\r\n    \"description\": \"A group for the tomatoes\"\r\n}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": "{{origin}}/groups"
-											},
-											"status": "Created",
-											"code": 201,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "Content-Security-Policy",
-													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-												},
-												{
-													"key": "Cross-Origin-Opener-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Cross-Origin-Resource-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Origin-Agent-Cluster",
-													"value": "?1"
-												},
-												{
-													"key": "Referrer-Policy",
-													"value": "no-referrer"
-												},
-												{
-													"key": "Strict-Transport-Security",
-													"value": "max-age=15552000; includeSubDomains"
-												},
-												{
-													"key": "X-Content-Type-Options",
-													"value": "nosniff"
-												},
-												{
-													"key": "X-DNS-Prefetch-Control",
-													"value": "off"
-												},
-												{
-													"key": "X-Download-Options",
-													"value": "noopen"
-												},
-												{
-													"key": "X-Frame-Options",
-													"value": "SAMEORIGIN"
-												},
-												{
-													"key": "X-Permitted-Cross-Domain-Policies",
-													"value": "none"
-												},
-												{
-													"key": "X-XSS-Protection",
-													"value": "0"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "53"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"35-nJapex7vh7bkBrS1p3bUVkAhnOI\""
-												},
-												{
-													"key": "Date",
-													"value": "Wed, 25 Sep 2024 04:45:54 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"error\": true,\n    \"message\": \"Group created successfully\"\n}"
-										},
-										{
-											"id": "2219839e-6846-4b88-9c7f-eda0a396f6bb",
-											"name": "Create Group with friends",
-											"originalRequest": {
-												"method": "POST",
-												"header": [],
-												"body": {
-													"mode": "raw",
-													"raw": "{\r\n    \"name\": \"The Andrews Group\",\r\n    \"description\": \"A group for the adnrews graduate student school\",\r\n    \"friends\": [  \"johndoe@example.com\",\r\n  \"emilychen123@gmail.com\",\r\n  \"michaelbrown@yahoo.com\",\r\n  \"sarahlee90@hotmail.com\",\r\n  \"davidkim101@outlook.com\",\r\n  \"oliviasmith23@gmail.com\",\r\n  \"williamdavis@gmail.com\",\r\n  \"amandawhite11@yahoo.com\",\r\n  \"christopherhall@icloud.com\",\r\n  \"julie.martin95@gmail.com\",\r\n  \"kevinbrook14@protonmail.com\",\r\n  \"laurafox43@gmail.com\",\r\n  \"matthewpatel21@yahoo.com\",\r\n  \"nicolegray29@outlook.com\",\r\n  \"peterharris85@gmail.com\",\r\n  \"rebekahsimmons17@hotmail.com\"]\r\n}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": "{{origin}}/groups"
-											},
-											"status": "Created",
-											"code": 201,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "Content-Security-Policy",
-													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-												},
-												{
-													"key": "Cross-Origin-Opener-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Cross-Origin-Resource-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Origin-Agent-Cluster",
-													"value": "?1"
-												},
-												{
-													"key": "Referrer-Policy",
-													"value": "no-referrer"
-												},
-												{
-													"key": "Strict-Transport-Security",
-													"value": "max-age=15552000; includeSubDomains"
-												},
-												{
-													"key": "X-Content-Type-Options",
-													"value": "nosniff"
-												},
-												{
-													"key": "X-DNS-Prefetch-Control",
-													"value": "off"
-												},
-												{
-													"key": "X-Download-Options",
-													"value": "noopen"
-												},
-												{
-													"key": "X-Frame-Options",
-													"value": "SAMEORIGIN"
-												},
-												{
-													"key": "X-Permitted-Cross-Domain-Policies",
-													"value": "none"
-												},
-												{
-													"key": "X-XSS-Protection",
-													"value": "0"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "53"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"35-nJapex7vh7bkBrS1p3bUVkAhnOI\""
-												},
-												{
-													"key": "Date",
-													"value": "Sun, 29 Sep 2024 18:10:08 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"error\": true,\n    \"message\": \"Group created successfully\"\n}"
-										}
-									]
-								},
-								{
-									"name": "Create Group – Invalid Params (invalid email format in members)",
+									"name": "Create Group – Invalid token",
 									"id": "cc7e7bc0-00ac-47c2-83fc-842e359387c3",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

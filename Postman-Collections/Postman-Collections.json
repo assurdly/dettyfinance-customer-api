@@ -32426,7 +32426,7 @@
 											]
 										},
 										{
-											"name": "Slot freeze - No Auth",
+											"name": "Slot freeze - invalid token",
 											"event": [
 												{
 													"listen": "test",
@@ -32434,19 +32434,23 @@
 														"id": "5219ff10-b066-4842-9ce5-b92b85ad7a78",
 														"exec": [
 															"const jsonData = pm.response.json();\r",
-															"\r",
-															"pm.test(\"Status code is 200\", function () {\r",
-															"    pm.response.to.have.status(200);\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Error flag is false\", function () {\r",
+															"pm.test(\"Error flag is true\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.error).to.eql(false);\r",
+															"    pm.expect(res.error).to.eql(true);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Message confirms slot freeze success\", function () {\r",
+															"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
 															"    let res = pm.response.json();\r",
-															"    pm.expect(res.message).to.include(\"Slot freeze request sent successfully.\");\r",
+															"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
 															"});\r",
 															""
 														],
@@ -32456,7 +32460,7 @@
 													}
 												}
 											],
-											"id": "23cf3212-4ea4-4aa2-a9bd-aa28d2d60a46",
+											"id": "79e5d309-346d-47a5-a68f-faf5c87b71f4",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -32464,7 +32468,7 @@
 												"auth": {
 													"type": "bearer",
 													"bearer": {
-														"token": "{{second_user_access_token}}"
+														"token": "{{wrong_token}}"
 													}
 												},
 												"method": "POST",
@@ -32490,7 +32494,201 @@
 													],
 													"variable": [
 														{
-															"id": "982bc317-96c7-4f2c-95ce-a3d3f1f48687",
+															"key": "slot_id",
+															"value": "455b00bc-a623-4d1f-ac68-cc1aef32384b"
+														}
+													]
+												},
+												"description": "### Overview.\n\nDuration can be one of month/months/week/weeks.  \nIf the cycle the slot belongs to has a monthly frequency, then the durations should be in `week|weeks`, i.e.\n\n``` json\n{\n \"duration\": \"4 weeks\"\n }\n\n ```\n\nif the cycle frequency is monthly, then the duration should be in `month|months` i.e.\n\n``` json\n{\n \"duration\": \"4 months\"\n }\n\n ```\n\n> NOTE: Ensure the duration of slot freeze is not greater than duration of the cycle, i.e. a cycle with duration of 6 months, would not allow a slot freeze with duration of 7 months."
+											},
+											"response": [
+												{
+													"id": "e2a5c784-5433-4df9-9ba1-854443252b7b",
+													"name": "Slot freeze",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"duration\": \"4 months\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{origin}}/cycle-slots/:slot_id/freeze",
+															"host": [
+																"{{origin}}"
+															],
+															"path": [
+																"cycle-slots",
+																":slot_id",
+																"freeze"
+															],
+															"variable": [
+																{
+																	"key": "slot_id",
+																	"value": "e5dbe1ce-1ede-470e-9817-a45d28a3dc09"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "66"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"42-qkurzZF8FFncfJOGcCDAQkrQ5H4\""
+														},
+														{
+															"key": "Date",
+															"value": "Mon, 01 Sep 2025 22:59:27 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Slot freeze request sent successfully.\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Slot freeze - No Auth",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "5219ff10-b066-4842-9ce5-b92b85ad7a78",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is true\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(true);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message indicates authentication required\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"not authenticated\");\r",
+															"    pm.expect(res.message).to.include(\"login\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "23cf3212-4ea4-4aa2-a9bd-aa28d2d60a46",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"duration\": \"4 months\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/cycle-slots/:slot_id/freeze",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycle-slots",
+														":slot_id",
+														"freeze"
+													],
+													"variable": [
+														{
 															"key": "slot_id",
 															"value": "455b00bc-a623-4d1f-ac68-cc1aef32384b"
 														}

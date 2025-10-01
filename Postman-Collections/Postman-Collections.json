@@ -15462,6 +15462,39 @@
 								},
 								{
 									"name": "View Group Members – Invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "73dcf5f7-102d-41e4-ac48-ee7f3dc901df",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "53bcb6ba-eacf-4113-b0bf-2bcbfd58cd8f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -15470,7 +15503,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{login_access_token}}"
+												"token": "{{wrong_token}}"
 											}
 										},
 										"method": "GET",
@@ -15501,314 +15534,6 @@
 									"response": [
 										{
 											"id": "1abad9bd-4bc6-4176-ba67-fc03d7365f81",
-											"name": "View Group Member Details",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{origin}}/groups/:group_id/members/:user_id",
-													"host": [
-														"{{origin}}"
-													],
-													"path": [
-														"groups",
-														":group_id",
-														"members",
-														":user_id"
-													],
-													"variable": [
-														{
-															"key": "group_id",
-															"value": "d986be56-6cb2-4552-8948-ea178edd1737"
-														},
-														{
-															"key": "user_id",
-															"value": "ecf54028-cd5b-4e2d-9129-8f0208b13a90"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "Text",
-											"header": [
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "Content-Security-Policy",
-													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-												},
-												{
-													"key": "Cross-Origin-Opener-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Cross-Origin-Resource-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Origin-Agent-Cluster",
-													"value": "?1"
-												},
-												{
-													"key": "Referrer-Policy",
-													"value": "no-referrer"
-												},
-												{
-													"key": "Strict-Transport-Security",
-													"value": "max-age=15552000; includeSubDomains"
-												},
-												{
-													"key": "X-Content-Type-Options",
-													"value": "nosniff"
-												},
-												{
-													"key": "X-DNS-Prefetch-Control",
-													"value": "off"
-												},
-												{
-													"key": "X-Download-Options",
-													"value": "noopen"
-												},
-												{
-													"key": "X-Frame-Options",
-													"value": "SAMEORIGIN"
-												},
-												{
-													"key": "X-Permitted-Cross-Domain-Policies",
-													"value": "none"
-												},
-												{
-													"key": "X-XSS-Protection",
-													"value": "0"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "1913"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"779-GZQGeo+8rBfR4X/bWz8b4nauOhQ\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 04 Sep 2025 23:05:15 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"error\": false,\n    \"message\": \"Group member details fetched successfully\",\n    \"data\": {\n        \"id\": \"ecf54028-cd5b-4e2d-9129-8f0208b13a90\",\n        \"first_name\": \"Freaky\",\n        \"last_name\": \"Agnemuse\",\n        \"joined_at\": \"2025-08-15T23:00:00.000Z\",\n        \"account\": {\n            \"bank_name\": \"Zenith Bank\",\n            \"account_name\": \"Franklin Agnemuse\",\n            \"account_number\": \"2214904809\"\n        },\n        \"profile_picture\": {},\n        \"email\": \"freakydmuse@gmail.com\",\n        \"phone\": null,\n        \"groups\": [\n            {\n                \"id\": \"f4eae489-8d60-47c5-8614-3739ae89df71\",\n                \"name\": \"Damilola\",\n                \"member_cycles\": [\n                    {\n                        \"id\": \"4baf55ac-c0b0-4b81-b2a2-527774f6c3b3\",\n                        \"name\": \"Wedding 2026\",\n                        \"slots\": [\n                            {\n                                \"id\": \"e235a1a7-fe17-40e1-85d1-34a40bca5f76\",\n                                \"position\": \"SEPTEMBER\",\n                                \"percentage\": 50,\n                                \"amount_to_pay\": 500\n                            }\n                        ]\n                    }\n                ]\n            },\n            {\n                \"id\": \"d986be56-6cb2-4552-8948-ea178edd1737\",\n                \"name\": \"Harvesters\",\n                \"member_cycles\": [\n                    {\n                        \"id\": \"8fe153fc-c694-4fbc-9347-749b285bc36a\",\n                        \"name\": \"Havesters Mid-Year Giving\",\n                        \"slots\": [\n                            {\n                                \"id\": \"aa13df52-eb6e-4671-8089-6f16c3016393\",\n                                \"position\": \"NOVEMBER\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 50000\n                            },\n                            {\n                                \"id\": \"fafb4b1d-c17d-41fc-9173-0ca8ddf7deb8\",\n                                \"position\": \"FEBRUARY\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 50000\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"3add3131-8537-4e35-b9bf-aee00468ad34\",\n                        \"name\": \"Harvesters Uncladed\",\n                        \"slots\": [\n                            {\n                                \"id\": \"d3d6c533-0509-4a8d-8af4-79dd352c9605\",\n                                \"position\": \"week 3\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 80000\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"b94ab075-9bdb-4d3b-a625-9c02bc0b89cd\",\n                        \"name\": \"Weeklow\",\n                        \"slots\": [\n                            {\n                                \"id\": \"1a858285-418f-4049-aef7-35b1c41d15ba\",\n                                \"position\": \"week 1\",\n                                \"percentage\": 50,\n                                \"amount_to_pay\": 25000\n                            }\n                        ]\n                    }\n                ]\n            },\n            {\n                \"id\": \"c0117fa8-3ea9-4f67-9a6d-c4d957b56ba5\",\n                \"name\": \"Andromeda\",\n                \"member_cycles\": [\n                    {\n                        \"id\": \"5304f18d-c68a-4912-b9fb-38af5a673039\",\n                        \"name\": \"The andromeda\",\n                        \"slots\": [\n                            {\n                                \"id\": \"cd3ff09b-1905-4abd-b7de-cd72f13407e6\",\n                                \"position\": \"OCTOBER\",\n                                \"percentage\": 75,\n                                \"amount_to_pay\": 37500\n                            },\n                            {\n                                \"id\": \"6d238eeb-922e-4790-bd55-d7d4a63cd7d0\",\n                                \"position\": \"SEPTEMBER\",\n                                \"percentage\": 75,\n                                \"amount_to_pay\": 37500\n                            },\n                            {\n                                \"id\": \"462548ae-259c-4fb4-a9be-339255235057\",\n                                \"position\": \"APRIL\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 50000\n                            }\n                        ]\n                    }\n                ]\n            }\n        ],\n        \"number_of_cycles_joined\": 5\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "View Group Members – Missing Params",
-									"id": "05996728-a65e-4c39-826f-b9b85465d73a",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{origin}}/groups/:group_id/members/",
-											"host": [
-												"{{origin}}"
-											],
-											"path": [
-												"groups",
-												":group_id",
-												"members",
-												""
-											],
-											"variable": [
-												{
-													"key": "group_id",
-													"value": "{{group_id}}"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "bb216d2e-3e21-4bb4-9c6d-1a1a508b0fb8",
-											"name": "View Group Member Details",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{origin}}/groups/:group_id/members/:user_id",
-													"host": [
-														"{{origin}}"
-													],
-													"path": [
-														"groups",
-														":group_id",
-														"members",
-														":user_id"
-													],
-													"variable": [
-														{
-															"key": "group_id",
-															"value": "d986be56-6cb2-4552-8948-ea178edd1737"
-														},
-														{
-															"key": "user_id",
-															"value": "ecf54028-cd5b-4e2d-9129-8f0208b13a90"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "Text",
-											"header": [
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "Content-Security-Policy",
-													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-												},
-												{
-													"key": "Cross-Origin-Opener-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Cross-Origin-Resource-Policy",
-													"value": "same-origin"
-												},
-												{
-													"key": "Origin-Agent-Cluster",
-													"value": "?1"
-												},
-												{
-													"key": "Referrer-Policy",
-													"value": "no-referrer"
-												},
-												{
-													"key": "Strict-Transport-Security",
-													"value": "max-age=15552000; includeSubDomains"
-												},
-												{
-													"key": "X-Content-Type-Options",
-													"value": "nosniff"
-												},
-												{
-													"key": "X-DNS-Prefetch-Control",
-													"value": "off"
-												},
-												{
-													"key": "X-Download-Options",
-													"value": "noopen"
-												},
-												{
-													"key": "X-Frame-Options",
-													"value": "SAMEORIGIN"
-												},
-												{
-													"key": "X-Permitted-Cross-Domain-Policies",
-													"value": "none"
-												},
-												{
-													"key": "X-XSS-Protection",
-													"value": "0"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "1913"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"779-GZQGeo+8rBfR4X/bWz8b4nauOhQ\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 04 Sep 2025 23:05:15 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"error\": false,\n    \"message\": \"Group member details fetched successfully\",\n    \"data\": {\n        \"id\": \"ecf54028-cd5b-4e2d-9129-8f0208b13a90\",\n        \"first_name\": \"Freaky\",\n        \"last_name\": \"Agnemuse\",\n        \"joined_at\": \"2025-08-15T23:00:00.000Z\",\n        \"account\": {\n            \"bank_name\": \"Zenith Bank\",\n            \"account_name\": \"Franklin Agnemuse\",\n            \"account_number\": \"2214904809\"\n        },\n        \"profile_picture\": {},\n        \"email\": \"freakydmuse@gmail.com\",\n        \"phone\": null,\n        \"groups\": [\n            {\n                \"id\": \"f4eae489-8d60-47c5-8614-3739ae89df71\",\n                \"name\": \"Damilola\",\n                \"member_cycles\": [\n                    {\n                        \"id\": \"4baf55ac-c0b0-4b81-b2a2-527774f6c3b3\",\n                        \"name\": \"Wedding 2026\",\n                        \"slots\": [\n                            {\n                                \"id\": \"e235a1a7-fe17-40e1-85d1-34a40bca5f76\",\n                                \"position\": \"SEPTEMBER\",\n                                \"percentage\": 50,\n                                \"amount_to_pay\": 500\n                            }\n                        ]\n                    }\n                ]\n            },\n            {\n                \"id\": \"d986be56-6cb2-4552-8948-ea178edd1737\",\n                \"name\": \"Harvesters\",\n                \"member_cycles\": [\n                    {\n                        \"id\": \"8fe153fc-c694-4fbc-9347-749b285bc36a\",\n                        \"name\": \"Havesters Mid-Year Giving\",\n                        \"slots\": [\n                            {\n                                \"id\": \"aa13df52-eb6e-4671-8089-6f16c3016393\",\n                                \"position\": \"NOVEMBER\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 50000\n                            },\n                            {\n                                \"id\": \"fafb4b1d-c17d-41fc-9173-0ca8ddf7deb8\",\n                                \"position\": \"FEBRUARY\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 50000\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"3add3131-8537-4e35-b9bf-aee00468ad34\",\n                        \"name\": \"Harvesters Uncladed\",\n                        \"slots\": [\n                            {\n                                \"id\": \"d3d6c533-0509-4a8d-8af4-79dd352c9605\",\n                                \"position\": \"week 3\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 80000\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"b94ab075-9bdb-4d3b-a625-9c02bc0b89cd\",\n                        \"name\": \"Weeklow\",\n                        \"slots\": [\n                            {\n                                \"id\": \"1a858285-418f-4049-aef7-35b1c41d15ba\",\n                                \"position\": \"week 1\",\n                                \"percentage\": 50,\n                                \"amount_to_pay\": 25000\n                            }\n                        ]\n                    }\n                ]\n            },\n            {\n                \"id\": \"c0117fa8-3ea9-4f67-9a6d-c4d957b56ba5\",\n                \"name\": \"Andromeda\",\n                \"member_cycles\": [\n                    {\n                        \"id\": \"5304f18d-c68a-4912-b9fb-38af5a673039\",\n                        \"name\": \"The andromeda\",\n                        \"slots\": [\n                            {\n                                \"id\": \"cd3ff09b-1905-4abd-b7de-cd72f13407e6\",\n                                \"position\": \"OCTOBER\",\n                                \"percentage\": 75,\n                                \"amount_to_pay\": 37500\n                            },\n                            {\n                                \"id\": \"6d238eeb-922e-4790-bd55-d7d4a63cd7d0\",\n                                \"position\": \"SEPTEMBER\",\n                                \"percentage\": 75,\n                                \"amount_to_pay\": 37500\n                            },\n                            {\n                                \"id\": \"462548ae-259c-4fb4-a9be-339255235057\",\n                                \"position\": \"APRIL\",\n                                \"percentage\": 100,\n                                \"amount_to_pay\": 50000\n                            }\n                        ]\n                    }\n                ]\n            }\n        ],\n        \"number_of_cycles_joined\": 5\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "View Group Members – Forbidden",
-									"id": "71d41ac8-260e-465d-8c5e-283db8166da8",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{origin}}/groups/:group_id/members/:user_id",
-											"host": [
-												"{{origin}}"
-											],
-											"path": [
-												"groups",
-												":group_id",
-												"members",
-												":user_id"
-											],
-											"variable": [
-												{
-													"id": "40509a12-a665-451f-9945-477c9f03a9f4",
-													"key": "group_id",
-													"value": "{{group_id}}"
-												},
-												{
-													"id": "a05dec22-241f-41fc-811f-b5ea76ab3cc3",
-													"key": "user_id",
-													"value": "{{user_id}}"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "769567d4-cc79-4006-bd8a-b206e6780d3d",
 											"name": "View Group Member Details",
 											"originalRequest": {
 												"method": "GET",

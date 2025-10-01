@@ -14660,7 +14660,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{login_access_token}}"
+												"token": "{{second_user_access_token}}"
 											}
 										},
 										"method": "GET",
@@ -14678,7 +14678,7 @@
 											"variable": [
 												{
 													"key": "group_id",
-													"value": "bb26d31d-9d82-4f1d-9af1-ce78766c253f"
+													"value": "818558bf-d0b0-4ad4-ba45-819a6b528c7f"
 												}
 											]
 										}
@@ -38439,8 +38439,8 @@
 													"const jsonData = pm.response.json();\r",
 													"\r",
 													"// ✅ Check status code\r",
-													"pm.test(\"Check that the response code is 201\", function () {\r",
-													"    pm.response.to.have.status(201);\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
 													"// ✅ Check error field is true\r",
@@ -38455,13 +38455,13 @@
 													"\r",
 													"// ✅ Check message content mentions You are not authenticated\r",
 													"pm.test(\"Check that the message indicates You are not authenticated\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Notifications fetched successfully\");\r",
+													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
 													"});\r",
 													"\r",
-													"// ✅ Check that the data field exists and is not empty\r",
-													"pm.test(\"Check that the data field is not empty\", function () {\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
 													"    pm.expect(jsonData).to.have.property(\"data\");\r",
-													"    pm.expect(jsonData.data).to.not.be.empty;\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
 													"});"
 												],
 												"type": "text/javascript",
@@ -38476,10 +38476,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{login_access_token}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -38598,7 +38595,7 @@
 									]
 								},
 								{
-									"name": "User notifications - success Copy",
+									"name": "User notifications - invalid token",
 									"event": [
 										{
 											"listen": "test",

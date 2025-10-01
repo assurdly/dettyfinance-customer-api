@@ -35413,6 +35413,408 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "efa310e6-88ae-414a-b88c-e9b8149982ca",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "e72e5b2b-6898-4266-bb38-f93d4b08be12",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{origin}}/contributions/:contribution_id",
+											"host": [
+												"{{origin}}"
+											],
+											"path": [
+												"contributions",
+												":contribution_id"
+											],
+											"variable": [
+												{
+													"id": "707dcd48-d7c9-4c5f-84d5-101fa7c0ae2d",
+													"key": "contribution_id",
+													"value": "18616134-9370-4a98-858e-4bda337db18a"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "5764d4d7-b383-4b61-981d-62cef30c8696",
+											"name": "Unauthorised",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/contributions/4d3e6a34-6d66-4764-a9c7-c3898dc7cfdb"
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "90"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"5a-C4Ou8phOFJSmELC9AlIut/ZLLgg\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 25 Oct 2024 21:16:07 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": true,\n    \"message\": \"Only authorised signatory can confirm contributions\",\n    \"data\": null\n}"
+										},
+										{
+											"id": "86a51875-0f7b-4709-b168-7fd3d990f518",
+											"name": "Confirm Contribution",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{origin}}/contributions/4d3e6a34-6d66-4764-a9c7-c3898dc7cfdb"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "63"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f-gWY7TinqIyczFNr0Oba+sJRcedk\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 25 Oct 2024 21:17:58 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Contribution confirmed successfully\"\n}"
+										},
+										{
+											"id": "008435ca-6ff3-4145-a0fb-aaa0cfcb2767",
+											"name": "Reject Contribution",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"status\": \"rejected\",\r\n    \"rejection_reason\": \"The proof of payment sent is not very visible, please send another\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/contributions/:contribution_id",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"contributions",
+														":contribution_id"
+													],
+													"variable": [
+														{
+															"key": "contribution_id",
+															"value": "18616134-9370-4a98-858e-4bda337db18a"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"description": "",
+													"type": "text"
+												},
+												{
+													"key": "Content-Length",
+													"value": "63"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f-gWY7TinqIyczFNr0Oba+sJRcedk\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 17 Aug 2025 23:27:38 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Contribution updated successfully\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Confirm Contribution - invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
 												"id": "68307a6c-b31e-44b0-bb1d-1a9bd39851e2",
 												"exec": [
 													"const jsonData = pm.response.json();\r",
@@ -35815,7 +36217,47 @@
 							"name": "Get Cycle Contributions",
 							"item": [
 								{
-									"name": "Get Cycle Contributions",
+									"name": "Get Cycle Contributions - success",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "795ca461-066f-41a8-ab93-97cdbdc9dd0b",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
 									"id": "783656c9-a993-4f16-8196-d9ee5aedfb36",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -35828,6 +36270,266 @@
 									"response": [
 										{
 											"id": "4c08c3b4-377f-46f4-8239-b0c976b69412",
+											"name": "Get Cycle Contributions",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/0f4d69bb-c2f1-4d9d-9f29-01abd5968c8b/contributions"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "2423"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"977-CnmDDwkAc2vXxJbCpEedr2dJtXg\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 29 Nov 2024 19:01:34 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Fetched cycle contributions successfully\",\n    \"data\": [\n        {\n            \"id\": \"c2ea5552-b932-4212-a31c-ba92e0cb7681\",\n            \"date_of_payment\": \"23 November, 2024\",\n            \"slot_percentage\": 100,\n            \"amount\": 70000,\n            \"slot_position\": 3,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Pending\",\n            \"user\": {\n                \"id\": \"3640d9eb-0a01-4ec1-a88e-e1bd0e22cf1d\",\n                \"name\": \"Madison Grey\"\n            }\n        },\n        {\n            \"id\": \"6f93df5b-79b3-47d3-8360-2a64c493663f\",\n            \"date_of_payment\": \"23 November, 2024\",\n            \"slot_percentage\": 100,\n            \"amount\": 70000,\n            \"slot_position\": 1,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"3640d9eb-0a01-4ec1-a88e-e1bd0e22cf1d\",\n                \"name\": \"Madison Grey\"\n            }\n        },\n        {\n            \"id\": \"67c719a9-14ea-42fd-a0f9-ef335d95f151\",\n            \"date_of_payment\": \"22 November, 2024\",\n            \"slot_percentage\": 50,\n            \"amount\": 35000,\n            \"slot_position\": 7,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"156fd690-a7e3-4f81-b58f-e0d1a945ad05\",\n                \"name\": \"Adegbo Omolalomi\"\n            }\n        },\n        {\n            \"id\": \"5fe3d544-9243-4845-9800-691e96938a6b\",\n            \"date_of_payment\": \"21 November, 2024\",\n            \"slot_percentage\": 50,\n            \"amount\": 35000,\n            \"slot_position\": 7,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"156fd690-a7e3-4f81-b58f-e0d1a945ad05\",\n                \"name\": \"Adegbo Omolalomi\"\n            }\n        },\n        {\n            \"id\": \"225b663e-8db2-40de-a1e0-08a2133dd6ce\",\n            \"date_of_payment\": \"20 November, 2024\",\n            \"slot_percentage\": 100,\n            \"amount\": 70000,\n            \"slot_position\": 9,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"5a28ff9c-b20c-4bb1-86eb-992b991e9fba\",\n                \"name\": \"Peace Itimi\"\n            }\n        },\n        {\n            \"id\": \"2ee62a6c-8329-45a4-9573-e624a9931dca\",\n            \"date_of_payment\": \"13 November, 2024\",\n            \"slot_percentage\": 50,\n            \"amount\": 35000,\n            \"slot_position\": 7,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"156fd690-a7e3-4f81-b58f-e0d1a945ad05\",\n                \"name\": \"Adegbo Omolalomi\"\n            }\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Cycle Contributions - invalid token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d4543181-87ed-4603-848b-f875c4f67156",
+												"exec": [
+													"const jsonData = pm.response.json();\r",
+													"\r",
+													"// ✅ Check status code\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"// ✅ Check error field is true\r",
+													"pm.test(\"Check that the error field is true\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.true;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message exists\r",
+													"pm.test(\"Check that the message field exists\", function () {\r",
+													"    pm.expect(jsonData.message).to.exist;\r",
+													"});\r",
+													"\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+													"});\r",
+													"\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"data\");\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
+											}
+										}
+									],
+									"id": "5f0bcc28-39dc-4500-a4d3-63095de404b5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{user_id}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/{cycle_id}/contributions"
+									},
+									"response": [
+										{
+											"id": "5e3079c9-cbcb-4c8d-be54-52514fb020aa",
+											"name": "Get Cycle Contributions",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{origin}}/0f4d69bb-c2f1-4d9d-9f29-01abd5968c8b/contributions"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-DNS-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "2423"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"977-CnmDDwkAc2vXxJbCpEedr2dJtXg\""
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 29 Nov 2024 19:01:34 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"error\": false,\n    \"message\": \"Fetched cycle contributions successfully\",\n    \"data\": [\n        {\n            \"id\": \"c2ea5552-b932-4212-a31c-ba92e0cb7681\",\n            \"date_of_payment\": \"23 November, 2024\",\n            \"slot_percentage\": 100,\n            \"amount\": 70000,\n            \"slot_position\": 3,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Pending\",\n            \"user\": {\n                \"id\": \"3640d9eb-0a01-4ec1-a88e-e1bd0e22cf1d\",\n                \"name\": \"Madison Grey\"\n            }\n        },\n        {\n            \"id\": \"6f93df5b-79b3-47d3-8360-2a64c493663f\",\n            \"date_of_payment\": \"23 November, 2024\",\n            \"slot_percentage\": 100,\n            \"amount\": 70000,\n            \"slot_position\": 1,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"3640d9eb-0a01-4ec1-a88e-e1bd0e22cf1d\",\n                \"name\": \"Madison Grey\"\n            }\n        },\n        {\n            \"id\": \"67c719a9-14ea-42fd-a0f9-ef335d95f151\",\n            \"date_of_payment\": \"22 November, 2024\",\n            \"slot_percentage\": 50,\n            \"amount\": 35000,\n            \"slot_position\": 7,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"156fd690-a7e3-4f81-b58f-e0d1a945ad05\",\n                \"name\": \"Adegbo Omolalomi\"\n            }\n        },\n        {\n            \"id\": \"5fe3d544-9243-4845-9800-691e96938a6b\",\n            \"date_of_payment\": \"21 November, 2024\",\n            \"slot_percentage\": 50,\n            \"amount\": 35000,\n            \"slot_position\": 7,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"156fd690-a7e3-4f81-b58f-e0d1a945ad05\",\n                \"name\": \"Adegbo Omolalomi\"\n            }\n        },\n        {\n            \"id\": \"225b663e-8db2-40de-a1e0-08a2133dd6ce\",\n            \"date_of_payment\": \"20 November, 2024\",\n            \"slot_percentage\": 100,\n            \"amount\": 70000,\n            \"slot_position\": 9,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"5a28ff9c-b20c-4bb1-86eb-992b991e9fba\",\n                \"name\": \"Peace Itimi\"\n            }\n        },\n        {\n            \"id\": \"2ee62a6c-8329-45a4-9573-e624a9931dca\",\n            \"date_of_payment\": \"13 November, 2024\",\n            \"slot_percentage\": 50,\n            \"amount\": 35000,\n            \"slot_position\": 7,\n            \"upload\": {\n                \"id\": \"bfcff80d-2e0c-48f3-84c6-8cf117618761\",\n                \"file_url\": \"https://res.cloudinary.com/dk701zyrg/image/upload/v1729888957/nvt6lv2a7bf0od84tc6y.pdf\"\n            },\n            \"status\": \"Confirmed\",\n            \"user\": {\n                \"id\": \"156fd690-a7e3-4f81-b58f-e0d1a945ad05\",\n                \"name\": \"Adegbo Omolalomi\"\n            }\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Cycle Contributions - No auth",
+									"id": "531b4d99-58ad-4c55-a6a2-01c30aef91c8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{origin}}/{cycle_id}/contributions"
+									},
+									"response": [
+										{
+											"id": "a6bf8ca6-f798-4f08-9c4c-1375abecbc67",
 											"name": "Get Cycle Contributions",
 											"originalRequest": {
 												"method": "GET",

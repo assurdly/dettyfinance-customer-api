@@ -31426,16 +31426,55 @@
 									"item": [
 										{
 											"name": "Slot swap by group admin - success",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "f597276d-e9e1-4935-b048-78b3adf8b94d",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message confirms slot swap\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.eql(\"Slot swap done\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "88be2854-bff6-446c-b039-44dca7f2216f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"from_slot_id\": \"c4899ba5-c001-4d78-94c2-e74725da95e7\",\n    \"to_slot_id\": \"41830f22-9050-45c0-88eb-6e4aef0da2d3\"\n}",
+													"raw": "{\n    \"from_slot_id\": \"6630375d-0dde-488b-ab5c-f7b0cf6f991a\",\n    \"to_slot_id\": \"1d6b31a3-8b4c-4151-8db3-72b53a2326eb\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -31457,7 +31496,7 @@
 													"variable": [
 														{
 															"key": "cycle_id",
-															"value": "3add3131-8537-4e35-b9bf-aee00468ad34"
+															"value": "{{cycle_id}}"
 														}
 													]
 												}
@@ -31465,6 +31504,207 @@
 											"response": [
 												{
 													"id": "82248ea0-c270-4dc1-bcd6-59e2686bc90c",
+													"name": "slot swap by group admin",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"from_slot_id\": \"c4899ba5-c001-4d78-94c2-e74725da95e7\",\n    \"to_slot_id\": \"41830f22-9050-45c0-88eb-6e4aef0da2d3\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{origin}}/cycles/:cycle_id/slots/swap/admin",
+															"host": [
+																"{{origin}}"
+															],
+															"path": [
+																"cycles",
+																":cycle_id",
+																"slots",
+																"swap",
+																"admin"
+															],
+															"variable": [
+																{
+																	"key": "cycle_id",
+																	"value": "3add3131-8537-4e35-b9bf-aee00468ad34"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "42"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"2a-Xk2f+6Hr61q40MDKbRrhAc+eJkE\""
+														},
+														{
+															"key": "Date",
+															"value": "Thu, 28 Aug 2025 19:51:22 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Slot swap done\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Slot swap by group admin - invalid id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "f597276d-e9e1-4935-b048-78b3adf8b94d",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response is JSON\", function () {\r",
+															"    pm.response.to.be.json;\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message confirms slot swap\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.eql(\"Slot swap done\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "3414acba-11f4-4f4c-803a-db1a2a5fa0bb",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{login_access_token}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"from_slot_id\": \"6630375d-0dde-488b-ab5c-f7b0cf6f991a\",\n    \"to_slot_id\": \"1d6b31a3-8b4c-4151-8db3-72b53a2326eb\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/cycles/:cycle_id/slots/swap/admin",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycles",
+														":cycle_id",
+														"slots",
+														"swap",
+														"admin"
+													],
+													"variable": [
+														{
+															"id": "dde03e4a-c937-420f-87c5-a441e3f3d041",
+															"key": "cycle_id",
+															"value": "{{cycle_id}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "765a8859-878f-4ef2-9a89-cbef9b8e5b50",
 													"name": "slot swap by group admin",
 													"originalRequest": {
 														"method": "POST",

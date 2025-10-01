@@ -1,0 +1,5 @@
+{
+    "code": "4/0AeanS0aLSyQt_3R2rm4hUvXdGR85NASMKDJPszyHZOgI83bVhzkz8R4lJcBB0davx4bAFg",
+    "userId": "8bab994e-b091-4fc4-becc-61ad52fd2244",
+    "cycleId": "7660fc95-8802-4c74-adfc-a80a4156fb0b"
+}

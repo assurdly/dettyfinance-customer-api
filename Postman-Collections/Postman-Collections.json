@@ -33017,7 +33017,7 @@
 									"name": "Reassign Slot",
 									"item": [
 										{
-											"name": "Reassign slot",
+											"name": "Reassign slot - success",
 											"id": "74ed2709-0dcc-458d-9b0e-332b6eca1177",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

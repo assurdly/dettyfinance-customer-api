@@ -1,0 +1,1 @@
+{"error":false,"message":"Fetched slot positions successfully","data":[{"user":{"id":"9943b810-a27c-4e9d-891a-82f4fcbf46c1","name":"Ayomide Liasu"},"id":"c66d01d7-7f3e-428a-b572-233ec4efcfec","slot_percentage":100,"slot_position":"OCTOBER"}]}

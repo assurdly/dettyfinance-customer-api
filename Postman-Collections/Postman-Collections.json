@@ -12915,7 +12915,7 @@
 									]
 								},
 								{
-									"name": "All Group Invites – Success Copy",
+									"name": "All Group Invites - invalid id",
 									"event": [
 										{
 											"listen": "test",
@@ -12975,9 +12975,8 @@
 											],
 											"variable": [
 												{
-													"id": "d1efeacd-b87e-405a-bcaa-219c37b6c904",
 													"key": "group_id",
-													"value": "{{group_id}}"
+													"value": "818558bf-d0b0-4ad4-ba45-819sxcvbnhjnbv"
 												}
 											]
 										}

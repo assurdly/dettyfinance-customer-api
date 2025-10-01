@@ -14565,18 +14565,24 @@
 												"id": "233a30e8-bc5b-4128-b928-e08ce5d3a7e8",
 												"exec": [
 													"const jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Status code is 422\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([422]);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Error is false\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.false;\r",
+													"pm.test(\"Error flag is true\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.error).to.eql(true);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Message returns correctly\", function () {\r",
-													"    pm.expect(jsonData.message).to.exist;\r",
-													"}); \r",
+													"pm.test(\"group_id: group id should be a valid uuid\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.message).to.include(\"group_id: group id should be a valid uuid\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is null\", function () {\r",
+													"    let res = pm.response.json();\r",
+													"    pm.expect(res.data).to.be.null;\r",
+													"});\r",
 													""
 												],
 												"type": "text/javascript",
@@ -14610,9 +14616,8 @@
 											],
 											"variable": [
 												{
-													"id": "4019fe63-6206-4cf7-87d5-1135c46e8473",
 													"key": "group_id",
-													"value": "818558bf-d0b0-4ad4-ba45-819a6b528c7f"
+													"value": "818558bf-d0b0-4ad4-ba45-xcvbjkjnbbn"
 												}
 											]
 										}

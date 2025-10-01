@@ -32244,6 +32244,9 @@
 															"\r",
 															"pm.test(\"Status code is 200\", function () {\r",
 															"});\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
 															"\r",
 															"pm.test(\"Error flag is false\", function () {\r",
 															"    let res = pm.response.json();\r",
@@ -32425,7 +32428,7 @@
 											]
 										},
 										{
-											"name": "Slot freeze - success Copy",
+											"name": "Slot freeze - invalid slot id",
 											"event": [
 												{
 													"listen": "test",
@@ -32488,9 +32491,8 @@
 													],
 													"variable": [
 														{
-															"id": "0a1d33fe-eb2c-4184-b09e-16822f7cd4d5",
 															"key": "slot_id",
-															"value": "455b00bc-a623-4d1f-ac68-cc1aef32384b"
+															"value": "455b00bc-a623-4d1f-ac68-cc1aefghjk"
 														}
 													]
 												},

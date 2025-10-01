@@ -37906,9 +37906,9 @@
 													"    pm.expect(jsonData.message).to.exist;\r",
 													"});\r",
 													"\r",
-													"// ✅ Check message content mentions You are not authenticated\r",
-													"pm.test(\"Check that the message indicates You are not authenticated\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"You are not authenticated. Please login to continue\");\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
 													"});\r",
 													"\r",
 													"// ✅ Check that the data field exists and is null\r",
@@ -38605,8 +38605,8 @@
 													"const jsonData = pm.response.json();\r",
 													"\r",
 													"// ✅ Check status code\r",
-													"pm.test(\"Check that the response code is 201\", function () {\r",
-													"    pm.response.to.have.status(201);\r",
+													"pm.test(\"Check that the response code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
 													"// ✅ Check error field is true\r",
@@ -38619,15 +38619,15 @@
 													"    pm.expect(jsonData.message).to.exist;\r",
 													"});\r",
 													"\r",
-													"// ✅ Check message content mentions You are not authenticated\r",
-													"pm.test(\"Check that the message indicates You are not authenticated\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Notifications fetched successfully\");\r",
+													"// ✅ Check message content mentions invalid token\r",
+													"pm.test(\"Check that the message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
 													"});\r",
 													"\r",
-													"// ✅ Check that the data field exists and is not empty\r",
-													"pm.test(\"Check that the data field is not empty\", function () {\r",
+													"// ✅ Check that the data field exists and is null\r",
+													"pm.test(\"Check that the data field is null\", function () {\r",
 													"    pm.expect(jsonData).to.have.property(\"data\");\r",
-													"    pm.expect(jsonData.data).to.not.be.empty;\r",
+													"    pm.expect(jsonData.data).to.be.null;\r",
 													"});"
 												],
 												"type": "text/javascript",
@@ -38644,7 +38644,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{login_access_token}}"
+												"token": "{{user_id}}"
 											}
 										},
 										"method": "GET",
@@ -38770,7 +38770,7 @@
 							"name": "Read notification",
 							"item": [
 								{
-									"name": "Read notification",
+									"name": "Read notification - Success",
 									"id": "a0e879a6-37af-4dad-932b-e44d6ab1e512",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true

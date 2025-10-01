@@ -33646,7 +33646,7 @@
 											]
 										},
 										{
-											"name": "Reassign slot - success Copy",
+											"name": "Reassign slot - invalid token",
 											"event": [
 												{
 													"listen": "test",
@@ -34124,6 +34124,203 @@
 											"response": [
 												{
 													"id": "76cdd1a0-bf78-44e7-bf84-678708e3ca05",
+													"name": "slot exchange",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"recipient\": \"hippo@matt.com\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{origin}}/cycle-slots/:slot_position_id/exchange",
+															"host": [
+																"{{origin}}"
+															],
+															"path": [
+																"cycle-slots",
+																":slot_position_id",
+																"exchange"
+															],
+															"variable": [
+																{
+																	"key": "slot_position_id",
+																	"value": "e235a1a7-fe17-40e1-85d1-34a40bca5f76"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "Content-Security-Policy",
+															"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+														},
+														{
+															"key": "Cross-Origin-Opener-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Cross-Origin-Resource-Policy",
+															"value": "same-origin"
+														},
+														{
+															"key": "Origin-Agent-Cluster",
+															"value": "?1"
+														},
+														{
+															"key": "Referrer-Policy",
+															"value": "no-referrer"
+														},
+														{
+															"key": "Strict-Transport-Security",
+															"value": "max-age=15552000; includeSubDomains"
+														},
+														{
+															"key": "X-Content-Type-Options",
+															"value": "nosniff"
+														},
+														{
+															"key": "X-DNS-Prefetch-Control",
+															"value": "off"
+														},
+														{
+															"key": "X-Download-Options",
+															"value": "noopen"
+														},
+														{
+															"key": "X-Frame-Options",
+															"value": "SAMEORIGIN"
+														},
+														{
+															"key": "X-Permitted-Cross-Domain-Policies",
+															"value": "none"
+														},
+														{
+															"key": "X-XSS-Protection",
+															"value": "0"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "68"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"44-FEdHKM+4gKW8+f1oeX75U5HbZPI\""
+														},
+														{
+															"key": "Date",
+															"value": "Wed, 03 Sep 2025 23:17:41 GMT"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=5"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"error\": false,\n    \"message\": \"Slot exchange request sent successfully.\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Slot exchange - Invalid Token",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "44a11e57-8bf1-4470-9408-488160e9ad55",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"pm.test(\"Status code is 401\", function () {\r",
+															"    pm.expect(pm.response.code).to.be.oneOf([401]);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is true\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(true);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Invalid token. Please authenticate again or contact support\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"Invalid token. Please authenticate again or contact support\");\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Data is null\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.data).to.be.null;\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
+											"id": "2f983613-a640-4beb-a5ab-b61cdb57b0cc",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{wrong_token}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"recipient\": \"ayomide+4@assurdly.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{origin}}/cycle-slots/:slot_position_id/exchange",
+													"host": [
+														"{{origin}}"
+													],
+													"path": [
+														"cycle-slots",
+														":slot_position_id",
+														"exchange"
+													],
+													"variable": [
+														{
+															"key": "slot_position_id",
+															"value": "455b00bc-a623-4d1f-ac68-cc1aef32384b"
+														}
+													]
+												},
+												"description": "#### Notification Structure\n\n- For recipient on the platform but not on the group:\n    \n\n``` json\n{\n  \"title\": \"SLOT Exchange Request\",\n  \"message\": \"You have reecieved a slot exchange request from slot_user_name (slot position - slot_position)\",\n  \"meta\": {\n     \"exchange_id\": \"exchange_id\",\n     \"slot\": {\n          \"position\": \"slot_position\",\n          \"percentage\": \"slot_percentage\",\n          \"id\": \"slot_id\"\n          },\n      \"group\": {\n           \"name\": \"group.name\",\n           \"id\": \"group.id\"\n         }\n      },\n  \"section\": \"slot_exchange_request\",\n  \"user_id\": \"id\",\n }\n\n ```\n\n- For recipient on the group:\n    \n\n``` json\n{\n  \"title\": \"SLOT Exchange Request\",\n  \"message\": \"You have reecieved a slot exchange request from {{last_name}} {{first_name}} (slot position - {{slot_position}})\",\n  \"meta\": {\n    \"exchange_id\": \"{{exchange_id}}\",\n    \"slot\": {\n      \"position\": \"{{slot_position}}\",\n      \"percentage\": \"{{slot_percentage}}\",\n      \"id\": \"{{slot_id}}\"\n    }\n  },\n  \"section\": \"slot_exchange_request\",\n  \"user_id\": \"{{recipient_user_id}}\"\n}\n\n ```"
+											},
+											"response": [
+												{
+													"id": "243edf12-df6b-41b1-ab7c-11d148ac0e38",
 													"name": "slot exchange",
 													"originalRequest": {
 														"method": "POST",

@@ -33018,6 +33018,35 @@
 									"item": [
 										{
 											"name": "Reassign slot - success",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "fa43b0d9-c808-406d-a233-97e3a718fca6",
+														"exec": [
+															"const jsonData = pm.response.json();\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"    pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Error flag is false\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.error).to.eql(false);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Message confirms slot freeze success\", function () {\r",
+															"    let res = pm.response.json();\r",
+															"    pm.expect(res.message).to.include(\"Slot freeze request sent successfully.\");\r",
+															"});\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"requests": {}
+													}
+												}
+											],
 											"id": "74ed2709-0dcc-458d-9b0e-332b6eca1177",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true

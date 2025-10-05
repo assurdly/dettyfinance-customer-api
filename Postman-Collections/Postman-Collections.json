@@ -2261,7 +2261,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"ayomide+4@assurdly.com\",\r\n    \"password\": \"Test123@\"\r\n}",
+											"raw": "{\r\n    \"email\": \"Test1@mailinator.com\",\r\n    \"password\": \"Test@123\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"

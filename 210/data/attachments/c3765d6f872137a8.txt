@@ -1,6 +1,0 @@
-{
-
-    "description": "Test session with the team",
-    "friends": [  "bisoye+5@assurdly.com",
-  "denilson+7@assurdly.com","ayomide+9@assurdly.com"]
-}

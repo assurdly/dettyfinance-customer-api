@@ -1,0 +1,1 @@
+{"error":true,"message":"Only the owner of the slot can freeze a slot","data":null}

@@ -1,0 +1,1 @@
+{"error":true,"message":"You can only exchange your own slot","data":null}

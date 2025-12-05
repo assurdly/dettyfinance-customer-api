@@ -1,0 +1,12 @@
+{
+    "Content-Type": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjNGFlMjAzZC0zMWU5LTRkMTYtYjM4OS0wOTFmYzA5YTk4MjEiLCJlbWFpbCI6IndlYnRlc3QxQG1haWxpbmF0b3IuY29tIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NjQ5NTg0NDQsImV4cCI6MTc2NDk3NjQ0NH0.IsoStWjaZhNiH2ObxKN1RQrDkzZOUFV-HpNLHYF6umY",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "c649581e-58b0-4939-862d-eae247e2d9d1",
+    "Host": "api.slotfinance.co",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "70"
+}

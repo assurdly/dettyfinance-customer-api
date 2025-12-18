@@ -1,1 +1,0 @@
-{"error":true,"message":"Group with this name already exists. Please try again with another name"}

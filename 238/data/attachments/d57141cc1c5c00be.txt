@@ -1,1 +1,0 @@
-{"error":true,"message":"slot_position: required","data":null}

@@ -1,0 +1,12 @@
+{
+    "Content-Type": "application/json",
+    "Authorization": "Bearer bb26d31d-9d82-4f1d-9af1-ce78766c253f",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "358d2ba2-3fcd-4861-8c2b-0743d83a842e",
+    "Host": "api.slotfinance.co",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "313"
+}
